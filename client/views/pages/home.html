@@ -1,0 +1,10 @@
+<template name="home">
+  <div class="container">
+    <div class="row">
+      {{#each post}}
+        {{> postPartial}}
+      {{/each}}
+    </div>
+  </div>
+  {{> newPost}}
+</template>
