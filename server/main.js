@@ -14,6 +14,6 @@ Meteor.startup(() => {
   }
 });
 
-Meteor.publish("posts", function () {
-  return Posts.find();
+Meteor.publish("polls", function () {
+  return Polls.find();
 });
