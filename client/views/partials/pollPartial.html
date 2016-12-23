@@ -5,8 +5,17 @@
         <img src="{{this.image}}">
       </div>
       <div class="card-content">
-        <p>Polled by {{this.user.email}} {{this.createdAt}}</p>
+        <p>Created by {{this.user.email}} {{this.createdAt}}</p>
       </div>
+
+      <div>This card is being generated in views/partials/pollpartial.html</div>
+      <div>The poll creation is triggered in views/partials/newpoll.html</div>
+      <div>We need to short circuit the newpoll "+"" click to prompt for user information for the poll. That is in client/controller/newpoll.js</div>
+      <div>{{this.question}}</div>
+      <div>{{this.choices}}</div>
+      
+
+
       <div class="card-action">
         {{#if isAdminOrCreator this}}
           <div class="btn red delete-poll" data-id="{{this._id}}"><i class="material-icons">delete</i></div>

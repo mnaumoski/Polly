@@ -1,6 +1,6 @@
 Meteor.methods({
   addPoll: function (data) {
-    console.log("addPoll called");
+    console.log("addPoll called (function in postpolls.js)");
     Polls.insert({
       question: "Do you like polls?",
       choices: "Hell yea I do!",
