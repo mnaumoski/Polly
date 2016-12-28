@@ -3,7 +3,10 @@ Meteor.methods({
     console.log("addPoll called (function in postpolls.js)");
     Polls.insert({
       question: "Do you like polls?",
-      choices: "Hell yea I do!",
+      choices: [
+        {text: "Hell yea I do!", count: 0},
+        {text: "Polls stink", count: 0}
+      ],
       createdAt: new Date().toLocaleString(),
       likes: 0,
       dislikes: 0,
