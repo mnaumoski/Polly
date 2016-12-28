@@ -7,3 +7,4 @@ Template.homepageLayout.events({
       $(".button-collapse").sideNav("hide");
     }
 });
+

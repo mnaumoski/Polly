@@ -1,11 +1,12 @@
 Meteor.methods({
   addPoll: function (data) {
     console.log("addPoll called (function in postpolls.js)");
+
     Polls.insert({
-      question: "Do you like polls?",
+      question: data[0],
       choices: [
-        {text: "Hell yea I do!", count: 0},
-        {text: "Polls stink", count: 0}
+        {text: data[1], count: 0},
+        {text: data[1], count: 0}
       ],
       createdAt: new Date().toLocaleString(),
       likes: 0,
@@ -15,19 +16,6 @@ Meteor.methods({
         email: Meteor.user().emails[0].address
       }
     });
-
-    //Roughly edited version of Dan's photo insertion code
-    // Polls.insert({
-    //   question: String,
-    //   choices: String,
-    //   createdAt: new Date().toLocaleString(),
-    //   likes: 0,
-    //   dislikes: 0,
-    //   user: {
-    //     _id: Meteor.user()._id,
-    //     email: Meteor.user().emails[0].address
-    //   }
-    // });
   },
   likePoll: function(pollId){
     userSignedIn = Meteor.user() || false;
