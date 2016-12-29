@@ -6,14 +6,14 @@
             <div class="card-content white-text">
               <span class="card-title">Poll created by {{this.user.email}}</span>
               <p>Time: {{this.createdAt}}</p>
-              <p>Question: {{this.question}} </p>
+              <!-- <p>Question: {{this.question}} </p> -->
               <p>This card is being rendered by //views/partials/pollpartial.html
               </p>
               <p>The poll creation (red + sign) is triggered in views/partials/newpoll.html</p>
               <p>We need to short circuit the "+" to prompt for poll information. That is in //client/controller/newpoll.js </p>
               <p>server/postpolls.js is where the database PUT is made</p>
             </div>
-             <div><h2>{{this.question}}</h2></div>
+             <div><h3>{{this.question}}</h3></div>
        <div>
         {{#each choices}}
           {{text}}
