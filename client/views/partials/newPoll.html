@@ -1,39 +1,32 @@
 <template name="newPoll">
-  {{#if currentUser}}
-    
-    <button data-target="modal1" class="fixed-action-btn btn" id="modalTrigger">Add Poll</button>
+    {{#if currentUser}}
+    <div class = "container">
+    <button data-target="modal1" class="btn waves-effect waves-light btn" id="modalTrigger">Add Poll</button>
+    </div>
 
+    
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
-      <div class="modal-content">
-        <h4>Add Poll</h4>
-        <hr>
-
-        <form name="submitForm">
-          Question: <input type="textbox" name="questionText">
-          <Br>
-          Choices (seperate by comma): <input type="textbox" name="choiceText">
-        <!-- <input type="submit" name="submitForm" class="submit-form" value="Submit"> -->
-        <button class="btn btn-success js-add-comment" type="submit">Submit</button>
-
-        </form>
-
-      </div>
-      <div class="modal-footer">
-        <!-- <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a> -->
-        <div id="newPoll" class="fixed-action-btn">
-          <a class="btn-floating btn-large red">
-            <i class="large material-icons">add</i>
-          </a>
+        <div class="modal-content">
+            <h4>Add Poll</h4>
+            <hr>
+            <form name="submitForm">
+                Question:
+                <input type="textbox" name="questionText">
+                <Br> Choices (seperate by comma):
+                <input type="textbox" name="choiceText">
+                <!-- <input type="submit" name="submitForm" class="submit-form" value="Submit"> -->
+                <button class="btn btn-success js-add-comment" type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <!-- <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a> -->
+            <div id="newPoll" class="fixed-action-btn">
+                <a class="btn-floating btn-large red">
+                    <i class="large material-icons">add</i>
+                </a>
+            </div>
         </div>
     </div>
-
-
-    </div>
-
-
-
-
-
-  {{/if}}
+    {{/if}}
 </template>
