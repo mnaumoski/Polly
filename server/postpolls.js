@@ -2,12 +2,18 @@ Meteor.methods({
   addPoll: function (data) {
     console.log("addPoll called (function in postpolls.js)");
 
+    //Trying to create and array to pass to Mongo
+    var choicesToAdd = [];
+    for (i=1; i<data.length; i++) {
+      choicesToAdd.push({
+        text: data[i], 
+        count: 0
+      });
+    }
+
     Polls.insert({
       question: data[0],
-      choices: [
-        {text: data[1], count: 0},
-        {text: data[1], count: 0}
-      ],
+      choices: choicesToAdd,
       createdAt: new Date().toLocaleString(),
       likes: 0,
       dislikes: 0,
