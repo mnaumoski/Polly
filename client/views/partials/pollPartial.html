@@ -10,22 +10,28 @@
             </p>
         </div>
         <div class="row">
-          <div class="choices col s6">
+          <div class="choices col s9">
             Choices:
           </div>
-          <div class="votes col s6">
+          <div class="votes col s3">
             Votes:
           </div>
 
           {{#each choices}}
-            <div class="choices col s6">
-              {{text}}
+            <div class="choices col s9">
+              <div class="choiceButton" choice-index="{{@index}}">
+                {{text}}
+              </div>
             </div>
-            <div class="votes col s6">
+            <div class="votes col s3">
               {{votes}}
             </div>
           {{/each}}
 
+        </div>
+
+        <div class="choiceButton" data-id="{{this._id}}">
+          Vote
         </div>
         <div class="card-action">
           {{#if isAdminOrCreator this}}
