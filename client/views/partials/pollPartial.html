@@ -1,87 +1,62 @@
 <template name="pollPartial">
 
-<div class="row">
-  <div class="col s12 m6">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">Poll created by {{this.user.email}}</span>
-        <p>Time: {{this.createdAt}}</p>
-        <!-- <p>Question: {{this.question}} </p> -->
-        <p>This card is being rendered by //views/partials/pollpartial.html
-        </p>
-        <p>The poll creation (red + sign) is triggered in views/partials/newpoll.html</p>
-        <p>We need to short circuit the "+" to prompt for poll information. That is in //client/controller/newpoll.js </p>
-        <p>server/postpolls.js is where the database PUT is made</p>
-      </div>
-      <div>
-        <h3>{{this.question}}</h3>
-      </div>
-    <div class="row">
-      <div class="choices col-xs-6">Choices:</div>
-      <div class="votes col-xs-6">Votes:</div>
-      {{#each choices}}
-        <div class="choices col-xs-6">
-          {{text}}
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">{{this.question}}</span>
+          <p class="pollCreated">
+            Created by {{this.user.email}} {{this.createdAt}}
+            </p>
         </div>
-        <div class="votes col-xs-6">
-          {{votes}}
-        </div>
-         
-      {{/each}}
-     </div>
-            <div class="card-action">
-            {{#if isAdminOrCreator this}}
-            <div class="btn red delete-poll" data-id="{{this._id}}"><i class="material-icons">delete</i></div>
-            {{/if}}
-            
-            {{#if currentUser}}
-            <div class="btn like-poll" data-id="{{this._id}}"><i class="material-icons">thumb_up</i></div>
-            <div class="btn dislike-poll" data-id="{{this._id}}"><i class="material-icons">thumb_down</i></div>
-            {{/if}}
-      
-            <p>{{this.likes}} Likes</p>
-            <p>{{this.dislikes}} Dislikes</p>
-            </div>
+        <div class="row">
+          <div class="choices col s9">
+            Choices:
           </div>
+          <div class="votes col s3">
+            Votes:
+          </div>
+
+          {{#each choices}}
+            <div class="choices col s9">
+              <div class="choiceButton" choice-index="{{@index}}">
+                {{text}}
+              </div>
+            </div>
+            <div class="votes col s3">
+              {{votes}}
+            </div>
+          {{/each}}
+
         </div>
-      </div>
 
-
-
-
-<!-- 
-  <div class="col s12 m6 l4">
-    <div class="card">
-      <div class="card-image">
-        <img src="{{this.image}}">
-      </div>
-      <div class="card-content">
-        <p>Created by {{this.user.email}} {{this.createdAt}}</p>
-      </div>
-
-      <div>This card is being rendered by //views/partials/pollpartial.html</div>
-      <div>The poll creation (red + sign) is triggered in views/partials/newpoll.html</div>
-      <div>We need to short circuit the "+" to prompt for poll information. That is in //client/controller/newpoll.js</div>
-      <div>server/postpolls.js is where the database PUT is made</div>
-      <hr>
-      <div>{{this.question}}</div>
-      <div>
-        {{#each choices}}
-          <p class="pollChoice">{{text}}</p>
-        {{/each}}
-      </div>
-
-      <div class="card-action">
-        {{#if isAdminOrCreator this}}
-          <div class="btn red delete-poll" data-id="{{this._id}}"><i class="material-icons">delete</i></div>
-        {{/if}}
-        {{#if currentUser}}
-          <div class="btn like-poll" data-id="{{this._id}}"><i class="material-icons">thumb_up</i></div>
-          <div class="btn dislike-poll" data-id="{{this._id}}"><i class="material-icons">thumb_down</i></div>
-        {{/if}}
-        <p>{{this.likes}} Likes</p>
-        <p>{{this.dislikes}} Dislikes</p>
+        <div class="choiceButton" data-id="{{this._id}}">
+          Vote
+        </div>
+        <div class="card-action">
+          {{#if isAdminOrCreator this}}
+            <div class="btn red delete-poll" data-id="{{this._id}}">
+              <i class="material-icons">delete</i>
+            </div>
+          {{/if}}
+            
+          {{#if currentUser}}
+            <div class="btn like-poll" data-id="{{this._id}}">
+              <i class="material-icons">thumb_up</i>
+            </div>
+            <div class="btn dislike-poll" data-id="{{this._id}}">
+              <i class="material-icons">thumb_down</i>
+            </div>
+          {{/if}}
+      
+          <p>
+            {{this.likes}} Likes
+          </p>
+          <p>
+            {{this.dislikes}} Dislikes
+          </p>
+        </div>
       </div>
     </div>
-  </div> -->
+  </div>
 </template>
