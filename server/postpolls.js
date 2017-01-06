@@ -40,13 +40,9 @@ Meteor.methods({
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){
 
-      if (indexId == 0) {
-        Polls.update({_id: pollId}, {$inc: {"choices.0.votes": 1} });
-      } else if (indexId == 1) {
-        Polls.update({_id: pollId}, {$inc: {"choices.1.votes": 1} });
-      } else if (indexId == 2) {
-        Polls.update({_id: pollId}, {$inc: {"choices.2.votes": 1} });
-      }
+      var $set = {};
+      $set['choices.' + indexId + '.votes'] = 5;
+      Polls.update({_id: pollId}, {$set: $set });
     }
   },
   deletePoll: function(pollId){
