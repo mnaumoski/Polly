@@ -6,6 +6,17 @@ Template.pollPartial.events({
   "click .like-poll": function () {
     var pollId = event.target.dataset.id
     Meteor.call('likePoll', pollId);
+  },
+  "click .dislike-poll": function () {
+    var pollId = event.target.dataset.id
+    Meteor.call('dislikePoll', pollId);
+  },
+  "click .voteButton": function () {
+    var pollId = event.target.dataset.id
+    var indexId = $('input:radio[id=poll]:checked').val();
+    console.log("Vote Button Clicked | castVote is " + pollId + " | + indexID is " + indexId);
+
+    Meteor.call('addVote', pollId, indexId);
   }
 });
 
@@ -22,3 +33,4 @@ Template.pollPartial.helpers({
     }
   }
 });
+

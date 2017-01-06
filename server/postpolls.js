@@ -36,6 +36,19 @@ Meteor.methods({
       Polls.update({_id: pollId}, {$inc: {dislikes: 1} });
     }
   },
+  addVote: function(pollId, indexId){
+    userSignedIn = Meteor.user() || false;
+    if(userSignedIn){
+
+      if (indexId == 0) {
+        Polls.update({_id: pollId}, {$inc: {"choices.0.votes": 1} });
+      } else if (indexId == 1) {
+        Polls.update({_id: pollId}, {$inc: {"choices.1.votes": 1} });
+      } else if (indexId == 2) {
+        Polls.update({_id: pollId}, {$inc: {"choices.2.votes": 1} });
+      }
+    }
+  },
   deletePoll: function(pollId){
     var poll = Polls.findOne({_id: pollId }),
     pollUserId = poll.user._id;

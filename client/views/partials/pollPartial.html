@@ -16,21 +16,21 @@
           <div class="votes col s3">
             Votes:
           </div>
-
-          {{#each choices}}
-            <div class="choices col s9">
-              <div class="choiceButton" choice-index="{{@index}}">
-                {{text}}
+          <form>
+            {{#each choices}}
+              <div class="choices col s9">
+                <div class="choiceButton" choice-index="{{@index}}">
+                  <input type="radio" name="allPolls" id="poll" value="{{@index}}"/>{{text}}<br>
+                </div>
               </div>
-            </div>
-            <div class="votes col s3">
-              {{votes}}
-            </div>
-          {{/each}}
-
+              <div class="votes col s3">
+                {{votes}}
+              </div>
+            {{/each}}
+          </form>
         </div>
 
-        <div class="choiceButton" data-id="{{this._id}}">
+        <div class="voteButton" data-id="{{this._id}}">
           Vote
         </div>
         <div class="card-action">

@@ -1,13 +1,3 @@
-// Template.newPoll.events({
-//   "click #newPoll": function (e) {
-//     e.preventDefault();
-
-//     Meteor.call("addPoll", "[title, choice]");
-
-//     return false;
-//   }
-// });
-
 Template.newPoll.events({
   "click #modalTrigger": function(event){
     $('#modal1').openModal();
