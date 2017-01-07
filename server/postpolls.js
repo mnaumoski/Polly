@@ -40,9 +40,25 @@ Meteor.methods({
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){
 
+
+      var currentVotes = Polls.findOne({_id: pollId});
+      console.log(currentVotes.choices[indexId].votes);
+
+
       var $set = {};
-      $set['choices.' + indexId + '.votes'] = 5;
+      $set['choices.' + indexId + '.votes'] = currentVotes.choices[indexId].votes + 1;
+      // console.log($set);
+
       Polls.update({_id: pollId}, {$set: $set });
+      
+
+      // if (indexId == 0) {
+      //   Polls.update({_id: pollId}, {$inc: {"choices.0.votes": 1} });
+      // } else if (indexId == 1) {
+      //   Polls.update({_id: pollId}, {$inc: {"choices.1.votes": 1} });
+      // } else if (indexId == 2) {
+      //   Polls.update({_id: pollId}, {$inc: {"choices.2.votes": 1} });
+      // }
     }
   },
   deletePoll: function(pollId){
