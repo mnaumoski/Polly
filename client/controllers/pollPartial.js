@@ -13,7 +13,10 @@ Template.pollPartial.events({
   },
   "click .voteButton": function () {
     var pollId = event.target.dataset.id
-    var indexId = $('input:radio[id=poll]:checked').val();
+    //JQuery to find value of a specific poll
+    //$('form[name="qBbppoQpCPLFwNCkM"]').find('input:radio[id=poll]:checked').val();
+    var formToLookup = "form[name=" + pollId + "]";
+    var indexId = $(formToLookup).find('input:radio[id=poll]:checked').val();
     console.log("Vote Button Clicked | castVote is " + pollId + " | + indexID is " + indexId);
 
     Meteor.call('addVote', pollId, indexId);
