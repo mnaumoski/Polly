@@ -36,6 +36,9 @@
           <div  class="voteButton btn waves-effect waves-light" data-id="{{this._id}}"><i class="material-icons right">send</i>
           Vote
         </div>
+        <!-- Pie Chart is called here to render it on the browser -->
+           {{>pieChart}}
+
         <div class="card-action">
           {{#if isAdminOrCreator this}}
             <div class="btn red delete-poll" data-id="{{this._id}}">
