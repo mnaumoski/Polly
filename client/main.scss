@@ -10,7 +10,7 @@ $primary-color: color("grey", "darken-4");
 .full-w {
   width: 100%;
 }
-.choiceButton, .voteButton {
+.choiceButton {
     background-color: #ffffff;
     margin: 3px;
     border-radius: 10px;
@@ -21,4 +21,12 @@ $primary-color: color("grey", "darken-4");
   position: relative;
   left: 0;
   opacity: 1;
+}
+.voteButton{
+  background-color:lightblue;
+  text-align: center;
+  margin: 3px;
+  border-radius:10px;
+  color: black;
+
 }
