@@ -11,12 +11,6 @@
         </div>
         <div class="row">
 
-
-
-
-
-
-
           <div class="choices col s9">
             Choices:
           </div>
@@ -37,8 +31,12 @@
           </form>
         </div>
 
-        <div class="voteButton" data-id="{{this._id}}">
+       <!--  <div class="voteButton" data-id="{{this._id}}">
+          Vote -->
+          <div  class="voteButton btn waves-effect waves-light" data-id="{{this._id}}"><i class="material-icons right">send</i>
           Vote
+        </div>
+        
         </div>
         <div class="card-action">
           {{#if isAdminOrCreator this}}
