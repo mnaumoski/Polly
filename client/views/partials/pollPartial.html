@@ -31,6 +31,29 @@
                 </div>
                 <!--  <div class="voteButton" data-id="{{this._id}}">
           Vote -->
+<<<<<<< HEAD
+          <div  class="voteButton btn waves-effect waves-light" data-id="{{this._id}}"><i class="material-icons right">send</i>
+            Vote
+          </div>
+        <!-- Pie Chart is called here to render it on the browser -->
+        <div id="{{this._id}}">
+           {{>pieChart}}
+        </div>
+
+        <div class="card-action">
+          {{#if isAdminOrCreator this}}
+            <div class="btn red delete-poll" data-id="{{this._id}}">
+              <i class="material-icons">delete</i>
+            </div>
+          {{/if}}
+            
+          {{#if currentUser}}
+            <div class="btn like-poll" data-id="{{this._id}}">
+              <i class="material-icons">thumb_up</i>
+            </div>
+            <div class="btn dislike-poll" data-id="{{this._id}}">
+              <i class="material-icons">thumb_down</i>
+=======
                 <div class="voteButton btn waves-effect waves-light" data-id="{{this._id}}"><i class="material-icons right">send</i> Vote
                 </div>
                 <!-- Pie Chart is called here to render it on the browser -->
@@ -60,6 +83,7 @@ Tweet</a>
                         {{this.dislikes}} Dislikes
                     </p>
                 </div>
+>>>>>>> 31f97fe7ee87ed6f240413c11dc88bbe3cf7c461
             </div>
         </div>
     </div>
