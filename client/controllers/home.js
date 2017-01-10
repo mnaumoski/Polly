@@ -4,3 +4,5 @@ Template.home.helpers({
     return Polls.find({}, {sort: {likes: -1} });
   }
 });
+
+// console.log('test');
