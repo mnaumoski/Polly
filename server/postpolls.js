@@ -1,7 +1,5 @@
 Meteor.methods({
   addPoll: function (data) {
-    // console.log("addPoll called (function in postpolls.js)");
-    // console.log(data);
     var choiceArray = data[1].split(',');
     
     //Trying to create and array to pass to Mongo
@@ -10,7 +8,6 @@ Meteor.methods({
       var tempObject = {text: choiceArray[i], votes: 0};
       choicesToAdd.push(tempObject);
     }
-    // console.log(choicesToAdd);
 
     Polls.insert({
       question: data[0],
@@ -40,10 +37,8 @@ Meteor.methods({
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){
 
-
       var currentVotes = Polls.findOne({_id: pollId});
       console.log(currentVotes.choices[indexId].votes);
-
 
       var $set = {};
       $set['choices.' + indexId + '.votes'] = currentVotes.choices[indexId].votes + 1;
@@ -51,14 +46,6 @@ Meteor.methods({
 
       Polls.update({_id: pollId}, {$set: $set });
       
-
-      // if (indexId == 0) {
-      //   Polls.update({_id: pollId}, {$inc: {"choices.0.votes": 1} });
-      // } else if (indexId == 1) {
-      //   Polls.update({_id: pollId}, {$inc: {"choices.1.votes": 1} });
-      // } else if (indexId == 2) {
-      //   Polls.update({_id: pollId}, {$inc: {"choices.2.votes": 1} });
-      // }
     }
   },
   deletePoll: function(pollId){
