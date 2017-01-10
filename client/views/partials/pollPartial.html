@@ -1,38 +1,37 @@
 <template name="pollPartial">
-
-  <div class="row">
-    <div class="col s12 m6">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title">{{this.question}}</span>
-          <p class="pollCreated">
-            Created by {{this.user.email}} {{this.createdAt}}
-            </p>
-        </div>
-        <div class="row">
-
-          <div class="choices col s9">
-            Choices:
-          </div>
-          <div class="votes col s3">
-            Votes:
-          </div>
-          <form name="{{this._id}}">
-            {{#each choices}}
-              <div class="choices col s9">
-                <div class="choiceButton" choice-index="{{@index}}">
-                  <input type="radio" name="allPolls" id="poll" value="{{@index}}"/>{{text}}<br>
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title">{{this.question}}</span>
+                    <p class="pollCreated">
+                        Created by {{this.user.email}} {{this.createdAt}}
+                    </p>
                 </div>
-              </div>
-              <div class="votes col s3">
-                {{votes}}
-              </div>
-            {{/each}}
-          </form>
-        </div>
-
-       <!--  <div class="voteButton" data-id="{{this._id}}">
+                <div class="row">
+                    <div class="choices col s9">
+                        Choices:
+                    </div>
+                    <div class="votes col s3">
+                        Votes:
+                    </div>
+                    <form name="{{this._id}}">
+                        {{#each choices}}
+                        <div class="choices col s9">
+                            <div class="choiceButton" choice-index="{{@index}}">
+                                <input type="radio" name="allPolls" id="poll" value="{{@index}}" />{{text}}
+                                <br>
+                            </div>
+                        </div>
+                        <div class="votes col s3">
+                            {{votes}}
+                        </div>
+                        {{/each}}
+                    </form>
+                </div>
+                <!--  <div class="voteButton" data-id="{{this._id}}">
           Vote -->
+<<<<<<< HEAD
           <div  class="voteButton btn waves-effect waves-light" data-id="{{this._id}}"><i class="material-icons right">send</i>
             Vote
           </div>
@@ -54,16 +53,38 @@
             </div>
             <div class="btn dislike-poll" data-id="{{this._id}}">
               <i class="material-icons">thumb_down</i>
+=======
+                <div class="voteButton btn waves-effect waves-light" data-id="{{this._id}}"><i class="material-icons right">send</i> Vote
+                </div>
+                <!-- Pie Chart is called here to render it on the browser -->
+                {{>pieChart}}
+                <div class="card-action">
+                    {{#if isAdminOrCreator this}}
+                    <div class="btn red delete-poll" data-id="{{this._id}}">
+                        <i class="material-icons">delete</i>
+                    </div>
+                    {{/if}} {{#if currentUser}}
+                    <div class="btn like-poll" data-id="{{this._id}}">
+                        <i class="material-icons">thumb_up</i>
+                    </div>
+                    <div class="btn dislike-poll" data-id="{{this._id}}">
+                        <i class="material-icons">thumb_down</i>
+                    </div>
+                    {{/if}}
+                    <p>
+                        {{this.likes}} Likes
+                    </p>
+                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll">
+Tweet</a>
+                    <a href="https://www.pinterest.com/pin/create/button/">
+                        <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
+                    </a>
+                    <p>
+                        {{this.dislikes}} Dislikes
+                    </p>
+                </div>
+>>>>>>> 31f97fe7ee87ed6f240413c11dc88bbe3cf7c461
             </div>
-          {{/if}}
-          <p>
-            {{this.likes}} Likes
-          </p>
-          <p>
-            {{this.dislikes}} Dislikes
-          </p>
         </div>
-      </div>
     </div>
-  </div>
 </template>
