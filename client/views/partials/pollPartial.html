@@ -37,7 +37,9 @@
             Vote
           </div>
         <!-- Pie Chart is called here to render it on the browser -->
+        <div id="{{this._id}}">
            {{>pieChart}}
+        </div>
 
         <div class="card-action">
           {{#if isAdminOrCreator this}}
