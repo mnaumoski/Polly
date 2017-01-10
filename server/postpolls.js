@@ -61,5 +61,5 @@ Meteor.methods({
     } else {
       console.log("Someone's trying to delete polls and shouldn't be.")
     }
-  }
+  },
 });
