@@ -31,7 +31,7 @@
                 </div>
                 <!--  <div class="voteButton" data-id="{{this._id}}">
                 Vote -->
-                <div  class="voteButton btn waves-effect waves-light" data-id="{{this._id}}"><i class="material-icons right">send</i>
+                <div class="voteButton btn waves-effect waves-light" data-id="{{this._id}}"><i class="material-icons right">send</i>
                    Vote
                 </div>
                 <!-- Pie Chart is called here to render it on the browser -->
@@ -40,49 +40,40 @@
                 </div>
 
                 <div class="card-action">
+
                     {{#if isAdminOrCreator this}}
                         <div class="btn red delete-poll" data-id="{{this._id}}">
                           <i class="material-icons">delete</i>
                         </div>
                     {{/if}}
-                        
+
                     {{#if currentUser}}
                         <div class="btn like-poll" data-id="{{this._id}}">
-                          <i class="material-icons">thumb_up</i>
+                          <i class="material-icons">arrow_upward</i>
                         </div>
                         <div class="btn dislike-poll" data-id="{{this._id}}">
-                            <i class="material-icons">thumb_down</i>
+                            <i class="material-icons">arrow_downward</i>
                         </div>
                     {{/if}}
-                    <p>
-                        {{this.likes}} Likes
+                    <p>{{this.likes}} Likes
                     </p>
-                    <p>
-                        {{this.dislikes}} Dislikes
+                    <p>{{this.dislikes}} Dislikes
                     </p>
-            <div class="row">
-                <div class="col s4">
-                    <div class="fb-share-button" 
-                                data-href="http://www.your-domain.com/your-page.html" 
-                                data-layout="button_count">
-                    </div>
-                </div>
-                <div class="col s4">
-                        <a class="twitter-share-button" data-size="" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll">
-                            Tweet</a>
-                    </div>
-
-                    
-
-                    <div class="col s4">
+                    <div class="row">
+                    <div class="col s1 social-buttons">
                         <a href="https://www.pinterest.com/pin/create/button/">
                             <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
                         </a>
+                        <a class="twitter-share-button social-buttons" data-size="" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll">
+                                Tweet</a>
+                        <div class="fb-share-button" 
+                                data-href="http://www.your-domain.com/your-page.html" 
+                                data-layout="button_count">
+                        </div>
                     </div>
-                        </div>
-                        </div>
-                        </div>
-                    </div>
-                    
                 </div>
+                </div>
+        </div>
+    </div>
+</div>
 </template>
