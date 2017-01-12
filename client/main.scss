@@ -28,5 +28,20 @@ $primary-color: color("grey", "darken-4");
   margin: 3px;
   border-radius:10px;
   color: black;
-
+}
+#modalTrigger {
+    margin-left: 167px;
+}
+.lean-overlay {
+  z-index: 0 !important;
+}
+.modal-content {
+  color: #000000;
+}
+textarea {
+  width: 60%;
+  height: 150px;
+  font-family: sans-serif;
+  font-size: small;
+  line-height: normal;
 }

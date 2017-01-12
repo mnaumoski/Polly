@@ -1,8 +1,8 @@
 <template name="newPoll">
     {{#if currentUser}}
-    <div class = "container">
+<!--     <div class = "container"> -->
     <button data-target="modal1" class="btn waves-effect waves-light btn" id="modalTrigger">Add Poll</button>
-    </div>
+<!--     </div> -->
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
         <div class="modal-content">
@@ -10,9 +10,9 @@
             <hr>
             <form name="submitForm">
                 Question:
-                <input type="textbox" name="questionText">
-                <Br> Choices (seperate by comma):
-                <input type="textbox" name="choiceText">
+                <input type="textbox" name="questionText" style="width:200px;">
+                <Br> Choices:
+                <textarea name="choiceText" rows=10 style="height:200px;width:200px;"></textarea>
                 <!-- <input type="submit" name="submitForm" class="submit-form" value="Submit"> -->
                 <button class="btn btn-success js-add-comment modal-close" type="submit">Submit</button>
             </form>

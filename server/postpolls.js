@@ -1,6 +1,6 @@
 Meteor.methods({
   addPoll: function (data) {
-    var choiceArray = data[1].split(',');
+    var choiceArray = data[1].split('\n');
     
     //Trying to create and array to pass to Mongo
     var choicesToAdd = [];
@@ -8,6 +8,7 @@ Meteor.methods({
       var tempObject = {text: choiceArray[i], votes: 0};
       choicesToAdd.push(tempObject);
     }
+    var expirationDate =new Date();
 
     Polls.insert({
       question: data[0],
@@ -15,6 +16,8 @@ Meteor.methods({
       createdAt: new Date().toLocaleString(),
       likes: 0,
       dislikes: 0,
+      expiration: expirationDate,
+      usersVoted: [],
       user: {
         _id: Meteor.user()._id,
         email: Meteor.user().emails[0].address
@@ -27,6 +30,12 @@ Meteor.methods({
       Polls.update({_id: pollId}, {$inc: {likes: 1} });
     }
   },
+  addComment: function(pollId, comment){
+    userSignedIn = Meteor.user() || false;
+    if(userSignedIn){
+      Polls.update({ _id: pollId },{ $push: { comments: comment }})
+    }
+  },  
   dislikePoll: function(pollId){
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){
