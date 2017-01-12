@@ -8,6 +8,8 @@
                         Created by {{this.user.email}} {{this.createdAt}}
                     </p>
                 </div>
+
+                <!-- If user has NOT voted -->
                 <div class="row">
                     <div class="choices col s9">
                         Choices:
@@ -29,11 +31,12 @@
                         {{/each}}
                     </form>
                 </div>
-                <!--  <div class="voteButton" data-id="{{this._id}}">
-                Vote -->
                 <div class="voteButton btn waves-effect waves-light" data-id="{{this._id}}"><i class="material-icons right">send</i>
                    Vote
                 </div>
+                <!-- End If user has NOT voted -->
+
+                <!-- If user has voted -->
                 <div class="row">
                     <div class="col s1 social-buttons">
                         <a href="https://www.pinterest.com/pin/create/button/">
@@ -42,8 +45,8 @@
                         <a class="twitter-share-button social-buttons" data-size="" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll">
                                 Tweet</a>
                         <div class="fb-share-button" 
-                                data-href="http://www.your-domain.com/your-page.html" 
-                                data-layout="button_count">
+                            data-href="http://www.your-domain.com/your-page.html" 
+                            data-layout="button_count">
                         </div>
                     </div>
                 </div>
@@ -51,6 +54,9 @@
                 <div id="{{this._id}}">
                    {{>pieChart}}
                 </div>
+
+
+                <!-- End If user has voted -->
 
                 <div class="card-action">
 
