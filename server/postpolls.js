@@ -30,6 +30,12 @@ Meteor.methods({
       Polls.update({_id: pollId}, {$inc: {likes: 1} });
     }
   },
+  addComment: function(pollId, comment){
+    userSignedIn = Meteor.user() || false;
+    if(userSignedIn){
+      Polls.update({ _id: pollId },{ $push: { comments: comment }})
+    }
+  },  
   dislikePoll: function(pollId){
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){

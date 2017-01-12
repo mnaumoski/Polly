@@ -20,6 +20,12 @@ Template.pollPartial.events({
     console.log("Vote Button Clicked | castVote is " + pollId + " | + indexID is " + indexId);
 
     Meteor.call('addVote', pollId, indexId);
+  },
+  "submit .comment-form": function(event){
+    event.preventDefault();
+    var pollId = $(event.target).data('poll-id'),
+    comment = $(event.target).find('textarea').val();    
+    Meteor.call('addComment', pollId, comment);
   }
 });
 

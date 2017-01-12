@@ -60,6 +60,18 @@
           <p>
             {{this.dislikes}} Dislikes
           </p>
+            <div class="comment-section">
+              <form class="comment-form" data-poll-id="{{this._id}}">
+                <h3>Comments</h3>
+                <textarea name="comment"></textarea>
+                <button>Submit</button>
+              </form>
+            <p>
+              {{#each this.comments}}
+                <p>{{this}}</p>
+              {{/each}}
+            </p>
+            </div>
         </div>
       </div>
     </div>
