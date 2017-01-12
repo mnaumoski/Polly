@@ -28,6 +28,10 @@ $primary-color: color("grey", "darken-4");
   margin: 3px;
   border-radius:10px;
   color: black;
-
 }
-
+#modalTrigger {
+    margin-left: 167px;
+}
+.lean-overlay {
+  z-index: 0 !important;
+}
