@@ -12,7 +12,8 @@ Template.pollPartial.events({
     Meteor.call('dislikePoll', pollId);
   },
   "click .voteButton": function () {
-    var pollId = event.target.dataset.id
+    var pollId = event.target.dataset.id;
+    // builtPie(pollId);
     //JQuery to find value of a specific poll
     //$('form[name="qBbppoQpCPLFwNCkM"]').find('input:radio[id=poll]:checked').val();
     var formToLookup = "form[name=" + pollId + "]";
