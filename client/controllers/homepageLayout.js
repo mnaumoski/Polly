@@ -1,5 +1,6 @@
 Template.homepageLayout.rendered = function () {
   $(".button-collapse").sideNav();
+  $("select").material_select();
 };
 
 Template.homepageLayout.events({
