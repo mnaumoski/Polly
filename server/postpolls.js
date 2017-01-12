@@ -8,6 +8,7 @@ Meteor.methods({
       var tempObject = {text: choiceArray[i], votes: 0};
       choicesToAdd.push(tempObject);
     }
+    var expirationDate =new Date();
 
     Polls.insert({
       question: data[0],
@@ -15,6 +16,7 @@ Meteor.methods({
       createdAt: new Date().toLocaleString(),
       likes: 0,
       dislikes: 0,
+      expiration: expirationDate,
       user: {
         _id: Meteor.user()._id,
         email: Meteor.user().emails[0].address
