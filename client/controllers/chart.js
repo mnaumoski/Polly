@@ -4,27 +4,33 @@
 Template.pollPartial.events({
   "click .voteButton": function () {
     var pollId = event.target.dataset.id;
-    
+    console.log('chart function ' + pollId);
         // 'external' data
         var data = new Array();
+        var poll = Polls.findOne({_id: pollId });
+        for(i=0; i< poll.choices.length; i++){
+             var tempObject = {name:poll.choices[i].text, y:poll.choices[i].votes};
+            data.push(tempObject);
+        }
 
-        data.push({
-            name: 'vote 0',
-            y: 10,
-            color: '#55BF3B'
-        });
+        // data.push({
+        //     name: 'vote 0' ,
 
-        data.push({
-            name: 'vote 1',
-            y: 12,
-            color: '#DDDF0D'
-        });
+        //     y: 10,
+        //     color: '#55BF3B'
+        // });
 
-        data.push({
-            name: 'vote 2',
-            y: 30,
-            color: '#DF5353'
-        });
+        // data.push({
+        //     name: 'vote 1',
+        //     y: 12,
+        //     color: '#DDDF0D'
+        // });
+
+        // data.push({
+        //     name: 'vote 2',
+        //     y: 30,
+        //     color: '#DF5353'
+        // });
         var divToUpdate = "#" + pollId;
         $(divToUpdate).highcharts({
             

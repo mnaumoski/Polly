@@ -8,6 +8,8 @@
                         Created by {{this.user.email}} {{this.createdAt}}
                     </p>
                 </div>
+
+                <!-- If user has NOT voted -->
                 <div class="row">
                     <div class="choices col s9">
                         Choices:
@@ -29,44 +31,68 @@
                         {{/each}}
                     </form>
                 </div>
-                <!--  <div class="voteButton" data-id="{{this._id}}">
-                Vote -->
-                <div  class="voteButton btn waves-effect waves-light" data-id="{{this._id}}"><i class="material-icons right">send</i>
+                <div class="voteButton btn waves-effect waves-light" data-id="{{this._id}}"><i class="material-icons right">send</i>
                    Vote
+                </div>
+                <!-- End If user has NOT voted -->
+
+                <!-- If user has voted -->
+                <div class="row">
+                    <div class="col s1 social-buttons">
+                        <a href="https://www.pinterest.com/pin/create/button/">
+                            <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
+                        </a>
+                        <a class="twitter-share-button social-buttons" data-size="" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll">
+                                Tweet</a>
+                        <div class="fb-share-button" 
+                            data-href="http://www.your-domain.com/your-page.html" 
+                            data-layout="button_count">
+                        </div>
+                    </div>
                 </div>
                 <!-- Pie Chart is called here to render it on the browser -->
                 <div id="{{this._id}}">
                    {{>pieChart}}
                 </div>
 
+
+                <!-- End If user has voted -->
+
                 <div class="card-action">
+
                     {{#if isAdminOrCreator this}}
                         <div class="btn red delete-poll" data-id="{{this._id}}">
                           <i class="material-icons">delete</i>
                         </div>
                     {{/if}}
-                        
+
                     {{#if currentUser}}
                         <div class="btn like-poll" data-id="{{this._id}}">
-                          <i class="material-icons">thumb_up</i>
+                          <i class="material-icons">arrow_upward</i>
                         </div>
-                        <div class="btn dislike-poll" data-id="{{this._id}}">
-                            <i class="material-icons">thumb_down</i>
+                        <div class="btn dislike-poll" data-id="{{this._id}}"><i class="material-icons">arrow_downward</i>
                         </div>
                     {{/if}}
-                    <p>
-                        {{this.likes}} Likes
+                    <p>{{this.likes}} Likes
                     </p>
-                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll">
-                        Tweet</a>
-                    <a href="https://www.pinterest.com/pin/create/button/">
-                        <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
-                    </a>
-                    <p>
-                        {{this.dislikes}} Dislikes
+
+                    <p>{{this.dislikes}} Dislikes
                     </p>
                 </div>
+                <div class="comment-section">
+              <form class="comment-form" data-poll-id="{{this._id}}">
+                <h3>Comments</h3>
+                <textarea name="comment"></textarea>
+                <button>Submit</button>
+              </form>
+            <p>
+              {{#each this.comments}}
+                <p>{{this}}</p>
+              {{/each}}
+            </p>
             </div>
+
         </div>
     </div>
+</div>
 </template>
