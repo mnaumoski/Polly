@@ -36,5 +36,12 @@ $primary-color: color("grey", "darken-4");
   z-index: 0 !important;
 }
 .modal-content {
-    color: #000000;
+  color: #000000;
+}
+textarea {
+  width: 60%;
+  height: 150px;
+  font-family: sans-serif;
+  font-size: small;
+  line-height: normal;
 }

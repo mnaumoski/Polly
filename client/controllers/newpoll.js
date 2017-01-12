@@ -1,7 +1,7 @@
 Template.newPoll.events({
   "click #modalTrigger": function(event){
     $('#modal1').openModal();
-  }
+  },
 });
 
 Template.newPoll.events({
