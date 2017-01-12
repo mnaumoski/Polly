@@ -1,7 +1,9 @@
 <template name="newPoll">
     {{#if currentUser}}
 <!--     <div class = "container"> -->
-    <button data-target="modal1" class="btn waves-effect waves-light btn" id="modalTrigger">Add Poll</button>
+    {{#animate type="jello" delay="200"}}
+    <button data-target="modal1" class="btn waves-effect waves-light btn" id="modalTrigger"> Create Poll</button>
+    {{/animate}}
 <!--     </div> -->
     <!-- Modal Structure -->
     <div id="modal1" class="modal">

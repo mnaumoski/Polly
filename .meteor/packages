@@ -34,3 +34,4 @@ gliese:masonry-desandro
 iron:middleware-stack@1.1.0
 maazalik:highcharts
 session
+webtempest:animate
