@@ -16,16 +16,16 @@ Template.home.helpers({
 
 });
 
-Template.home.events({
-  'keyup #sort-collection': function(event){
-    var sortBy = $(event.target).val();    
-    Session.set('sortby', sortBy);    
-  },
-  'change #sort-order': function(event){
-    var sortOrder = $(event.target).val();
-    Session.set('sortorder', sortOrder);
-  }
-});
+// Template.home.events({
+//   'keyup #sort-collection': function(event){
+//     var sortBy = $(event.target).val();    
+//     Session.set('sortby', sortBy);    
+//   },
+//   'change #sort-order': function(event){
+//     var sortOrder = $(event.target).val();
+//     Session.set('sortorder', sortOrder);
+//   }
+// });
 // console.log('test');
 
 
