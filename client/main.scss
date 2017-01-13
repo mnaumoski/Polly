@@ -47,6 +47,10 @@ textarea {
 }
 
 .parallax-container {
-      height: 1000px;
+      height: 2000px!important;
       border: 1px solid black;
     }
+.parallax {
+
+  position:static!important;
+}
