@@ -13,24 +13,6 @@ Template.pollPartial.events({
             data.push(tempObject);
         }
 
-        // data.push({
-        //     name: 'vote 0' ,
-
-        //     y: 10,
-        //     color: '#55BF3B'
-        // });
-
-        // data.push({
-        //     name: 'vote 1',
-        //     y: 12,
-        //     color: '#DDDF0D'
-        // });
-
-        // data.push({
-        //     name: 'vote 2',
-        //     y: 30,
-        //     color: '#DF5353'
-        // });
         var divToUpdate = "#" + pollId;
         $(divToUpdate).highcharts({
             
