@@ -8,3 +8,4 @@ Template.masterLayout.events({
       $(".button-collapse").sideNav("hide");
     }
 });
+
