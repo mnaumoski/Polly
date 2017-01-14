@@ -10,3 +10,38 @@ $primary-color: color("grey", "darken-4");
 .full-w {
   width: 100%;
 }
+.choiceButton {
+    background-color: #ffffff;
+    margin: 3px;
+    border-radius: 10px;
+    padding: 2px;
+    text-align: center;
+}
+[type="radio"]:not(:checked), [type="radio"]:checked {
+  position: relative;
+  left: 0;
+  opacity: 1;
+}
+.voteButton{
+  background-color:lightblue;
+  text-align: center;
+  margin: 3px;
+  border-radius:10px;
+  color: black;
+}
+#modalTrigger {
+    margin-left: 167px;
+}
+.lean-overlay {
+  z-index: 0 !important;
+}
+.modal-content {
+  color: #000000;
+}
+textarea {
+  width: 60%;
+  height: 150px;
+  font-family: sans-serif;
+  font-size: small;
+  line-height: normal;
+}

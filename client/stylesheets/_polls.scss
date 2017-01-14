@@ -1,5 +1,7 @@
 .delete-poll,
-.like-poll{
+.like-poll,
+.dislike-poll,
+.voteButton{
   i{
     pointer-events: none;
   }
@@ -7,4 +9,9 @@
 
 .fixed-action-btn{
   z-index: 2;
+}
+
+.social-buttons {
+  padding: 0 0 0 20px!important;
+  margin: 20px !important;
 }
