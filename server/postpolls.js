@@ -1,7 +1,7 @@
 Meteor.methods({
   addPoll: function (data) {
     var choiceArray = data[1].split('\n');
-    
+
     //Trying to create and array to pass to Mongo
     var choicesToAdd = [];
     for (i=0; i<choiceArray.length; i++) {
@@ -30,12 +30,31 @@ Meteor.methods({
       Polls.update({_id: pollId}, {$inc: {likes: 1} });
     }
   },
-  addComment: function(pollId, comment){
+  addComment: function(pollId, comment, data){
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){
-      Polls.update({ _id: pollId },{ $push: { comments: comment }})
-    }
-  },  
+      Polls.update({ _id: pollId },{ $push: { comments: {
+        createdAt: new Date().toLocaleString(),
+        // user: {
+        //   _id: Meteor.user()._id
+        // },
+        userId: Meteor.user()._id,
+        comment: comment
+      } }});
+    //
+      // var commentsAdded = data[1];
+
+      // var comments = [];
+      // for (i=0; i<commentsAdded.length; i++){
+      //   var tempObj = {text: commentsAdded[i]};
+      //   comments.push(tempObj);
+      // }
+
+      var newComment = new Date();
+
+      // Polls.comments.insert({
+      }
+    },
   dislikePoll: function(pollId){
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){
