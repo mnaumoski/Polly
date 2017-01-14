@@ -5,14 +5,12 @@
         <div class="row">
           <div class="col s12">
             <div class="nav-wrapper">
-              {{#animate type="rubberBand" delay="200"}}
-                <a href="/" class="brand-logo">This is Polly</a>
-              {{/animate}}
-
-              <div class="container">
-                <div class="row" id="dropDown">
+              
+                {{#animate type="rubberBand" delay="200"}}
+                  <a href="/" class="brand-logo">This is Polly</a>
+                {{/animate}}
+                <!-- <div class="row" id="dropDown"> -->
                   <div class="col s3">
-                    <!-- <input id="sort-collection" /> -->
                     <select id="sort-collection">
                       <option value="" disabled selected>Sort By:</option>
                       <option value="likes">Likes</option>
@@ -27,12 +25,12 @@
                       <option value="" disabled selected>Sort Order: </option>
                       <option value="1">ASC</option>
                       <option value="-1">DESC</option>   
-                    </select>
-                   <!--  <label>Sort Order</label> -->      
+                    </select>   
                   </div>
-                </div>      
-              </div>
+                <!-- </div> -->
+                
               {{> newPoll}}
+              
               <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
               <ul class="right hide-on-med-and-down">
                 {{#if isAdminUser}}
