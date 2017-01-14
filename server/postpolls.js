@@ -32,8 +32,14 @@ Meteor.methods({
   },
   addComment: function(pollId, comment){
     userSignedIn = Meteor.user() || false;
-    if(userSignedIn){
-      Polls.update({ _id: pollId },{ $push: { comments: comment }})
+    if(userSignedIn){  
+      initialCommentCount = Polls.findOne({_id: pollId}).comments.length
+      var $set = {};
+      $set['commentCount'] = initialCommentCount + 1;            
+      Polls.update({ _id: pollId },{
+        $push: { comments: comment },
+        $set: $set
+      })
     }
   },
   dislikePoll: function(pollId){
