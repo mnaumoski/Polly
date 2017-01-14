@@ -34,11 +34,18 @@ Meteor.methods({
     userSignedIn = Meteor.user() || false;
 
     if(userSignedIn){
-      Polls.update({ _id: pollId },{ $push: { comments: {
-        createdAt: new Date().toLocaleString(),
-        userId: Meteor.user()._id,
-        comment: comment
-      } }});
+      Polls.update(
+        { _id: pollId },
+        { $push: 
+          { comments: 
+            {
+              createdAt: new Date().toLocaleString(),
+              userId: Meteor.user()._id,
+              comment: comment
+            } 
+          }
+        })
+    }
       
       var newComment = new Date();
     if(userSignedIn){  
