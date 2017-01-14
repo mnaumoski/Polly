@@ -8,7 +8,8 @@ Meteor.methods({
       var tempObject = {text: choiceArray[i], votes: 0};
       choicesToAdd.push(tempObject);
     }
-    var expirationDate =new Date();
+    var expirationDate = new Date();
+    // var expirationDate = moment().add(30, 'days');
 
     Polls.insert({
       question: data[0],
@@ -32,10 +33,16 @@ Meteor.methods({
   },
   addComment: function(pollId, comment){
     userSignedIn = Meteor.user() || false;
-    if(userSignedIn){
-      Polls.update({ _id: pollId },{ $push: { comments: comment }})
+    if(userSignedIn){  
+      initialCommentCount = Polls.findOne({_id: pollId}).comments.length
+      var $set = {};
+      $set['commentCount'] = initialCommentCount + 1;            
+      Polls.update({ _id: pollId },{
+        $push: { comments: comment },
+        $set: $set
+      })
     }
-  },  
+  },
   dislikePoll: function(pollId){
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){
