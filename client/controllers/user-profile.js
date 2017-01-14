@@ -1,0 +1,4 @@
+Template.userdashboard.onRendered(function(){
+//       
+
+   })
