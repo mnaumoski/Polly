@@ -1,4 +1,5 @@
 <template name="landing">
+        
 
   <div class="parallax-container">
     <div class="parallax"><img src ="/images/img1.jpg"></div>
@@ -9,8 +10,31 @@
     <div class="row container">
       <h2 class="header">
 
-      <a href="polllist">Parallax</a></h2>
-      <p class="grey-text text-darken-3 lighten-3">ANNIE</p>
+      <a href="polllist">Polly</a></h2>
+      <p class="grey-text text-darken-3 lighten-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+
+      <a href="polllist" class="waves-effect waves-light btn">See Polls</a>
+                <ul class="right hide-on-med-and-down">
+                  {{#if isAdminUser}}
+                    <li><a href="/usermgmt">User Management</a></li>
+                  {{/if}}
+                  {{#if currentUser}}
+                    <li><a class="red darken-2 btn" href="/sign-out">Sign Out</a></li>
+                  {{else}}
+                    <li><a class="red darken-2 btn" href="/sign-in">Sign In or Register</a></li>
+                  {{/if}}
+                </ul>
+                <ul class="side-nav" id="mobile-nav">
+                  {{#if isAdminUser}}
+                    <li><a href="/usermgmt">User Management</a></li>
+                  {{/if}}
+                  {{#if currentUser}}
+                    <li><a href="/sign-out">Sign Out</a></li>
+                  {{else}}
+                    <li><a href="/sign-in">Sign In</a></li>
+                  {{/if}}
+                </ul>
+
     </div>
   </div>
 
