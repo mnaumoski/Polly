@@ -29,9 +29,6 @@ $primary-color: color("grey", "darken-4");
   border-radius:10px;
   color: black;
 }
-#modalTrigger {
-    margin-left: 167px;
-}
 .lean-overlay {
   z-index: 0 !important;
 }
@@ -51,4 +48,10 @@ $primary-color: color("grey", "darken-4");
       background-image:url("blurredAudience.jpg")
     }
 .parallax {
+}
+.nav, .row {
+  margin-bottom: 0px;
+}
+nav .brand-logo {
+  position: relative;
 }
