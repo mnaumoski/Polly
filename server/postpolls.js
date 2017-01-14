@@ -46,7 +46,6 @@ Meteor.methods({
           }
         })
     }
-
       var newComment = new Date();
     if(userSignedIn){  
       initialCommentCount = Polls.findOne({_id: pollId}).comments.length
