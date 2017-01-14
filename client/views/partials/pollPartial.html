@@ -8,6 +8,20 @@
                         Created by {{this.user.email}} {{this.createdAt}}
                     </p>
                 </div>
+                <div class="row">
+                    <div class="col s1 social-buttons">
+                        <a href="https://www.pinterest.com/pin/create/button/">
+                            <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
+                        </a>
+                        <a class="twitter-share-button social-buttons" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll">
+                                Tweet</a>
+                                
+                        <div class="fb-share-button" 
+                            data-href="http://www.your-domain.com/your-page.html" 
+                            data-layout="button_count">
+                        </div>
+                    </div>
+                </div>
                 <!-- If user has NOT voted -->
                 <div class="row">
                     <div class="choices col s9" style ="background-color:lightblue; width:350px; margin-left:15px; margin-right:20px; font-size: 17px; color:black;">
@@ -36,19 +50,6 @@
                 <!-- End If user has NOT voted -->
 
                 <!-- If user has voted -->
-                <div class="row">
-                    <div class="col s1 social-buttons">
-                        <a href="https://www.pinterest.com/pin/create/button/">
-                            <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
-                        </a>
-                        <a class="twitter-share-button social-buttons" data-size="" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll">
-                                Tweet</a>
-                        <div class="fb-share-button" 
-                            data-href="http://www.your-domain.com/your-page.html" 
-                            data-layout="button_count">
-                        </div>
-                    </div>
-                </div>
                 <!-- Pie Chart is called here to render it on the browser -->
                 <div id="{{this._id}}">
                    {{>pieChart}}
@@ -78,6 +79,7 @@
                     <p>{{this.dislikes}} Dislikes
                     </p>
                 </div>
+
                 <div class="comment-section">
               <form class="comment-form" data-poll-id="{{this._id}}">
                 <h3>Comments</h3>
@@ -92,6 +94,8 @@
             </div>
 
         </div>
+
     </div>
+
 </div>
 </template>
