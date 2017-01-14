@@ -1,6 +1,7 @@
 Template.masterLayout.rendered = function () {
   $(".button-collapse").sideNav();
   $("select").material_select();
+  $(".dropdown-button").dropdown();
 };
 
 Template.masterLayout.events({
