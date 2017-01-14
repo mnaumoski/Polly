@@ -4,7 +4,7 @@ Template.pollList.helpers({
     var filter = {sort: {}};
     var sortBy = Session.get('sortby');
     filter.sort[sortBy] = Session.get('sortorder');
-    var categories = ['likes', 'dislikes', 'createdAt']
+    var categories = ['likes', 'dislikes', 'createdAt', 'commentCount']    
     var inArray = categories.indexOf(sortBy) > -1
     if(!inArray){      
       return Polls.find({}, {sort: {createdAt: 1} });
@@ -21,7 +21,7 @@ Template.pollList.rendered = function () {
 };
 
 Template.pollList.events({
-  'keyup #sort-collection': function(event){
+  'change #sort-collection': function(event){
     var sortBy = $(event.target).val();    
     Session.set('sortby', sortBy);    
   },

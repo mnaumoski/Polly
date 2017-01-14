@@ -32,29 +32,26 @@ Meteor.methods({
   },
   addComment: function(pollId, comment, data){
     userSignedIn = Meteor.user() || false;
+
     if(userSignedIn){
       Polls.update({ _id: pollId },{ $push: { comments: {
         createdAt: new Date().toLocaleString(),
-        // user: {
-        //   _id: Meteor.user()._id
-        // },
         userId: Meteor.user()._id,
         comment: comment
       } }});
-    //
-      // var commentsAdded = data[1];
-
-      // var comments = [];
-      // for (i=0; i<commentsAdded.length; i++){
-      //   var tempObj = {text: commentsAdded[i]};
-      //   comments.push(tempObj);
-      // }
-
+      
       var newComment = new Date();
+    if(userSignedIn){  
+      initialCommentCount = Polls.findOne({_id: pollId}).comments.length
+      var $set = {};
+      $set['commentCount'] = initialCommentCount + 1;            
+      Polls.update({ _id: pollId },{
+        $push: { comments: comment },
+        $set: $set
+      })
+    }
+  },
 
-      // Polls.comments.insert({
-      }
-    },
   dislikePoll: function(pollId){
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){
@@ -73,7 +70,7 @@ Meteor.methods({
       // console.log($set);
 
       Polls.update({_id: pollId}, {$set: $set });
-      
+
     }
   },
   deletePoll: function(pollId){
