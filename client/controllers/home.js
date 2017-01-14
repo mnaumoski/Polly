@@ -1,20 +1,20 @@
-Template.home.helpers({
-  // check if user is an admin
-  'poll': function() {
-    var filter = {sort: {}};
-    var sortBy = Session.get('sortby');
-    filter.sort[sortBy] = Session.get('sortorder');
-    var categories = ['likes', 'dislikes', 'createdAt']
-    var inArray = categories.indexOf(sortBy) > -1
-    if(!inArray){      
-      return Polls.find({}, {sort: {createdAt: 1} });
-    } else {     
-      console.log("in array"); 
-      return Polls.find({}, filter);
-    }        
-  }
+// Template.home.helpers({
+//   // check if user is an admin
+//   'poll': function() {
+//     var filter = {sort: {}};
+//     var sortBy = Session.get('sortby');
+//     filter.sort[sortBy] = Session.get('sortorder');
+//     var categories = ['likes', 'dislikes', 'createdAt']
+//     var inArray = categories.indexOf(sortBy) > -1
+//     if(!inArray){      
+//       return Polls.find({}, {sort: {createdAt: 1} });
+//     } else {     
+//       console.log("in array"); 
+//       return Polls.find({}, filter);
+//     }        
+//   }
 
-});
+// });
 
 // Template.home.events({
 //   'keyup #sort-collection': function(event){
@@ -27,5 +27,6 @@ Template.home.helpers({
 //   }
 // });
 // console.log('test');
+
 
 
