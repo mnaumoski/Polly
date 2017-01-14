@@ -8,14 +8,13 @@
                         Created by {{this.user.email}} {{this.createdAt}}
                     </p>
                 </div>
-
                 <!-- If user has NOT voted -->
                 <div class="row">
-                    <div class="choices col s9">
-                        Choices:
+                    <div class="choices col s9" style ="background-color:lightblue; width:350px; margin-left:15px; margin-right:20px; font-size: 17px; color:black;">
+                        CHOICES:
                     </div>
-                    <div class="votes col s3">
-                        Votes:
+                    <div class="votes col s3" style = "background-color:lightblue; width:70px; font-size: 17px; color:black;">
+                        VOTES:
                     </div>
                     <form name="{{this._id}}">
                         {{#each choices}}
@@ -82,7 +81,7 @@
                 <div class="comment-section">
               <form class="comment-form" data-poll-id="{{this._id}}">
                 <h3>Comments</h3>
-                <textarea name="comment"></textarea>
+                <textarea id="comments" name="comment"></textarea>
                 <button>Submit</button>
               </form>
             <p>

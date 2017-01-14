@@ -18,3 +18,4 @@ MongoDb
 Packages Installed:
 
 1) meteor add maazalik:highcharts : This package was used to get the Pie Chart.
+2) meteor add webtempest:animate  : This package was used to install the animation component to our app.

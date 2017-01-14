@@ -29,19 +29,29 @@ $primary-color: color("grey", "darken-4");
   border-radius:10px;
   color: black;
 }
-#modalTrigger {
-    margin-left: 167px;
-}
 .lean-overlay {
   z-index: 0 !important;
 }
 .modal-content {
   color: #000000;
 }
-textarea {
+#choiceInput {
   width: 60%;
   height: 150px;
   font-family: sans-serif;
   font-size: small;
   line-height: normal;
+}
+
+.parallax-container {
+      height: 500px;
+      background-image:url("blurredAudience.jpg")
+    }
+.parallax {
+}
+.nav, .row {
+  margin-bottom: 0px;
+}
+nav .brand-logo {
+  position: relative;
 }
