@@ -1,9 +1,5 @@
 <template name="newPoll">
     {{#if currentUser}}
-<<<<<<< HEAD
-=======
-  
->>>>>>> master
     {{#animate type="jello" delay="200"}}
         <button data-target="modal1" class="btn waves-effect waves-light btn" id="modalTrigger"> Create Poll</button>
     {{/animate}}
@@ -17,11 +13,8 @@
                 Question:
                 <input type="textbox" name="questionText" style="width:200px;" required>
                 <Br> Choices:
-<<<<<<< HEAD
                 <textarea id="choiceInput" name="choiceText" rows=10 style="height:200px;width:200px;" required></textarea>
-=======
-                <textarea id="choiceInput" name="choiceText" rows=10 style="height:200px;width:200px;"></textarea>
->>>>>>> master
+
                 <!-- <input type="submit" name="submitForm" class="submit-form" value="Submit"> -->
                 <button class="btn btn-success js-add-comment modal-close" type="submit">Create</button>
             </form>

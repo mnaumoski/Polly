@@ -1,10 +1,7 @@
 Meteor.methods({
   addPoll: function (data) {
     var choiceArray = data[1].split('\n');
-<<<<<<< HEAD
-=======
 
->>>>>>> master
     //Trying to create and array to pass to Mongo
     var choicesToAdd = [];
     for (i=0; i<choiceArray.length; i++) {
@@ -33,51 +30,51 @@ Meteor.methods({
       Polls.update({_id: pollId}, {$inc: {likes: 1} });
     }
   },
-  addComment: function(pollId, comment, data){
-    userSignedIn = Meteor.user() || false;
+//   addComment: function(pollId, comment, data){
+//     userSignedIn = Meteor.user() || false;
 
-    if(userSignedIn){
-      Polls.update(
-        { _id: pollId },
-<<<<<<< HEAD
-        { $push:
-          { comments:
-=======
-        { $push: 
-          { comments: 
->>>>>>> master
-            {
-              createdAt: new Date().toLocaleString(),
-              userId: Meteor.user()._id,
-              comment: comment
-<<<<<<< HEAD
-            }
-          }
-        })
-    }
-=======
-            } 
-          }
-        })
-    }
+//     if(userSignedIn){
+//       Polls.update(
+//         { _id: pollId },
+// <<<<<<< HEAD
+//         { $push:
+//           { comments:
+// =======
+//         { $push: 
+//           { comments: 
+// >>>>>>> master
+//             {
+//               createdAt: new Date().toLocaleString(),
+//               userId: Meteor.user()._id,
+//               comment: comment
+// <<<<<<< HEAD
+//             }
+//           }
+//         })
+//     }
+// =======
+//             } 
+//           }
+//         })
+//     }
       
->>>>>>> master
-      var newComment = new Date();
-    if(userSignedIn){  
-      initialCommentCount = Polls.findOne({_id: pollId}).comments.length
-      var $set = {};
-<<<<<<< HEAD
-      $set['commentCount'] = initialCommentCount + 1;
-        Polls.update({ _id: pollId },{
-=======
-      $set['commentCount'] = initialCommentCount + 1;            
-      Polls.update({ _id: pollId },{
->>>>>>> master
-        $push: { comments: comment },
-        $set: $set
-      })
-    }
-  },
+// >>>>>>> master
+//       var newComment = new Date();
+//     if(userSignedIn){  
+//       initialCommentCount = Polls.findOne({_id: pollId}).comments.length
+//       var $set = {};
+// <<<<<<< HEAD
+//       $set['commentCount'] = initialCommentCount + 1;
+//         Polls.update({ _id: pollId },{
+// =======
+//       $set['commentCount'] = initialCommentCount + 1;            
+//       Polls.update({ _id: pollId },{
+// >>>>>>> master
+//         $push: { comments: comment },
+//         $set: $set
+//       })
+//     }
+//   },
 
   dislikePoll: function(pollId){
     userSignedIn = Meteor.user() || false;
