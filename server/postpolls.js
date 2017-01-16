@@ -1,7 +1,6 @@
 Meteor.methods({
   addPoll: function (data) {
     var choiceArray = data[1].split('\n');
-
     //Trying to create and array to pass to Mongo
     var choicesToAdd = [];
     for (i=0; i<choiceArray.length; i++) {

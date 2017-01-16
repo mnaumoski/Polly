@@ -60,7 +60,7 @@
 
                 <div class="card-action">
 
-                    {{#if isAdminOrCreator this}}
+                    {{#if currentUser}}
                         <div class="btn red delete-poll" data-id="{{this._id}}">
                           <i class="material-icons">delete</i>
                         </div>
