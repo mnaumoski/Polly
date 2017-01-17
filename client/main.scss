@@ -11,7 +11,7 @@ $primary-color: color("blue", "darken-4");
   width: 100%;
 }
 .choiceButton {
-    background-color: #ffffff;
+    background-color: #add8e6;
     margin: 3px;
     border-radius: 10px;
     padding: 2px;
@@ -53,4 +53,40 @@ $primary-color: color("blue", "darken-4");
 }
 nav .brand-logo {
   position: relative;
+}
+.pollCard {
+  border: 1px solid black;
+}
+.card {
+  margin: 0;
+  padding: 10px;
+}
+.comment-section {
+  overflow-y: auto;
+  height: 300px;
+  border-left: 1px solid rgb(196, 196, 196);
+  padding-left: 9px;
+}
+#comments {
+  width: 100%;
+  height: 30px;
+}
+.submitComment {
+  text-align: right;
+}
+.comment {
+  padding: 0;
+  margin: 0;
+}
+.comment:nth-child(odd) {
+  color: red;
+}
+.comment:nth-child(even) {
+  color: blue;
+}
+.socialMediaIcon {
+  height: 36px;
+}
+.commentInputSection   {
+  padding: 0;
 }
