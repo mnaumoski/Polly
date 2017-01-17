@@ -1,4 +1,7 @@
 <template name="pollPartial">
+    
+
+
     <div class="row">
         <div class="card blue-grey darken-1 col s12">
             <div class="card-content white-text">
@@ -7,6 +10,7 @@
                     Created by {{user.email}} {{this.createdAt}}
                 </p>
             </div>
+
         </div>
 
         <!-- If user has NOT voted, show the poll -->
@@ -41,13 +45,33 @@
         
         <!-- Comments Section -->
         <div class="col s4">
+        <div class="v">
+        <a href="https://www.pinterest.com/pin/create/button/"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <!-- Load Facebook SDK for JavaScript -->
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <!-- Your share button code -->
+        <div class="fb-share-button" 
+            data-href="http://www.your-domain.com/your-page.html" 
+            data-layout="button_count">
+        </div>
+
+    </div>
             <div class="comment-section">
                 <form class="comment-form" data-poll-id="{{this._id}}">
-                    <h3>Comments</h3>
+                    <h4>Add comment</h4>
                     <textarea id="comments" name="comment"></textarea>
                     <button>Submit</button>
                 </form>
-                <p>
+
+                <p>Previous comments
                   {{#each this.comments}}
                     <p>{{this}}</p>
                   {{/each}}
@@ -59,17 +83,6 @@
     <div class="row">
     <!-- Ranking Icons & Social Media -->
         <div class="card-action col s12">
-            <a href="https://www.pinterest.com/pin/create/button/">
-                <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
-            </a>
-            <a class="twitter-share-button social-buttons" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll">
-                Tweet
-            </a>
-            <div class="fb-share-button" 
-                data-href="http://www.your-domain.com/your-page.html" 
-                data-layout="button_count">
-            </div>
-
             <!-- If current user is logged in, show like icons -->
             {{#if currentUser}}
                 <div class="btn like-poll" data-id="{{this._id}}">
