@@ -41,10 +41,14 @@
                 <div class="col s6">
                  <div class="chip orange">Recent Comments</div>
                     <div class="comment-section">
+                    {{#if comments}}
                       {{#each this.comments}}
                         <!-- <span class="commentName">{{userId}}</span> -->
                         <p class="comment">{{comment}}</p>
                       {{/each}}
+                      {{else}}
+                      <div class="chip orange">No Recent Comments</div>
+                      {{/if}}
                     </div>
                 </div>
             </div>
