@@ -31,7 +31,7 @@
 
                 <!-- If user has voted -->
                 <!-- Pie Chart is called here to render it on the browser -->
-                <div class="col s4">
+                <div class="col s2">
                     <div id="{{this._id}}">
                        {{>pieChart}}
                     </div>
@@ -39,18 +39,12 @@
                 <!-- End If user has voted -->
                 
                 <!-- Comments Section -->
-                <div class="col s4">
+                <div class="col s6">
                     <div class="comment-section">
-                        <form class="comment-form" data-poll-id="{{this._id}}">
-                            <h3>Comments</h3>
-                            <textarea id="comments" name="comment"></textarea>
-                            <button>Submit</button>
-                        </form>
-                        <p>
-                          {{#each this.comments}}
-                            <p>{{this}}</p>
-                          {{/each}}
-                        </p>
+                      {{#each this.comments}}
+                        <!-- <span class="commentName">{{userId}}</span> -->
+                        <p class="comment">{{comment}}</p>
+                      {{/each}}
                     </div>
                 </div>
             </div>
@@ -60,32 +54,52 @@
             <!-- Ranking Icons & Social Media -->
                 <!-- <div class="card-action col s12"> -->
                 <div class="card blue-grey darken-1 col s12">
-                    <div class="card-content white-text">
-                        <a href="https://www.pinterest.com/pin/create/button/">
-                            <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
-                        </a>
-                        <a class="twitter-share-button social-buttons" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll">
-                            Tweet
-                        </a>
-                        <div class="fb-share-button" 
-                            data-href="http://www.your-domain.com/your-page.html" 
-                            data-layout="button_count">
-                        </div>
+                    <div class="row">
+                        <div class="col s6 card-content white-text">
+                            <div class="row">
+                                <div class="col s2 btn">
+                                    <a href="https://www.pinterest.com/pin/create/button/">
+                                        <img class="socialMediaIcon" src="https://cdn0.iconfinder.com/data/icons/Pinterest/512/Pinterest_Favicon.png" />
+                                    </a>
+                                </div>
+                                <div class="col s2 btn">
+                                    <a class="twitter-share-button social-buttons" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll">
+                                        <img class="socialMediaIcon" src="https://cdn1.iconfinder.com/data/icons/metro-ui-dock-icon-set--icons-by-dakirby/512/Twitter_alt.png" />
+                                    </a>
+                                </div>
+                                <div class="col s2 btn" 
+                                    data-href="http://www.your-domain.com/your-page.html" 
+                                    data-layout="button_count">
+                                </div>
 
-                        <!-- If current user is logged in, show like icons -->
-                        {{#if currentUser}}
-                            <div class="btn like-poll" data-id="{{this._id}}">
-                              <i class="material-icons">arrow_upward </i>({{this.likes}})
+                                <!-- If current user is logged in, show like icons -->
+                                {{#if currentUser}}
+                                    <div class="col s2 btn like-poll" data-id="{{this._id}}">
+                                      <i class="material-icons">arrow_upward </i>({{this.likes}})
+                                    </div>
+                                    <div class="col s2 btn dislike-poll" data-id="{{this._id}}"><i class="material-icons">arrow_downward</i>({{this.dislikes}})
+                                    </div>
+                                {{/if}}
+                                <!-- Show delete button if current user is the creator or Admin-->
+                                {{#if isAdminOrCreator this}}
+                                    <div class="col s2 btn red delete-poll" data-id="{{this._id}}">
+                                      <i class="material-icons">delete</i>
+                                    </div>
+                                {{/if}}
                             </div>
-                            <div class="btn dislike-poll" data-id="{{this._id}}"><i class="material-icons">arrow_downward</i>({{this.dislikes}})
+                        </div>
+                        <div class="col s6 submitComment">
+                            <div class="row">
+                                <form class="comment-form" data-poll-id="{{this._id}}">
+                                    <div class="commentInputSection col s9">
+                                        <textarea id="comments" name="comment"></textarea>
+                                    </div>
+                                    <div class="col s3 commentInputSection">
+                                        <button class="btn">Comment</button>
+                                    </div>
+                                </form>
                             </div>
-                        {{/if}}
-                        <!-- Show delete button if current user is the creator or Admin-->
-                        {{#if isAdminOrCreator this}}
-                            <div class="btn red delete-poll" data-id="{{this._id}}">
-                              <i class="material-icons">delete</i>
-                            </div>
-                        {{/if}}
+                        </div>
                     </div>
                 </div>
             </div>
