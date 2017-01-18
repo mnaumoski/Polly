@@ -12,20 +12,20 @@
                   {{/animate}}
                 </div>
                 <div class="col s2">
-                  <select id="sort-collection">
-                    <option value="" disabled selected>Sort By:</option>
-                    <option value="likes">Likes</option>
-                    <option value="dislikes">Dislikes</option>  
-                    <option value="createdAt">Created At</option> 
-                    <option value="comments">Most Comments</option>   
-                  </select>
+                  <li class="no-bullet"><a class="blue-text dropdown-button sort-collection-label" href="#!" data-activates="sort-collection">Sort By<i class="material-icons right">arrow_drop_down</i></a></li>
+                  <ul id="sort-collection" class="dropdown-content">
+                    <li><a class="sort-collection" data-value="likes">likes</a></li>
+                    <li><a class="sort-collection" data-value="dislikes">Dislikes</a></li>
+                    <li><a class="sort-collection" data-value="createdAt">Created At</a></li>
+                    <li><a class="sort-collection" data-value="commentCount">Most Comments</a></li>
+                  </ul>
                 </div>
-                <div class="col s2">      
-                  <select id="sort-order">
-                    <option value="" disabled selected>Sort Order: </option>
-                    <option value="1">ASC</option>
-                    <option value="-1">DESC</option>   
-                  </select>   
+                <div class="col s2">                        
+                  <li class="no-bullet"><a class="dropdown-button sort-order-label" href="#!" data-activates="sort-order">Sort Order<i class="material-icons right">arrow_drop_down</i></a></li>
+                  <ul id="sort-order" class="dropdown-content">
+                    <li><a class="sort-order" data-value="1">ASC</a></li>
+                    <li><a class="sort-order" data-value="-1">DESC</a></li>
+                  </ul>                    
                 </div>
                   
                 {{> newPoll}}                
