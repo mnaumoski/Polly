@@ -12,14 +12,13 @@
                 </div>
 
                 <!-- If user has NOT voted, show the poll -->
-                <div class="col s4">
+                <div class="col s4 pollClicked" data-id="{{this._id}}">
                     <form name="{{this._id}}">
                         {{#each choices}}
-                        <div class="choices col s9">
-                            <div class="choiceButton" choice-index="{{@index}}">
-                                <input type="radio" name="allPolls" id="poll" value="{{@index}}" />{{text}}
-                                <br>
-                            </div>
+                        <div class="choiceButton choices col s9">
+                            <input type="radio" name="allPolls" id="poll" value="{{@index}}" />{{text}}
+                            <!-- <button class="choiceButton btn" data-id="{{@index}}" choice-index="{{@index}}" id="poll">{{text}} -->
+                            <!-- </button> -->
                         </div>
                         {{/each}}
                     </form>
@@ -40,11 +39,16 @@
                 
                 <!-- Comments Section -->
                 <div class="col s6">
+                 <div class="chip orange">Recent Comments</div>
                     <div class="comment-section">
+                    {{#if comments}}
                       {{#each this.comments}}
                         <!-- <span class="commentName">{{userId}}</span> -->
                         <p class="comment">{{comment}}</p>
                       {{/each}}
+                      {{else}}
+                      <div class="chip orange">No Recent Comments</div>
+                      {{/if}}
                     </div>
                 </div>
             </div>
@@ -67,9 +71,21 @@
                                         <img class="socialMediaIcon" src="https://cdn1.iconfinder.com/data/icons/metro-ui-dock-icon-set--icons-by-dakirby/512/Twitter_alt.png" />
                                     </a>
                                 </div>
-                                <div class="col s2 btn" 
-                                    data-href="http://www.your-domain.com/your-page.html" 
+                                <div class="col s2 btn"> 
+                                   <!-- Load Facebook SDK for JavaScript -->
+                                <div id="fb-root" class="valign"></div>
+                                <script>(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));</script>
+                                <!-- Your share button code -->
+                                <div class="fb-share-button valign" 
+                                    data-href="http://www.your-domain.com/your-page.html"
                                     data-layout="button_count">
+                                </div>
                                 </div>
 
                                 <!-- If current user is logged in, show like icons -->
@@ -92,7 +108,7 @@
                             <div class="row">
                                 <form class="comment-form" data-poll-id="{{this._id}}">
                                     <div class="commentInputSection col s9">
-                                        <textarea id="comments" name="comment"></textarea>
+                                        <textarea id="comments" name="comment" placeholder="Write comments here..."></textarea>
                                     </div>
                                     <div class="col s3 commentInputSection">
                                         <button class="btn">Comment</button>
