@@ -1,5 +1,5 @@
 @import "{poetic:materialize-scss}/sass/components/_color.scss";
-$primary-color: color("blue", "darken-4");
+$primary-color: color("light-blue", "darken-4");
 @import "{poetic:materialize-scss}/sass/materialize.scss";
 @import "./stylesheets/_stickyfooter.scss";
 @import "./stylesheets/_loading.scss";
@@ -58,6 +58,7 @@ nav .brand-logo {
 }
 .pollCard {
   border: 1px solid black;
+  margin-top:100px;
 }
 .card {
   margin: 0;
@@ -107,11 +108,23 @@ html {
   }
 
 .polly {
-  
   margin-left: -100px;
-
 }
+
 
 #polly-bkg {
   background-image: url(image.svg);
+}
+main {
+  background-color: #fff59d;
+}
+
+animated.pollyIn.zoomIn {
+  -webkit-animation-duration: 500ms;
+  animation-duration: 500ms;
+}
+
+animated.your-custom-class.bounceOut {
+  -webkit-animation-duration: 2000ms;
+  animation-duration: 2000ms;
 }
