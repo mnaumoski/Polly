@@ -6,12 +6,19 @@ Template.navbar.helpers({
 });
 
 Template.navbar.events({
-  'change #sort-collection': function(event){
-    var sortBy = $(event.target).val();    
+  'click .sort-collection': function(event){
+    var btn = '<i class=\"material-icons right\">arrow_drop_down</i>'
+    var sortBy = $(event.target).data('value');    
+    var newLabel = (sortBy + " " + btn);
+    $('.sort-collection-label').html(newLabel);
     Session.set('sortby', sortBy);    
   },
-  'change #sort-order': function(event){
-    var sortOrder = $(event.target).val();
-    Session.set('sortorder', sortOrder);
+  'click .sort-order': function(event){
+    var btn = '<i class=\"material-icons right\">arrow_drop_down</i>'
+    var sortOrder = $(event.target).data('value');    
+    var sortOrderText = $(event.target).text();    
+    var newLabel = (sortOrderText + " " + btn);
+    $('.sort-order-label').html(newLabel);
+    Session.set('sortorder', sortOrder);    
   }
 });

@@ -36,24 +36,25 @@ Meteor.methods({
     if(userSignedIn){
       Polls.update(
         { _id: pollId },
-        { $push: 
-          { comments: 
+        { $push:
+          { comments:
             {
               createdAt: new Date().toLocaleString(),
               userId: Meteor.user()._id,
               comment: comment
-            } 
+            }
           }
         })
     }
-      
-      var newComment = new Date();
+
+    var newComment = new Date();
     if(userSignedIn){  
       initialCommentCount = Polls.findOne({_id: pollId}).comments.length
       var $set = {};
+
       $set['commentCount'] = initialCommentCount + 1;            
       Polls.update({ _id: pollId },{
-        $push: { comments: comment },
+        // $push: { comments: comment },
         $set: $set
       })
     }

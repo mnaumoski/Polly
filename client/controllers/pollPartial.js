@@ -11,6 +11,15 @@ Template.pollPartial.events({
     var pollId = event.target.dataset.id
     Meteor.call('dislikePoll', pollId);
   },
+  // "click .choiceButton": function () {
+  //   event.preventDefault();
+
+  //   //Find pollId from parent object
+  //   var pollId = $(this).closest("div.pollClicked").prevObject[0]._id;
+  //   var choiceIndex = $(this).attr("data-id");
+  //   console.log(pollId);
+  //   console.log($(this).attr('data-id'));
+  // },
   "click .voteButton": function () {
     var pollId = event.target.dataset.id;
     // builtPie(pollId);

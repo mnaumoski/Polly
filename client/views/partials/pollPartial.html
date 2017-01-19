@@ -1,97 +1,125 @@
 <template name="pollPartial">
-    <div class="row">
-        <div class="col s12 m6">
-            <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title">{{this.question}}</span>
-                    <p class="pollCreated">
-                        Created by {{this.user.email}} {{this.createdAt}}
-                    </p>
+    <div class="row pollCard">
+        <div class="col s12">
+            <div class="row">
+                <div class="card light-blue darken-4 col s12">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{this.question}}</span>
+                        <p class="pollCreated">
+                            Created by {{user.email}} {{this.createdAt}}
+                        </p>
+                    </div>
                 </div>
-                <!-- If user has NOT voted -->
-                <div class="row">
-                    <div class="choices col s9" style ="background-color:lightblue; width:350px; margin-left:15px; margin-right:20px; font-size: 17px; color:black;">
-                        CHOICES:
-                    </div>
-                    <div class="votes col s3" style = "background-color:lightblue; width:70px; font-size: 17px; color:black;">
-                        VOTES:
-                    </div>
+
+                <!-- If user has NOT voted, show the poll -->
+                <div class="col s4 pollClicked" data-id="{{this._id}}">
                     <form name="{{this._id}}">
                         {{#each choices}}
-                        <div class="choices col s9">
-                            <div class="choiceButton" choice-index="{{@index}}">
-                                <input type="radio" name="allPolls" id="poll" value="{{@index}}" />{{text}}
-                                <br>
-                            </div>
-                        </div>
-                        <div class="votes col s3">
-                            {{votes}}
+                        <div class="choiceButton choices col s9">
+                            <input type="radio" name="allPolls" id="poll" value="{{@index}}" />{{text}}
+                            <!-- <button class="choiceButton btn" data-id="{{@index}}" choice-index="{{@index}}" id="poll">{{text}} -->
+                            <!-- </button> -->
                         </div>
                         {{/each}}
                     </form>
-                </div>
-                <div class="voteButton btn waves-effect waves-light" data-id="{{this._id}}"><i class="material-icons right">send</i>
-                   Vote
+                    <div class="voteButton btn waves-effect waves-light" data-id="{{this._id}}">
+                        <i class="material-icons right">send</i>Vote
+                    </div>
                 </div>
                 <!-- End If user has NOT voted -->
 
                 <!-- If user has voted -->
-                <div class="row">
-                    <div class="col s1 social-buttons">
-                        <a href="https://www.pinterest.com/pin/create/button/">
-                            <img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" />
-                        </a>
-                        <a class="twitter-share-button social-buttons" data-size="" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll">
-                                Tweet</a>
-                        <div class="fb-share-button" 
-                            data-href="http://www.your-domain.com/your-page.html" 
-                            data-layout="button_count">
+                <!-- Pie Chart is called here to render it on the browser -->
+                <div class="col s2">
+                    <div id="{{this._id}}">
+                       {{>pieChart}}
+                    </div>
+                </div>
+                <!-- End If user has voted -->
+                
+                <!-- Comments Section -->
+                <div class="col s6">
+                 <div class="chip orange">Recent Comments</div>
+                    <div class="comment-section">
+                    {{#if comments}}
+                      {{#each this.comments}}
+                        <!-- <span class="commentName">{{userId}}</span> -->
+                        <p class="comment">{{comment}}</p>
+                      {{/each}}
+                      {{else}}
+                      <div class="chip orange">No Recent Comments</div>
+                      {{/if}}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+            <!-- Ranking Icons & Social Media -->
+                <!-- <div class="card-action col s12"> -->
+                <div class="card light-blue darken-4 col s12">
+                    <div class="row">
+                        <div class="col s6 card-content white-text">
+                            <div class="row">
+                                <div class="col s2 btn">
+                                    <a href="https://www.pinterest.com/pin/create/button/">
+                                        <img class="socialMediaIcon" src="https://cdn0.iconfinder.com/data/icons/Pinterest/512/Pinterest_Favicon.png" />
+                                    </a>
+                                </div>
+                                <div class="col s2 btn">
+                                    <a class="twitter-share-button social-buttons" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll">
+                                        <img class="socialMediaIcon" src="https://cdn1.iconfinder.com/data/icons/metro-ui-dock-icon-set--icons-by-dakirby/512/Twitter_alt.png" />
+                                    </a>
+                                </div>
+                                <div class="col s2 btn"> 
+                                   <!-- Load Facebook SDK for JavaScript -->
+                                <div id="fb-root" class="valign"></div>
+                                <script>(function(d, s, id) {
+                                  var js, fjs = d.getElementsByTagName(s)[0];
+                                  if (d.getElementById(id)) return;
+                                  js = d.createElement(s); js.id = id;
+                                  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+                                  fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));</script>
+                                <!-- Your share button code -->
+                                <div class="fb-share-button valign" 
+                                    data-href="http://www.your-domain.com/your-page.html"
+                                    data-layout="button_count">
+                                </div>
+                                </div>
+
+                                <!-- If current user is logged in, show like icons -->
+                                {{#if currentUser}}
+                                    <div class="col s2 btn like-poll" data-id="{{this._id}}">
+                                      <i class="material-icons">arrow_upward </i>({{this.likes}})
+                                    </div>
+                                    <div class="col s2 btn dislike-poll" data-id="{{this._id}}"><i class="material-icons">arrow_downward</i>({{this.dislikes}})
+                                    </div>
+                                {{/if}}
+                                <!-- Show delete button if current user is the creator or Admin-->
+                                {{#if isAdminOrCreator this}}
+                                    <div class="col s2 btn red delete-poll" data-id="{{this._id}}">
+                                      <i class="material-icons">delete</i>
+                                    </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="col s6 submitComment">
+                            <div class="row">
+                                <form class="comment-form" data-poll-id="{{this._id}}">
+                                    <div class="commentInputSection col s9">
+                                        <textarea id="comments" name="comment" placeholder="Write comments here..."></textarea>
+                                    </div>
+                                    <div class="col s3 commentInputSection">
+                                        <button class="btn">Comment</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Pie Chart is called here to render it on the browser -->
-                <div id="{{this._id}}">
-                   {{>pieChart}}
-                </div>
-
-
-                <!-- End If user has voted -->
-
-                <div class="card-action">
-
-                    {{#if isAdminOrCreator this}}
-                        <div class="btn red delete-poll" data-id="{{this._id}}">
-                          <i class="material-icons">delete</i>
-                        </div>
-                    {{/if}}
-
-                    {{#if currentUser}}
-                        <div class="btn like-poll" data-id="{{this._id}}">
-                          <i class="material-icons">arrow_upward</i>
-                        </div>
-                        <div class="btn dislike-poll" data-id="{{this._id}}"><i class="material-icons">arrow_downward</i>
-                        </div>
-                    {{/if}}
-                    <p>{{this.likes}} Likes
-                    </p>
-
-                    <p>{{this.dislikes}} Dislikes
-                    </p>
-                </div>
-                <div class="comment-section">
-              <form class="comment-form" data-poll-id="{{this._id}}">
-                <h3>Comments</h3>
-                <textarea id="comments" name="comment"></textarea>
-                <button>Submit</button>
-              </form>
-            <p>
-              {{#each this.comments}}
-                <p>{{this}}</p>
-              {{/each}}
-            </p>
             </div>
-
         </div>
     </div>
-</div>
+
 </template>
