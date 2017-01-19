@@ -26,7 +26,11 @@ Template.pollPartial.events({
   "click .voteButton": function () {
     // voted=true
     document.getElementById('voteBtn').style.display = "none";
-    // document.getElementsByClassName('choices').style.display = "none";
+    var choices = document.getElementsByClassName('choices')
+
+    for (var i = 0; i < choices.length; i++){
+      choices[i].style.display = "none";
+    }
 
     var pollId = event.target.dataset.id;
     // builtPie(pollId);
