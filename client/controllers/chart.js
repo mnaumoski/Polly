@@ -15,7 +15,7 @@ Template.pollPartial.events({
 
         var divToUpdate = "#" + pollId;
         $(divToUpdate).highcharts({
-            
+            // $('.votebutton').hide();
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
