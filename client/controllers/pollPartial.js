@@ -20,7 +20,18 @@ Template.pollPartial.events({
   //   console.log(pollId);
   //   console.log($(this).attr('data-id'));
   // },
+    // notVoted: function(){
+    //   return true
+    // },
   "click .voteButton": function () {
+    // voted=true
+    document.getElementById('voteBtn').style.display = "none";
+    var choices = document.getElementsByClassName('choices')
+
+    for (var i = 0; i < choices.length; i++){
+      choices[i].style.display = "none";
+    }
+
     var pollId = event.target.dataset.id;
     // builtPie(pollId);
     //JQuery to find value of a specific poll

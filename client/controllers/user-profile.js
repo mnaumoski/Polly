@@ -1,8 +1,10 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+// document.addEventListener("DOMContentLoaded", function(event) {
 
-    var myLineChart = new Chart(ctx, {
-    type: 'line',
-    data: data,
-    options: options
-    });
-});
+//     ctx = $("#myChart").get(0).getContext("2d");
+    
+//     var myLineChart = new Chart(ctx, {
+//       type: 'line',
+//       data: data,
+//       options: options
+//     });
+// });
