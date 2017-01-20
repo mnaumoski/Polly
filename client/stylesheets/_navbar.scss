@@ -1,12 +1,7 @@
 nav {
   margin-bottom: 30px;
 
-
-
 }
-.brand-logo {
-  color: gray !important;
-};
 
 #dropDown {
   color: gray;
@@ -15,4 +10,19 @@ nav {
 
 .no-bullet{
   list-style: none;
+}
+
+.nav, .row {
+  margin-bottom: 0px;
+}
+nav .brand-logo {
+  position: relative;
+}
+
+.polly {
+  margin-left: -250px;
+}
+
+#polly-bkg {
+  background-image: url(image.svg);
 }
