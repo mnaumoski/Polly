@@ -17,10 +17,12 @@
 
                                     {{#if currentUser}}
                                     <li><a href="/sign-out">Sign Out</a></li>
+                                    <li><a>{{> newPoll}}</a></li>
                                     {{else}}
                                     <li><a href="/sign-in">Sign In</a></li>
-                                    <li>{{> newPoll}}</li>
+                                    <li><a href="/sign-up">{{> newPoll}}</a></li>
                                     {{/if}}
+
                                 </ul>
                                 <ul class="side-nav" id="mobile-nav">
                                     {{#if isAdminUser}}
@@ -87,7 +89,7 @@
 
 
 
-  
+  <div class="container-fluid">
 
       <!-- <a href="#top">Polly - Instant Opinion</a></h2>
       <p class="grey-text text-darken-3 lighten-3"> Polly is a fast and fun way to collect and share opinions on just about anything. This app is far easier on eyes and has social and sharing features like Twitter, Facebook and Pinerest. All you need to do is set your question, responses and you can start sharing. Hence entering the world of shared opinions. What's more ....collated responses are shown immediately in the form a chart, so no waiting times here!! </p> -->
@@ -118,20 +120,33 @@
 
 
     <div id="promo" class="row center-align">
-      <h2 class="header">Polly</h2>
+    <br>
+      <h2 class="header"></h2>
         <div class="row">
           <div class="col s4">
-            <i class="material-icons large">perm_identity</i>
+            <i class="material-icons large">face</i>
             <!-- Promo Content 1 goes here -->
-            <p>Type your question into our poll creator, select the kind of poll you want to make, and press “CREATE POLL.” </p>
+            <p><i class="material-icons tiny">thumb_up</i> Easy and safely create a profile</p>
+            <p><i class="material-icons tiny">thumb_up</i> Browse polls posted by others.</p>
+            <p><i class="material-icons tiny">thumb_up</i> Vote and comment on polls and rank each poll.</p>
           </div>
           <div class="col s4">
             <i class="material-icons large">poll</i>
-            <p>You created polls, your audience voted, and now the moment of excitement when you see the real-time live results flash in the form of a Pie Chart.</p>
+            <p>Curious to find out what others are thinking about something?</p>
+            <p>Create your OWN poll to find out! Get the visiual with Polly's colorful pie charts.</p>
+
           </div>
+          <div class="col s4">
+            <i class="material-icons large">share</i>
+            <p>Share it on Twitter, Facebook, and Pinterest.</p>
+
+          </div>
+
       
         </div>
     </div>
+    </div>
+
 
 
 </template>
