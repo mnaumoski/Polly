@@ -24,8 +24,9 @@ Template.pollPartial.events({
     //   return true
     // },
   "click .voteButton": function () {
-    // voted=true
+    
     document.getElementById('voteBtn').style.display = "none";
+    
     var choices = document.getElementsByClassName('choices')
 
     for (var i = 0; i < choices.length; i++){
