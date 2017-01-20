@@ -8,8 +8,6 @@ $primary-color: color("light-blue", "darken-4");
 @import "./stylesheets/_polls.scss";
 @import "./stylesheets/_user-profile.scss";
 
-
-
 .full-w {
   width: 100%;
 }
@@ -51,12 +49,7 @@ $primary-color: color("light-blue", "darken-4");
 }
 .parallax {
 }
-.nav, .row {
-  margin-bottom: 0px;
-}
-nav .brand-logo {
-  position: relative;
-}
+
 .pollCard {
   border: 1px solid black;
   /* margin-top:100px; */
@@ -111,14 +104,7 @@ html {
     font-family: GillSans, Calibri, Trebuchet, sans-serif;
   }
 
-.polly {
-  margin-left: -100px;
-}
 
-
-#polly-bkg {
-  background-image: url(image.svg);
-}
 main {
   background-color: #fff59d;
 }
