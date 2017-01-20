@@ -5,11 +5,12 @@ Template.newPoll.events({
   },
   "click #preview": function(event){
     //display publish button & preview window
+    $('#previewPoll').empty()
     $('#publish').removeClass('hide');
     $('#previewPoll').removeClass('hide');
 
     //Pull preview data
-    const questionText = $('questionText').val();
+    const questionTextValue = $('#questionText').val();
     const choiceText = $('textarea#choiceInput').val();
 
    var choiceArray = choiceText.split('\n');
@@ -22,57 +23,57 @@ Template.newPoll.events({
 
     var timestamp = new Date();
 
-    //Build up the element structure of the poll
-    var parentDiv = $("<div>");
-    parentDiv.addClass('card');
-    parentDiv.addClass('blue-grey');
-    parentDiv.addClass('darken-1');
+    //Build up the element structure of the poll header
+    var parentDiv1 = $('<div />', {class: 'row pollCard' });
+    var parentDiv2 = $('<div />', {class: 'col s12' });
+    var parentDiv3 = $('<div />', {class: 'row' });
 
-    var childDiv = $("<div>");
-    childDiv.addClass('card-content');
-    childDiv.addClass('white-text');
 
-    var childSpan = $("<span>");
-    childSpan.addClass('card-title');
-    childSpan.html(questionText);
-
-    var creator = $('<p>');
-    creator.addClass('pollCreated')
+    var parentDiv = $('<div />', {class: 'card light-blue darken-4 col s12' })
+    var childDiv = $('<div />', {class: "card-content white-text"})
+    var childSpan = $('<span />', {class: 'card-title'});
+    childSpan.html(questionTextValue);
+    var creator = $('<p />', {class: 'pollCreated'});
     creator.html('Created by username ' + timestamp);
 
-
-    childSpan.append(creator);
+    // Merge elements for question text & author
     childDiv.append(childSpan);
+    childDiv.append(creator);
     parentDiv.append(childDiv);
+    parentDiv3.append(parentDiv);
+    parentDiv2.append(parentDiv3);
+    parentDiv1.append(parentDiv2);
 
 
-    var choicesDiv = $('<div>');
+    var allChoicesDiv = $('<div>', {class: 'col s4 pollClicked'});
 
     //Create buttons per choice
-    for (i=0; i <choiceArray; i++) {
-      var tempDiv = $('<div>');
-          tempDiv.addClass('choicebutton');
-          tempDiv.addClass('choices')
+    for (i=0; i <choiceArray.length; i++) {
+      //Create div to contain the choices
+      
+      var singleChoiceDiv = $('<div>', {class: 'choiceButton choices col s9'});
 
-      var tempInput = $('<input>');
-      var tempInput = $("<input type=\"radio\" name=\"allPolls\" id=\"poll\"/>");
-          tempInput.append(choiceArray[i]);
-          console.log(choiceArray[i]);
+      var InputTypeDiv = $('<input>');
+      var InputTypeDiv = $("<input type=\"radio\" name=\"allPolls\" id=\"poll\"/>");
 
-      tempDiv.append(tempInput);
-      choicesDiv.append(tempDiv);
+      singleChoiceDiv.append(InputTypeDiv);
+      singleChoiceDiv.append(choiceArray[i]);
+      allChoicesDiv.append(singleChoiceDiv);
+      
     }
 
+    // parentDiv1.append(allChoicesDiv);
+
+    //Insert Vote Button
+    var voteButton = $('<div>', {class: 'voteButton btn waves-effect waves-light'});
+    voteButton.append("<i class='material-icons right'>send</i>Vote");
+    allChoicesDiv.append(voteButton);
+
+    parentDiv1.append(allChoicesDiv);
+
     //Insert poll to preview
+    $('#previewPoll').append(parentDiv1);
 
-    $('#previewPoll').append(parentDiv);
-    $('#previewPoll').append(choicesDiv);
-
-    //Insert user & date
-    // var timestamp = new Date();
-    // $('.pollCreated').append('Created by username ' + timestamp);
-
-    // $('#previewPoll').append(pollForPreview);
   },
   "submit form": function(event){
     // Prevent default browser form submit
