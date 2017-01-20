@@ -1,0 +1,91 @@
+<template name="userdashboard">
+  
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="circle">
+          <div class="col s12 l10">
+            <div class="card-panel grey lighten-5 z-depth-1">
+              <div class="row valign-wrapper">
+                <div class="col m2">
+                  <img src="/images/selfie1.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                </div>
+                <br>
+                <br>
+                <div class="col s10">
+                  <span class="black-text">
+                  <h3>Welcome!</h3>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum tempor sem, nec congue metus dapibus in.
+                  </span>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <br>
+              <!-- chart -->
+    <div class="row">
+        <div class="col s10">
+          <div class="second-card">
+            <div class="card-panel white z-depth-1">
+              <span class="black-text">
+                <canvas id="myChart" width="400" height="400"></canvas>             
+              </span>
+            </div>
+          </div>
+         <!-- <div class="col xs4">
+          <div class="third-card">
+            <div class="card-panel white z-depth-1">
+              <span class="black-text">Sed posuere id quam in auctor. Maecenas vitae consectetur libero. Suspendisse neque justo, imperdiet et efficitur vel, aliquet at tortor. Phasellus mollis rhoncus nisl, ac fringilla risus consectetur et. Nullam id felis fringilla, fringilla ante in, dapibus ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum tempor sem, nec congue metus dapibus in. Donec eleifend libero sit amet lacus ultricies scelerisque. Vivamus feugiat orci id odio pellentesque, eu finibus leo accumsan. Proin mattis diam odio, quis tincidunt massa eleifend in. Nulla non euismod odio. Nulla rhoncus risus ut enim cursus interdum. Vivamus accumsan laoreet velit ut lobortis. Duis vitae iaculis risus.
+              </span>
+            </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+<!-- <script src="/user-profile.js"></script>   -->
+<script>
+  $( document ).ready(function() {
+    var ctx = $("#myChart").get(0).getContext("2d");
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+  });
+</script>
+</template>
+
