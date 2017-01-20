@@ -44,12 +44,6 @@ $primary-color: color("light-blue", "darken-4");
   line-height: normal;
 }
 
-.parallax-container {
-      height: 600px;
-}
-.parallax {
-}
-
 .pollCard {
   border: 1px solid black;
   /* margin-top:100px; */
@@ -119,4 +113,8 @@ html {
 
 #promo {
   background-color: #b2ebf2;
+}
+
+nav {
+  background-color: #b2f2c3;
 }
