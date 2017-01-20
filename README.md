@@ -18,10 +18,6 @@ All data persists.
 
 ####Resourses
 - SVGs from https://www.vecteezy.com
-
-*Meteor packages*
-maazalik:highcharts used to get the Pie Chart.
-webtempest:animate used to install the animation component app.
-zimme:active-route 
-arillo:flow-router-helpers Template helpers for flow-router
-kadira:flow-router 
+*Meteor packages* 
+- maazalik:highcharts used to get the pie chart
+- webtempest:animate used to install the animation component app.
