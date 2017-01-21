@@ -11,6 +11,7 @@
                   <img src="/images/selfie1.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
                 </div>
                 <br>
+                <br>
                 <div class="col s10">
                   <span class="black-text">
                   <h3>Welcome!</h3>
@@ -23,11 +24,31 @@
       </div>
     </div>
     <br>
+              <!-- chart -->
     <div class="row">
-        <div class="col xs4">
-          <div class="second-card">
-            <div class="card-panel white z-depth-1">
-              <span class="black-text">Sed posuere id quam in auctor. Maecenas vitae consectetur libero. Suspendisse neque justo, imperdiet et efficitur vel, aliquet at tortor. Phasellus mollis rhoncus nisl, ac fringilla risus consectetur et. Nullam id felis fringilla, fringilla ante in, dapibus ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum tempor sem, nec congue metus dapibus in. Donec eleifend libero sit amet lacus ultricies scelerisque. Vivamus feugiat orci id odio pellentesque, eu finibus leo accumsan. Proin mattis diam odio, quis tincidunt massa eleifend in. Nulla non euismod odio. Nulla rhoncus risus ut enim cursus interdum. Vivamus accumsan laoreet velit ut lobortis. Duis vitae iaculis risus.
+        <div class="col s10">
+          <div class="card-panel white">
+            <div class="ct-chart ct-perfect-fourth"></div>
+
+            <div class="ct-chart"></div>
+                <script>
+                   // THIS IS WHERE THE ERROR OCCURS
+                   new Chartist.Line('.ct-chart', {
+                   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                   series: [
+                             [2, 3, 2, 4, 5],
+                             [0, 2.5, 3, 2, 3],
+                             [1, 2, 2.5, 3.5, 4]
+                           ]
+                    }, {
+                      width: 550,
+                      height: 500
+                   });
+
+              </script>
+<!--           <div class="second-card">
+              <span class="black-text">
+                <canvas id="myChart" width="400" height="400"></canvas>
               </span>
             </div>
           </div>
@@ -37,11 +58,10 @@
               <span class="black-text">Sed posuere id quam in auctor. Maecenas vitae consectetur libero. Suspendisse neque justo, imperdiet et efficitur vel, aliquet at tortor. Phasellus mollis rhoncus nisl, ac fringilla risus consectetur et. Nullam id felis fringilla, fringilla ante in, dapibus ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum tempor sem, nec congue metus dapibus in. Donec eleifend libero sit amet lacus ultricies scelerisque. Vivamus feugiat orci id odio pellentesque, eu finibus leo accumsan. Proin mattis diam odio, quis tincidunt massa eleifend in. Nulla non euismod odio. Nulla rhoncus risus ut enim cursus interdum. Vivamus accumsan laoreet velit ut lobortis. Duis vitae iaculis risus.
               </span>
             </div>
-        </div>
+        </div>-->
       </div>
     </div>
   </div>
-</div>
-
+ </div>
 </template>
 

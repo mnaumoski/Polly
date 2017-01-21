@@ -20,7 +20,17 @@ Template.pollPartial.events({
     $( ".like-poll" ).prop( "disabled", true );
     $( ".dislike-poll" ).prop( "disabled", true );
   },
+
   "click .voteButton": function () {
+    
+    document.getElementById('voteBtn').style.display = "none";
+    
+    var choices = document.getElementsByClassName('choices')
+
+    for (var i = 0; i < choices.length; i++){
+      choices[i].style.display = "none";
+    }
+
     var pollId = event.target.dataset.id;
     // builtPie(pollId);
     //JQuery to find value of a specific poll

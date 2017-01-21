@@ -1,0 +1,152 @@
+<template name="landing">
+<div class="navbar-fixed">
+        <nav>
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 l12">
+                        <div class="nav-wrapper">
+                            <div class="row">
+                                <div class="col l4 s4">
+                                    <a href="#" class=""><img class="responsive-img" style="max-width: 30%;" src="pollyfin.svg" /></a>
+                                </div>
+                                <div class="col l8 s8">
+                                <ul class="right hide-on-med-and-down">
+                                    {{#if isAdminUser}}
+                                    <li><a href="/usermgmt">User Management</a></li>
+                                    {{/if}} 
+
+                                    {{#if currentUser}}
+                                    <li><a href="/sign-out">Sign Out</a></li>
+                                    <li><a>{{> newPoll}}</a></li>
+                                    {{else}}
+                                    <li><a href="/sign-in">Sign In</a></li>
+                                    <li><a href="/sign-up">{{> newPoll}}</a></li>
+                                    {{/if}}
+
+                                </ul>
+                                <ul class="side-nav" id="mobile-nav">
+                                    {{#if isAdminUser}}
+                                    <li><a href="/usermgmt">User Management</a></li>
+                                    {{/if}} 
+                                    {{#if currentUser}}
+                                    <li><a href="/sign-out">Sign Out</a></li>
+                                    {{else}}
+                                    <li><a href="/sign-in">Sign In</a></li>
+                                    {{/if}}
+                                </ul>
+                                </div>
+                            </div>
+                            <!-- end of row -->
+                        </div>
+                        <!-- end of nav wrapper -->
+                    </div>
+                    <!-- end of col s12 -->
+                </div>
+                <!-- end of the first row -->
+            </div>
+            <!-- end of container -->
+        </nav>
+    </div>
+<div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="polly.png"> <!-- random image -->
+        <div class="caption center-align">
+          <h3 class="black-text">This is Polly</h3>
+          <h5 class="black-text">Fast and easy polling app!</h5>
+        </div>
+      </li>
+      <li>
+        <img style="opacity:.5;" src="bubble.png"> <!-- random image -->
+        <div class="caption left-align">
+          <h3 class="black-text">In a world where everyone has an opinion about everything</h3>
+          <h5 class="black-text"></h5>
+        </div>
+      </li>
+      <li>
+        <img src="electronic.png"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="social.png"> <!-- random image -->
+        <div class="caption right-align">
+          <h3 class="black-text">Polly is a fast and fun way to collect and share opinions on just about anything.</h3>
+          <h5 class="black-text">All you need to do is set your question, responses and you can start sharing.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="opinion.png"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+
+  <div class="container-fluid">
+
+      <!-- <a href="#top">Polly - Instant Opinion</a></h2>
+      <p class="grey-text text-darken-3 lighten-3">  This app is far easier on eyes and has social and sharing features like Twitter, Facebook and Pinerest.  Hence entering the world of shared opinions. What's more ....collated responses are shown immediately in the form a chart, so no waiting times here!! </p> -->
+
+      <!-- <a href="polllist" class="waves-effect waves-light btn">See Polls</a>
+                <ul class="right hide-on-med-and-down">
+                  {{#if isAdminUser}}
+                    <li><a href="/usermgmt">User Management</a></li>
+                  {{/if}}
+                  {{#if currentUser}}
+                    <li><a class="red darken-2 btn" href="/sign-out">Sign Out</a></li>
+                  {{else}}
+                    <li><a class="red darken-2 btn" href="/sign-in">Sign In or Register</a></li>
+                  {{/if}}
+                </ul>
+                <ul class="side-nav" id="mobile-nav">
+                  {{#if isAdminUser}}
+                    <li><a href="/usermgmt">User Management</a></li>
+                  {{/if}}
+                  {{#if currentUser}}
+                    <li><a href="/sign-out">Sign Out</a></li>
+                  {{else}}
+                    <li><a href="/sign-in">Sign In</a></li>
+                  {{/if}}
+                </ul> -->
+
+
+
+
+    <div id="promo" class="row center-align">
+    <br>
+      <h2 class="header"></h2>
+        <div class="row">
+          <div class="col s4">
+            <i class="material-icons large">face</i>
+            <!-- Promo Content 1 goes here -->
+            <p><i class="material-icons tiny">thumb_up</i> Easy and safely create a profile</p>
+            <p><i class="material-icons tiny">thumb_up</i> Browse polls posted by others.</p>
+            <p><i class="material-icons tiny">thumb_up</i> Vote and comment on polls and rank each poll.</p>
+          </div>
+          <div class="col s4">
+            <i class="material-icons large">poll</i>
+            <p>Curious to find out what others are thinking about something?</p>
+            <p>Create your OWN poll to find out! Get the visiual with Polly's colorful pie charts.</p>
+
+          </div>
+          <div class="col s4">
+            <i class="material-icons large">share</i>
+            <p>Share it on Twitter, Facebook, and Pinterest.</p>
+
+          </div>
+
+      
+        </div>
+    </div>
+    </div>
+
+
+
+</template>

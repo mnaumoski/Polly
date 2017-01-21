@@ -3,6 +3,8 @@
 //  all the chart logic goes here:
 Template.pollPartial.events({
   "click .voteButton": function () {
+    // document.getElementById('voteBtn').style.display = "none";
+    
     var pollId = event.target.dataset.id;
     console.log('chart function ' + pollId);
         // 'external' data
@@ -15,7 +17,7 @@ Template.pollPartial.events({
 
         var divToUpdate = "#" + pollId;
         $(divToUpdate).highcharts({
-            
+            // $('.votebutton').hide();
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
