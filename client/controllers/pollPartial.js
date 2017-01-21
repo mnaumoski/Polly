@@ -23,23 +23,29 @@ Template.pollPartial.events({
 
   "click .voteButton": function () {
     
-    document.getElementById('voteBtn').style.display = "none";
+    // document.getElementById('voteBtn').style.display = "none";
     
-    var choices = document.getElementsByClassName('choices')
+    // var choices = document.getElementsByClassName('choices')
 
-    for (var i = 0; i < choices.length; i++){
-      choices[i].style.display = "none";
-    }
+    // for (var i = 0; i < choices.length; i++){
+    //   choices[i].style.display = "none";
+    // }
 
     var pollId = event.target.dataset.id;
     // builtPie(pollId);
     //JQuery to find value of a specific poll
     //$('form[name="qBbppoQpCPLFwNCkM"]').find('input:radio[id=poll]:checked').val();
-    var formToLookup = "form[name=" + pollId + "]";
-    var indexId = $(formToLookup).find('input:radio[id=poll]:checked').val();
-    console.log("Vote Button Clicked | castVote is " + pollId + " | + indexID is " + indexId);
 
-    Meteor.call('addVote', pollId, indexId);
+    //Find form using pollId
+    var formToLookup = "form[name=" + pollId + "]";
+    //Find vote index for processing
+    var indexId = $(formToLookup).find('input:radio[id=poll]:checked').val();
+
+    // console.log("Vote Button Clicked | castVote is " + pollId + " | + indexID is " + indexId);
+
+    currentUserId = Meteor.userId();
+
+    Meteor.call('addVote', pollId, indexId, currentUserId);
   },
   "submit .comment-form": function(event){
     event.preventDefault();
