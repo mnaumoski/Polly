@@ -130,3 +130,11 @@ color: #424242;
 nav {
   background-color: #b2f2c3;
 }
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #000000;
+    opacity: .9 !important;
+    font-size: 20px;
+}
+.questionMessage .choiceMessage {
+  color: 'red';
+}
