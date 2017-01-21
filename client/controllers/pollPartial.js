@@ -6,20 +6,20 @@ Template.pollPartial.events({
   "click .like-poll": function () {
     var pollId = event.target.dataset.id
     Meteor.call('likePoll', pollId);
+    // $('.like-poll').off().on('click', function(){
+    $('.like-poll').addClass('disabled');
+    $('.dislike-poll').addClass('disabled');
+    $( ".like-poll" ).prop( "disabled", true );
+    $( ".dislike-poll" ).prop( "disabled", true );
   },
   "click .dislike-poll": function () {
     var pollId = event.target.dataset.id
     Meteor.call('dislikePoll', pollId);
+    $('.like-poll').addClass('disabled');
+    $('.dislike-poll').addClass('disabled');
+    $( ".like-poll" ).prop( "disabled", true );
+    $( ".dislike-poll" ).prop( "disabled", true );
   },
-  // "click .choiceButton": function () {
-  //   event.preventDefault();
-
-  //   //Find pollId from parent object
-  //   var pollId = $(this).closest("div.pollClicked").prevObject[0]._id;
-  //   var choiceIndex = $(this).attr("data-id");
-  //   console.log(pollId);
-  //   console.log($(this).attr('data-id'));
-  // },
   "click .voteButton": function () {
     var pollId = event.target.dataset.id;
     // builtPie(pollId);
