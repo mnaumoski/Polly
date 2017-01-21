@@ -6,13 +6,37 @@ Template.pollList.helpers({
     filter.sort[sortBy] = Session.get('sortorder');
     var categories = ['likes', 'dislikes', 'createdAt', 'commentCount']    
     var inArray = categories.indexOf(sortBy) > -1
-    if(!inArray){      
-      return Polls.find({}, {sort: {createdAt: 1} });
-    } else {     
+    // if(!inArray){      
+    //   //below line works to return polls, may still be needed
+    //   var data = Polls.find({}, {sort: {createdAt: 1} });
+    //   console.log(data);
+    //   return data;
+
+    //   // var tempPollObject = Polls.find({}, {sort: {createdAt: 1} });
+    //   // console.log(tempPollObject.collection._docs._map);
+    // } else {     
       console.log("in array"); 
-      return Polls.find({}, filter);
-    }        
-  }
+      // return Polls.find({}, filter); //Straight up filter return
+
+      var tempPollArray = [];
+
+      //iterate through each poll's object individually to check usersVoted 
+      var tempPollObject = Polls.find({}, filter).forEach(function(data) {
+
+       var userId = Meteor.user()._id;
+
+       for (var i=0; i<data.usersVoted.length; i++) {
+
+         if (userId == data.usersVoted[i]) {
+           data.usersVoteStatus = "yes"; 
+         }
+       }
+       tempPollArray.push(data);
+      });
+
+      console.log(tempPollArray);
+      return tempPollArray;
+  },
 
 });
 
