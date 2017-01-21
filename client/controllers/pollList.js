@@ -28,7 +28,7 @@ Template.pollList.helpers({
        for (var i=0; i<data.usersVoted.length; i++) {
 
          if (userId == data.usersVoted[i]) {
-           data.usersVoteStatus = "yes"; 
+           data.usersVoteStatus = true; 
          }
        }
        tempPollArray.push(data);
