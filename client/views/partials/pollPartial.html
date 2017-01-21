@@ -12,8 +12,18 @@
 
                     </div>
                 </div>
-
-                <!-- If user has NOT voted, show the poll -->
+                {{#if usersVoteStatus}}
+                                <!-- Pie Chart is called here to render it on the browser -->
+                <div class="col s3">
+                    <div id="{{this._id}}">
+                       {{>pieChart}}
+                    </div>
+                </div>
+                <!-- End If user has voted -->
+               
+                {{else}}
+                <!-- If user has voted -->
+                 <!-- If user has NOT voted, show the poll -->
                 <div class="col s4 pollClicked" data-id="{{this._id}}">
                     <form name="{{this._id}}">
                         {{#each choices}}
@@ -30,16 +40,8 @@
                     </div>
                 </div>
                 <!-- End If user has NOT voted -->
-
-                <!-- If user has voted -->
-                <!-- Pie Chart is called here to render it on the browser -->
-                <div class="col s3">
-                    <div id="{{this._id}}">
-                       {{>pieChart}}
-                    </div>
-                </div>
-                <!-- End If user has voted -->
-
+                {{/if}
+              
                 <!-- Comments Section -->
                 <div class="col s5">
                     <div class="comment-section">

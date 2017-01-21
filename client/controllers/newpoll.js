@@ -4,22 +4,43 @@ Template.newPoll.events({
     });
   },
   "click #preview": function(event){
-    //display publish button & preview window
-    $('#previewPoll').empty()
-    $('#publish').removeClass('hide');
-    $('#previewPoll').removeClass('hide');
 
     //Pull preview data
     const questionTextValue = $('#questionText').val();
-    const choiceText = $('textarea#choiceInput').val();
+    
+    //Check for valid question text
+    if (questionTextValue == "") {
+      $('.questionMessage').html("Insert question text!");
+      $('#publish').addClass('hide');
+      $('#previewPoll').addClass('hide');
+      return;
+    }
 
-   var choiceArray = choiceText.split('\n');
+    const choiceText = $('textarea#choiceInput').val();
+    var choiceArray = choiceText.split('\n');
 
     //Create an array of choices
     var choicesToAdd = [];
     for (i=0; i<choiceArray.length; i++) {
-      choicesToAdd.push(choiceArray[i]);
+      if (choiceArray[i] !== "") {
+        choicesToAdd.push(choiceArray[i]);
+      }
     }
+
+    //Check for valid choices
+    if (choicesToAdd.length < 2) {
+      $('.choiceMessage').html("Insert at least 2 choices!");
+      $('#publish').addClass('hide');
+      $('#previewPoll').addClass('hide');
+      return;
+    }
+
+
+
+    //display publish button & preview window
+    $('#previewPoll').empty()
+    $('#publish').removeClass('hide');
+    $('#previewPoll').removeClass('hide');
 
     var timestamp = new Date();
 
@@ -48,7 +69,7 @@ Template.newPoll.events({
     var allChoicesDiv = $('<div>', {class: 'col s4 pollClicked'});
 
     //Create buttons per choice
-    for (i=0; i <choiceArray.length; i++) {
+    for (i=0; i <choicesToAdd.length; i++) {
       //Create div to contain the choices
       
       var singleChoiceDiv = $('<div>', {class: 'choiceButton choices col s9'});
@@ -57,7 +78,7 @@ Template.newPoll.events({
       var InputTypeDiv = $("<input type=\"radio\" name=\"allPolls\" id=\"poll\"/>");
 
       singleChoiceDiv.append(InputTypeDiv);
-      singleChoiceDiv.append(choiceArray[i]);
+      singleChoiceDiv.append(choicesToAdd[i]);
       allChoicesDiv.append(singleChoiceDiv);
       
     }
