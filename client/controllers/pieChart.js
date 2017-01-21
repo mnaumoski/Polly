@@ -1,11 +1,12 @@
 // meteor add maazalik:highcharts : This package was used to get the Pie Chart.
 
 //  all the chart logic goes here:
-Template.pollPartial.events({
-  "click .voteButton": function () {
+Template.pieChart.helpers({
+    'renderChart': function() {
     // document.getElementById('voteBtn').style.display = "none";
     
     var pollId = event.target.dataset.id;
+
     console.log('chart function ' + pollId);
         // 'external' data
         var data = new Array();
@@ -53,6 +54,11 @@ Template.pollPartial.events({
                 data: data
             }]
         });
+    
+
+
+    var temp = [{"test": "testing"}];
+    return temp;
     }
 })
 
