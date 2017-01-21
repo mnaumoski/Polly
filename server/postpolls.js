@@ -18,6 +18,7 @@ Meteor.methods({
       dislikes: 0,
       expiration: expirationDate,
       usersVoted: [],
+      usersLiked: [],
       user: {
         _id: Meteor.user()._id,
         email: Meteor.user().emails[0].address
