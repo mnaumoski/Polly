@@ -17,6 +17,7 @@ All data persists.
 - Materializecss + Blaze
 
 ####Resourses
-- SVG from https://www.vecteezy.com
-- Meteor package: maazalik:highcharts used to get the Pie Chart.
-- Meteor package: webtempest:animate used to install the animation component app.
+- SVGs from https://www.vecteezy.com
+*Meteor packages* 
+- maazalik:highcharts used to get the pie chart
+- webtempest:animate used to install the animation component app.

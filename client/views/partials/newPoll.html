@@ -1,47 +1,36 @@
 <template name="newPoll">
-    {{#if currentUser}}
         {{#animate type="jello" delay="200"}}
-            <button data-target="modal1" class="btn waves-effect waves-light btn" id="modalTrigger"> Create Poll</button>
+            <button data-target="modal1" class="waves-effect waves-light btn blue darken-2" id="modalTrigger">Create Poll</button>
         {{/animate}}
-        
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <h4>Create a Poll</h4>
                 <hr>
-                <div class="row">
+                <div class="row loseNavInheritance">
                     <div class="col s6">
                         <form name="submitForm">
-                            Question:
-                            <input type="textbox" name="questionText" style="width:300px;" required>
-                            <Br/>Choices:
-                            <textarea id="choiceInput" name="choiceText" rows=10 style="height:200px;width:300px;" required></textarea>
 
-                            <!-- <input type="submit" name="submitForm" class="submit-form" value="Submit"> -->
-                        <button class="btn btn-success js-add-comment" type="button" id="preview">Preview</button>
-                        <button class="btn btn-success js-add-comment modal-close hide" type="submit" id="publish">Publish</button>
+                            <div class="input-field">
+                                <div class="questionMessage"></div>
+                                <input placeholder="Question Text" class="validate" type="text" id="questionText" style="width:300px;" required>
+                                <label for="questionText"></label>
+                            </div>
+                            <div class="input-field">
+                                <div class="choiceMessage"></div>
+                                <textarea placeholder="Choice Text - seperate choices with line breaks" class="materialize-textarea" id="choiceInput" name="choiceText" rows=10 style="width:300px;" required></textarea>
+                                <label for="choiceInput"></label>
+                            </div>
+
+                            <button class="btn btn-success js-add-comment" type="button" id="preview">Preview</button>
+                            <button class="btn btn-success js-add-comment modal-close hide" type="submit" id="publish">Publish</button>
                         </form>
                         
                         
                     </div>
                     <div class="col s6 hide" id="previewPoll">
-<!--                         <div class="card blue-grey darken-1">
-                            <div class="card-content white-text">
-                                <span class="card-title"></span>
-                                <p class="pollCreated">
-                                    
-                                </p>
-                            </div>
-                        </div> -->
-<!--                         <div class="choiceButton choices">
-                            <input type="radio" name="allPolls" id="poll"/>Choice Text
-                        </div> -->
-<!--                         <div class="voteButton btn waves-effect waves-light">
-                            <i class="material-icons right">send</i>Vote
-                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
-    {{/if}}
 </template>

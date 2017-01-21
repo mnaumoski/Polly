@@ -5,11 +5,8 @@ $primary-color: color("light-blue", "darken-4");
 @import "./stylesheets/_loading.scss";
 @import "./stylesheets/_navbar.scss";
 @import "./stylesheets/_camera.scss";
-@import "./stylesheets/_polls.scss
+@import "./stylesheets/_polls.scss;
 @import "./stylesheets/_user-profile.scss";
-
-
-
 
 .full-w {
   width: 100%;
@@ -47,20 +44,9 @@ $primary-color: color("light-blue", "darken-4");
   line-height: normal;
 }
 
-.parallax-container {
-      height: 600px;
-}
-.parallax {
-}
-.nav, .row {
-  margin-bottom: 0px;
-}
-nav .brand-logo {
-  position: relative;
-}
 .pollCard {
   border: 1px solid black;
-  margin-top:100px;
+  /* margin-top:100px; */
   background-color: #81c784;
 }
 .card {
@@ -109,18 +95,45 @@ nav .brand-logo {
   display: visible;
 }
 html {
+font-family: 'Passion One', cursive;
+    
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Shrikhand', cursive;
+    font-family: 'Chewy', cursive;
     font-family: GillSans, Calibri, Trebuchet, sans-serif;
+    
+    
   }
 
-.polly {
-  margin-left: -100px;
+.loseNavInheritance {
+  line-height: 20px;
 }
 
-
-#polly-bkg {
-  background-image: url(image.svg);
+.slider .slides li img {
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat-x;
+    background-color: white;
+    
 }
-main {
-  background-color: #fff59d;
+
+#promo {
+font-family: 'Chewy', cursive;
+font-size: 20px;
+color: #424242;
+    
 }
 
+nav {
+  background-color: #b2f2c3;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #000000;
+    opacity: .9 !important;
+    font-size: 20px;
+}
+.questionMessage .choiceMessage {
+  color: 'red';
+}
