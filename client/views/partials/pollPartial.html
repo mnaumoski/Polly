@@ -8,7 +8,8 @@
                         <p class="pollCreated">
                             Created by {{user.email}} {{this.createdAt}}
                         </p>
-                        <a href="{{pathFor '/poll/:id' id=_id}}">Link to the Poll Here</a>
+                        <a href="{{urlFor route="poll"}}">Link to the Poll Here</a>
+
                     </div>
                 </div>
 
@@ -38,19 +39,19 @@
                     </div>
                 </div>
                 <!-- End If user has voted -->
-                
+
                 <!-- Comments Section -->
                 <div class="col s5">
-                 <div class="chip orange">Recent Comments</div>
                     <div class="comment-section">
-                    {{#if comments}}
-                      {{#each this.comments}}
+                    {{#unless comments}}
+                      <div class="chip orange">No Recent Comments</div>
+                      {{else}}
+                      <div class="chip orange">Recent Comments</div>
+                      {{#each comments}}
                         <!-- <span class="commentName">{{userId}}</span> -->
                         <p class="comment">{{comment}}</p>
                       {{/each}}
-                      {{else}}
-                      <div class="chip orange">No Recent Comments</div>
-                      {{/if}}
+                      {{/unless}}
                     </div>
                 </div>
             </div>
@@ -85,7 +86,7 @@
                                 }(document, 'script', 'facebook-jssdk'));</script>
                                 <!-- Your share button code -->
                                 <div class="fb-share-button valign" 
-                                    data-href="http://www.your-domain.com/your-page.html"
+                                    data-href="/polls/{{this._id}}"
                                     data-layout="button_count">
                                 </div>
                                 </div>
