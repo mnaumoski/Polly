@@ -45,12 +45,6 @@ $primary-color: color("light-blue", "darken-4");
   line-height: normal;
 }
 
-.parallax-container {
-      height: 600px;
-}
-.parallax {
-}
-
 .pollCard {
   border: 1px solid black;
   /* margin-top:100px; */
@@ -105,11 +99,23 @@ html {
     font-family: GillSans, Calibri, Trebuchet, sans-serif;
   }
 
-
-main {
-  background-color: #fff59d;
-}
-
 .loseNavInheritance {
   line-height: 20px;
+}
+
+.slider .slides li img {
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat-x;
+    background-color: white;
+}
+
+#promo {
+  background-color: #b2ebf2;
+}
+
+nav {
+  background-color: #b2f2c3;
 }

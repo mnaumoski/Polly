@@ -38,3 +38,5 @@ webtempest:animate
 tsega:skrollr
 zimme:collection-timestampable
 chart:chart
+arillo:flow-router-helpers
+kadira:flow-router

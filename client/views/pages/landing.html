@@ -1,17 +1,100 @@
 <template name="landing">
-  <div class="parallax-container">
-    <div class="parallax"><img src ="/images/img1.jpg"></div>
+<div class="navbar-fixed">
+        <nav>
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 l12">
+                        <div class="nav-wrapper">
+                            <div class="row">
+                                <div class="col l4 s4">
+                                    <a href="#" class=""><img class="responsive-img" style="max-width: 30%;" src="pollyfin.svg" /></a>
+                                </div>
+                                <div class="col l8 s8">
+                                <ul class="right hide-on-med-and-down">
+                                    {{#if isAdminUser}}
+                                    <li><a href="/usermgmt">User Management</a></li>
+                                    {{/if}} 
+
+                                    {{#if currentUser}}
+                                    <li><a href="/sign-out">Sign Out</a></li>
+                                    <li><a>{{> newPoll}}</a></li>
+                                    {{else}}
+                                    <li><a href="/sign-in">Sign In</a></li>
+                                    <li><a href="/sign-up">{{> newPoll}}</a></li>
+                                    {{/if}}
+
+                                </ul>
+                                <ul class="side-nav" id="mobile-nav">
+                                    {{#if isAdminUser}}
+                                    <li><a href="/usermgmt">User Management</a></li>
+                                    {{/if}} 
+                                    {{#if currentUser}}
+                                    <li><a href="/sign-out">Sign Out</a></li>
+                                    {{else}}
+                                    <li><a href="/sign-in">Sign In</a></li>
+                                    {{/if}}
+                                </ul>
+                                </div>
+                            </div>
+                            <!-- end of row -->
+                        </div>
+                        <!-- end of nav wrapper -->
+                    </div>
+                    <!-- end of col s12 -->
+                </div>
+                <!-- end of the first row -->
+            </div>
+            <!-- end of container -->
+        </nav>
+    </div>
+<div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="polly.png"> <!-- random image -->
+        <div class="caption center-align">
+          <h3 class="black-text">This is Polly</h3>
+          <h5 class="black-text">Fast and easy polling app!</h5>
+        </div>
+      </li>
+      <li>
+        <img style="opacity:.5;" src="bubble.png"> <!-- random image -->
+        <div class="caption left-align">
+          <h3 class="black-text">In a world where everyone has an opinion about everything</h3>
+          <h5 class="black-text"></h5>
+        </div>
+      </li>
+      <li>
+        <img src="electronic.png"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="social.png"> <!-- random image -->
+        <div class="caption right-align">
+          <h3 class="black-text">Polly is a fast and fun way to collect and share opinions on just about anything.</h3>
+          <h5 class="black-text">All you need to do is set your question, responses and you can start sharing.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="opinion.png"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
   </div>
-  
 
-  <div class="section white">
-    <div class="row container">
-      <h2 class="header">
 
-      <a href="#top">Polly -Instant Opinion</a></h2>
-      <p class="grey-text text-darken-3 lighten-3"> Polly is a fast and fun way to collect and share opinions on just about anything. This app is far easier on eyes and has social and sharing features like Twitter, Facebook and Pinerest. All you need to do is set your question, responses and you can start sharing. Hence entering the world of shared opinions. What's more ....collated responses are shown immediately in the form a chart, so no waiting times here!! </p>
 
-      <a href="polllist" class="waves-effect waves-light btn">See Polls</a>
+  <div class="container-fluid">
+
+      <!-- <a href="#top">Polly - Instant Opinion</a></h2>
+      <p class="grey-text text-darken-3 lighten-3">  This app is far easier on eyes and has social and sharing features like Twitter, Facebook and Pinerest.  Hence entering the world of shared opinions. What's more ....collated responses are shown immediately in the form a chart, so no waiting times here!! </p> -->
+
+      <!-- <a href="polllist" class="waves-effect waves-light btn">See Polls</a>
                 <ul class="right hide-on-med-and-down">
                   {{#if isAdminUser}}
                     <li><a href="/usermgmt">User Management</a></li>
@@ -31,71 +114,39 @@
                   {{else}}
                     <li><a href="/sign-in">Sign In</a></li>
                   {{/if}}
-                </ul>
+                </ul> -->
 
-    </div>
-  </div>
 
-  <div class="parallax-container">
-    <div class="parallax">
-      <img src ="/images/img.12.jpeg">
-    </div>
-  </div>
 
-  <div class="section white">
-    <div class="row container">
 
-      <h2 class="header">How does Polly work</h2>
-
-      <div class="row">
-
-        <div class="col s4">
-          <i class="material-icons large">perm_identity</i>
-          <!-- Promo Content 1 goes here -->
-          <p>Type your question into our poll creator, select the kind of poll you want to make, and press “CREATE POLL.” </p>
+    <div id="promo" class="row center-align">
+    <br>
+      <h2 class="header"></h2>
+        <div class="row">
+          <div class="col s4">
+            <i class="material-icons large">face</i>
+            <!-- Promo Content 1 goes here -->
+            <p><i class="material-icons tiny">thumb_up</i> Easy and safely create a profile</p>
+            <p><i class="material-icons tiny">thumb_up</i> Browse polls posted by others.</p>
+            <p><i class="material-icons tiny">thumb_up</i> Vote and comment on polls and rank each poll.</p>
           </div>
-        <div class="col s4">
-          <i class="material-icons large">poll</i>
-          <p>You created polls, your audience voted, and now the moment of excitement when you see the real-time live results flash in the form of a Pie Chart.</p>
-            <!-- Promo Content 2 goes here -->
+          <div class="col s4">
+            <i class="material-icons large">poll</i>
+            <p>Curious to find out what others are thinking about something?</p>
+            <p>Create your OWN poll to find out! Get the visiual with Polly's colorful pie charts.</p>
+
+          </div>
+          <div class="col s4">
+            <i class="material-icons large">share</i>
+            <p>Share it on Twitter, Facebook, and Pinterest.</p>
+
+          </div>
+
+      
         </div>
-        
-        <div class="col s4">
-          <i class="material-icons large">add</i>
-          <a href="https://www.pinterest.com/pin/create/button/">
-            <img class="socialMediaIcon" src="https://cdn0.iconfinder.com/data/icons/Pinterest/512/Pinterest_Favicon.png" />
-          </a>
-          <a class="twitter-share-button social-buttons" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll">
-            <img class="socialMediaIcon" src="https://cdn1.iconfinder.com/data/icons/metro-ui-dock-icon-set--icons-by-dakirby/512/Twitter_alt.png" />
-          </a>
-            <!-- Promo Content 3 goes here -->
-            <p>You can also publish your poll to a website, Facebook, Twitter and Pinerest or any other place where people can follow a link.</p>
-            <!-- Promo Content 3 goes here -->
-          <p class="grey-text text-darken-3 lighten-3"></p>
-        </div>
-      </div>
     </div>
-      <p class="grey-text text-darken-3 lighten-3"></p>
-
-    
-      <h2 id ="top" class="header">Something Here</h2>
-      <p class="grey-text text-darken-3 lighten-3">ANNIE</p>
-
     </div>
 
-  <!-- <div class="parallax-container">
-    <div class="parallax"><img src ="/images/img3.jpg"></div>
-  </div>
 
-  <div class="section white">
-    <div class="row container">
-      <h2 class="header">Parallax</h2>
-      <p class="grey-text text-darken-3 lighten-3">ANNIE</p>
-    </div>
-  </div> -->
-  <div class="parallax-container">
-    <div class="parallax">
-      <img src ="/images/img4.jpg">
-    </div>
-  </div>
+
 </template>
