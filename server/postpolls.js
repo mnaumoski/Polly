@@ -29,6 +29,14 @@ Meteor.methods({
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){
       Polls.update({_id: pollId}, {$inc: {likes: 1} });
+
+      //Mark this user as having voted in the usersLiked array
+      var $setLikes = {};
+      currentUserId = Meteor.userId();
+      Polls.update(
+        {_id: pollId},
+        { $addToSet: { usersLiked: currentUserId} 
+      });
     }
   },
   addComment: function(pollId, comment, data){
@@ -65,20 +73,33 @@ Meteor.methods({
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){
       Polls.update({_id: pollId}, {$inc: {dislikes: 1} });
+
+      currentUserId = Meteor.userId();
+      Polls.update(
+        {_id: pollId},
+        { $addToSet: { usersLiked: currentUserId} 
+      });
     }
   },
-  addVote: function(pollId, indexId){
+  addVote: function(pollId, indexId, currentUserId){
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){
 
+      //search & find the specific poll in the DB
       var currentVotes = Polls.findOne({_id: pollId});
-      console.log(currentVotes.choices[indexId].votes);
 
+      //Increment the vote count for the specified choice
       var $set = {};
       $set['choices.' + indexId + '.votes'] = currentVotes.choices[indexId].votes + 1;
-      // console.log($set);
-
       Polls.update({_id: pollId}, {$set: $set });
+
+      //Mark this user as having voted in the usersVoted array
+      var $setVotes = {};
+      // $setVotes['usersVoted'] = currentUserId;
+      Polls.update(
+        {_id: pollId},
+        { $addToSet: { usersVoted: currentUserId} 
+      });
 
     }
   },
