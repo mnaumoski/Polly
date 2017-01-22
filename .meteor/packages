@@ -38,3 +38,8 @@ webtempest:animate
 tsega:skrollr
 zimme:collection-timestampable
 chart:chart
+raix:ui-dropped-event
+cfs:standard-packages
+cfs:gridfs
+cfs:s3
+okland:camera-ui
