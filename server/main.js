@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { BrowserPolicy } from 'meteor/browser-policy-common';
+import { MeteorCameraUI } from 'meteor/okland:camera-ui'; //uploading profile image
+
 
 Meteor.startup(() => {
   BrowserPolicy.content.allowOriginForAll('*');
