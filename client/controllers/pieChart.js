@@ -1,12 +1,12 @@
 // meteor add maazalik:highcharts : This package was used to get the Pie Chart.
 
 //  all the chart logic goes here:
-Template.pieChart.helpers({
-    'renderChart': function() {
+
+     function builtPie() {
     // document.getElementById('voteBtn').style.display = "none";
     
-    var pollId = event.target.dataset.id;
-
+    // var pollId = event.target.dataset.id;
+    var pollId = "3JghNbfhy5JBEY6Ny";
     console.log('chart function ' + pollId);
         // 'external' data
         var data = new Array();
@@ -55,16 +55,12 @@ Template.pieChart.helpers({
             }]
         });
     
-
-
-    var temp = [{"test": "testing"}];
-    return temp;
+    // var temp = [{"test": "testing"}];
+    // return temp;
     }
-})
 
-/*
- * Call the function to built the chart when the template is rendered
- */
-// Template.pieChart.rendered = function() {    
-//     builtPie();
-// }
+  // Call the function to built the chart when the template is rendered
+ 
+Template.pieChart.rendered = function() {    
+    builtPie();
+}
