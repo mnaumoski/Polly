@@ -7,6 +7,14 @@
     <meta name="keywords" content="Polly, opinion, opinions, poll, polls, see polls, ask, question, questions, polling, app, vote, voting.">
     <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 
+
+<meta property="og:url"           content="https://pollythinks.herokuapp.com" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Polly" />
+  <meta property="og:description"   content="Create polls, surveys, questions. Ask questions, opinions, votes. Use Polly to poll, question or survey the world." />
+  <meta property="og:image"         content="https://pollythinks.herokuapp.com/pollyfin.svg" />
+
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Chewy|Indie+Flower|Passion+One|Permanent+Marker|Shrikhand" rel="stylesheet">
@@ -18,7 +26,7 @@
 </head>
 <body>
 
-  <script>
+  <!-- <script>
     window.fbAsyncInit = function() {
       FB.init({
         appId      : '243855562705405',
@@ -35,6 +43,15 @@
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
   </script>
+  <div id="fb-root"></div> -->
+
   <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=243855562705405";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
   <!-- THIS IS THE YEILD -->
 </body>
