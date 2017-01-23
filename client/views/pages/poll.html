@@ -1,18 +1,54 @@
 <template name="poll">
-<!-- <div class="row">
-      <div class="col s12 m5">
-        <div class="card-panel teal">
-          <span class="white-text"> {{poll.question}}
- Likes: {{poll.likes}}, Dislikes: {{poll.dislikes}}</span>
-  {{#each poll.choices}}
-  <p>These are the choices 
-  <ul> 
-    <li>{{text}}</li>
-</ul>
-{{/each}}
-        </div>
-      </div>
-    </div> -->
+    <div class="navbar-fixed">
+        <nav>
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 l12">
+                        <div class="nav-wrapper">
+                            <div class="row">
+                                <div class="col l4 s4">
+                                    <a href="/" class=""><img class="responsive-img" style="max-width: 30%;" src="/pollyfin.svg" /></a>
+                                </div>
+
+                                <div class="col s4">
+                                {{> newPoll}}
+
+                                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+                                <ul class="right hide-on-med-and-down">
+                                    {{#if isAdminUser}}
+                                    <li><a href="/usermgmt">User Management</a></li>
+                                    {{/if}} 
+
+                                    {{#if currentUser}}
+                                    <li><a href="/sign-out">Sign Out</a></li>
+                                    {{else}}
+                                    <li><a href="/sign-in">Sign In</a></li>
+                                    {{/if}}
+                                </ul>
+                                
+                                <ul class="side-nav" id="mobile-nav">
+                                    {{#if isAdminUser}}
+                                    <li><a href="/usermgmt">User Management</a></li>
+                                    {{/if}} {{#if currentUser}}
+                                    <li><a href="/sign-out">Sign Out</a></li>
+                                    {{else}}
+                                    <li><a href="/sign-in">Sign In</a></li>
+                                    {{/if}}
+                                </ul>
+                                </div>
+                            </div>
+                            <!-- end of row -->
+                        </div>
+                        <!-- end of nav wrapper -->
+                    </div>
+                    <!-- end of col s12 -->
+                </div>
+                <!-- end of the first row -->
+            </div>
+            <!-- end of container -->
+        </nav>
+    </div>
+
 <div class="container">
 <div class="row pollCard">
   <div class="col s12">
@@ -81,7 +117,6 @@
 
             <div class="col s2 btn"><a class="twitter-share-button social-buttons" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll"><img class="socialMediaIcon" src="https://cdn1.iconfinder.com/data/icons/metro-ui-dock-icon-set--icons-by-dakirby/512/Twitter_alt.png" /></a>
             </div>
-
             <div class="col s2 btn"> 
                  <!-- Load Facebook SDK for JavaScript -->
               <div id="fb-root" class="valign"></div>
@@ -102,8 +137,7 @@
           <!-- If current user is logged in, show like icons -->
             {{#if currentUser}}
               <div class="col s2 btn like-poll" data-id="{{poll._id}}">
-                <i class="material-icons">arrow_upward </i>
-                <a class="waves-effect waves-light">{{poll.likes}}</a>
+                <i class="material-icons">arrow_upward</i>{{poll.likes}}
               </div>
               <div class="col s2 btn dislike-poll" data-id="{{poll._id}}"><i class="material-icons">arrow_downward</i>({{poll.dislikes}})
               </div>
