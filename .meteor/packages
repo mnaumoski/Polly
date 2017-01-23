@@ -43,3 +43,4 @@ cfs:standard-packages
 cfs:gridfs
 cfs:s3
 okland:camera-ui
+liberation:shareit
