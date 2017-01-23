@@ -11,11 +11,11 @@
         // 'external' data
         var data = new Array();
         var poll = Polls.findOne({_id: pollId });
+
         for(i=0; i< poll.choices.length; i++){
              var tempObject = {name:poll.choices[i].text, y:poll.choices[i].votes};
             data.push(tempObject);
         }
-
         var divToUpdate = "#" + pollId;
         $(divToUpdate).highcharts({
             // $('.votebutton').hide();
@@ -60,7 +60,7 @@
     }
 
   // Call the function to built the chart when the template is rendered
- 
-Template.pieChart.rendered = function() {    
+
+Template.pieChart.rendered = function() {
     builtPie();
 }
