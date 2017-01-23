@@ -2,11 +2,11 @@
 
 //  all the chart logic goes here:
 
-     function builtPie() {
+     function builtPie(id) {
     // document.getElementById('voteBtn').style.display = "none";
-    
+
     // var pollId = event.target.dataset.id;
-    var pollId = "3JghNbfhy5JBEY6Ny";
+    var pollId = id;
     console.log('chart function ' + pollId);
         // 'external' data
         var data = new Array();
@@ -16,7 +16,7 @@
              var tempObject = {name:poll.choices[i].text, y:poll.choices[i].votes};
             data.push(tempObject);
         }
-        var divToUpdate = "#" + pollId;
+        var divToUpdate = ".chart-"+pollId;
         $(divToUpdate).highcharts({
             // $('.votebutton').hide();
             chart: {
@@ -24,19 +24,19 @@
                 plotBorderWidth: null,
                 plotShadow: false
             },
-            
+
             title: {
                 text: ''
             },
-            
+
             credits: {
                 enabled: false
             },
-            
+
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
             },
-            
+
             plotOptions: {
                 pie: {
                     allowPointSelect: true,
@@ -47,14 +47,14 @@
                     showInLegend: true
                 }
             },
-            
+
             series: [{
                 type: 'pie',
                 name: 'Votes',
                 data: data
             }]
         });
-    
+
     // var temp = [{"test": "testing"}];
     // return temp;
     }
@@ -62,5 +62,6 @@
   // Call the function to built the chart when the template is rendered
 
 Template.pieChart.rendered = function() {
-    builtPie();
+  var id = Template.currentData().id;
+  builtPie(id);
 }
