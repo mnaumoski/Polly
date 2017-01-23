@@ -18,6 +18,6 @@ All data persists.
 
 ####Resourses
 - SVGs from https://www.vecteezy.com
-*Meteor packages* 
+- *Meteor packages* 
 - maazalik:highcharts used to get the pie chart
 - webtempest:animate used to install the animation component app.
