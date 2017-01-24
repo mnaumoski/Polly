@@ -91,6 +91,9 @@
                                     </div>
                                     <div class="col s2 btn dislike-poll" data-id="{{this._id}}"><i class="material-icons">arrow_downward</i>({{this.dislikes}})
                                     </div>
+                                     <div class="col s2 btn fav-poll" data-id="{{this._id}}">
+                                      <i class="material-icons">favorite </i>({{this.fav}})
+                                    </div>
                                 {{/if}}
                                 <!-- Show delete button if current user is the creator or Admin-->
                                 {{#if isAdminOrCreator this}}
