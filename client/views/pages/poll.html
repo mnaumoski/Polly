@@ -64,10 +64,8 @@
 
       {{#if usersVoteStatus}}
         <!-- Pie Chart is called here to render it on the browser -->
-        <div class="col s3">
-            <div id="{{poll._id}}">
-               {{>pieChart}}
-            </div>
+        <div class="col s5">
+               {{>pieChart id=this._id }}
         </div>
         <!-- End If user has voted -->
       {{else}}
@@ -137,6 +135,9 @@
                 </div>
                 <div class="col s2 btn dislike-poll" data-id="{{poll._id}}"><i class="material-icons">arrow_downward</i>({{poll.dislikes}})
                 </div>
+                <div class="col s2 btn fav-poll" data-id="{{this._id}}">
+                      <i class="material-icons">favorite </i>({{this.fav}})
+                 </div>
               {{/if}}
               <!-- Show delete button if current user is the creator or Admin-->
               <!-- {{#if isAdminOrCreator this}}
