@@ -20,29 +20,10 @@ Template.pollPartial.events({
     $( ".like-poll" ).prop( "disabled", true );
     $( ".dislike-poll" ).prop( "disabled", true );
   },
-
   "click .voteButton": function () {
     
-    // document.getElementById('voteBtn').style.display = "none";
-    
-    // var choices = document.getElementsByClassName('choices')
-
-    // for (var i = 0; i < choices.length; i++){
-    //   choices[i].style.display = "none";
-    // }
-
-    var pollId = event.target.dataset.id;
-    // builtPie(pollId);
-    //JQuery to find value of a specific poll
-    //$('form[name="qBbppoQpCPLFwNCkM"]').find('input:radio[id=poll]:checked').val();
-
-    //Find form using pollId
-    var formToLookup = "form[name=" + pollId + "]";
-    //Find vote index for processing
-    var indexId = $(formToLookup).find('input:radio[id=poll]:checked').val();
-
-    // console.log("Vote Button Clicked | castVote is " + pollId + " | + indexID is " + indexId);
-
+    var pollId = $(event.target).attr('id');
+    var indexId = $(event.target).attr('choice-index');
     currentUserId = Meteor.userId();
 
     Meteor.call('addVote', pollId, indexId, currentUserId);
@@ -54,7 +35,7 @@ Template.pollPartial.events({
     Meteor.call('addComment', pollId, comment);
   }
 });
-    Template.registerHelper('formatDate', function(date) {
+  Template.registerHelper('formatDate', function(date) {
   return moment(date).format('MM-DD-YYYY');
 });
 
