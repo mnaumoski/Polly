@@ -1,16 +1,18 @@
-// Meteor.methods({
-//   updatePicture () {
-//     MeteorCameraUI.getPicture({ width: 40, height: 40 }, (err, data) => {
-//       if (err) return this.handleError(err);
- 
-//       this.$ionicLoading.show({
-//         template: 'Updating picture...'
-//       });
- 
-//       this.callMethod('updatePicture', data, (err) => {
-//         this.$ionicLoading.hide();
-//         this.handleError(err);
-//       });
-//     });
-//   }
-// });
+Template.s3_tester.events({
+  "click button.upload": function(){
+    var files = $("input.file_bag")[0].files
+
+    S3.upload({
+        files:files,
+        path:"subfolder"
+      },function(e,r){
+        console.log(r);
+    });
+  }
+})
+
+Template.s3_tester.helpers({
+  "files": function(){
+    return S3.collection.find();
+  }
+})

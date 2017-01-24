@@ -36,6 +36,32 @@ Template.pollList.helpers({
 
       console.log(tempPollArray);
       return tempPollArray;
+
+//-----
+
+      var tempLikeArray = [];
+
+       var tempLikeObject = Polls.find({}, filter).forEach(function(data) {
+
+       var userId = Meteor.user()._id;
+
+       for (var i=0; i<data.usersLiked.length; i++) {
+
+         if (userId == data.usersLiked[i]) {
+           data.usersVoteStatus = true; 
+         }
+       }
+       tempLikeArray.push(data);
+      });
+
+      console.log(tempLikeArray + 'this is a test');
+      return tempLikeArray;
+
+//-----
+
+
+
+
   },
 
 });

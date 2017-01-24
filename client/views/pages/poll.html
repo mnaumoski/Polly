@@ -52,126 +52,119 @@
 <div class="container">
 <div class="row pollCard">
   <div class="col s12">
-  <div class="row">
-    <div class="card light-blue darken-4 col s12">
-      <div class="card-content white-text">
-        <span class="card-title">{{poll.question}}</span>
-          <p class="pollCreated">Created by {{poll.user.email}} {{poll.createdAt}}
-          </p>
-          
-      </div>
-    </div>
-{{#if usersVoteStatus}}
-<!-- Pie Chart is called here to render it on the browser -->
-  <div class="col s3">
-      <div id="{{poll._id}}">
-         {{>pieChart}}
-      </div>
-  </div>
-<!-- End If user has voted -->
-{{else}}
-<!-- If user has voted -->
-<!-- If user has NOT voted, show the poll -->
-  <div class="col s4 pollClicked" data-id="{{poll._id}}">
-    <form name="{{poll._id}}">
-    {{#each poll.choices}}
-      <div class="choiceButton choices col s9">
-        <input type="radio" name="allPolls" id="poll" value="{{@index}}" />{{text}}
-<!-- <button class="choiceButton btn" data-id="{{@index}}" choice-index="{{@index}}" id="poll">{{text}} -->
-<!-- </button> -->
-      </div>
-    {{/each}}
-    </form>
-
-    <div class="voteButton btn waves-effect waves-light" data-id="{{poll._id}}">
-      <div class="voteButton btn waves-effect waves-light" data-id="{{poll._id}}" id="voteBtn"><i class="material-icons right">send</i>Vote
-      </div>
-    </div>
-  </div>
-    <!-- End If user has NOT voted -->
-    {{/if}}
-<!-- Comments Section -->
-  <div class="col s5">
-    <div class="comment-section">
-      {{#unless poll.comments}}
-        <div class="chip orange">No Recent Comments</div>
-      {{else}}
-        <div class="chip orange">Recent Comments</div>
-          {{#each comments}}
-            <span class="commentName">{{userId}}</span>
-             <p class="comment">{{comment}}</p>
-          {{/each}}
-      {{/unless}}
-    </div>
-  </div>
-  <div class="row">
-  <!-- Ranking Icons & Social Media -->
-  <!-- <div class="card-action col s12"> -->
-    <div class="card light-blue darken-4 col s12">
-      <div class="row">
-        <div class="col s6 card-content white-text">
-          <div class="row">
-            <div class="col s2 btn">
-              <a href="https://www.pinterest.com/pin/create/button/"><img class="socialMediaIcon" src="https://cdn0.iconfinder.com/data/icons/Pinterest/512/Pinterest_Favicon.png" /></a>
-            </div>
-
-            <div class="col s2 btn"><a class="twitter-share-button social-buttons" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll"><img class="socialMediaIcon" src="https://cdn1.iconfinder.com/data/icons/metro-ui-dock-icon-set--icons-by-dakirby/512/Twitter_alt.png" /></a>
-            </div>
-            <div class="col s2 btn"> 
-
-            <div class="fb-share-button" data-href="https://pollythinks.herokuapp.com/" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpollythinks.herokuapp.com%2F&amp;src=sdkpreparse">Share</a></div>
-
-
-                 <!-- ! Load Facebook SDK for JavaScript -->
-              <div id="fb-root" class="valign"></div>
-              <script>(function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
-                fjs.parentNode.insertBefore(js, fjs);
-              }(document, 'script', 'facebook-jssdk'));</script>
-              <!-- Your share button code -->
-              <div class="fb-share-button valign" 
-                  data-href="/polls/{{poll._id}}"
-                  data-layout="button_count"> 
-              </div>
-            </div>
-
-          <!-- If current user is logged in, show like icons -->
-            {{#if currentUser}}
-              <div class="col s2 btn like-poll" data-id="{{poll._id}}">
-                <i class="material-icons">arrow_upward</i>({{poll.likes}})
-              </div>
-              <div class="col s2 btn dislike-poll" data-id="{{poll._id}}"><i class="material-icons">arrow_downward</i>({{poll.dislikes}})
-              </div>
-            {{/if}}
-            <!-- Show delete button if current user is the creator or Admin-->
-            <!-- {{#if isAdminOrCreator this}}
-                <div class="col s2 btn red delete-poll" data-id="{{poll._id}}">
-                  <i class="material-icons">delete</i>
-                </div>
-            {{/if}} -->
-          </div>
+    <div class="row">
+      <div class="card light-blue darken-4 col s12">
+        <div class="card-content white-text">
+          <span class="card-title">{{poll.question}}</span>
+            <p class="pollCreated">Created by {{poll.user.email}} {{poll.createdAt}}
+            </p>
+            {{> shareit}}
         </div>
-        <!-- add comments -->
-          <div class="col s6 submitComment">
-            <div class="row">
-             <form class="comment-form" data-poll-id="{{poll._id}}">
-              <div class="commentInputSection col s9">
-                <textarea id="comments" name="comment" placeholder="Write comments here..."></textarea>
-              </div>
-                <div class="col s3 commentInputSection">
-                    <button class="btn waves-effect waves-light">Comment</button>
+      </div>
+
+      {{#if usersVoteStatus}}
+        <!-- Pie Chart is called here to render it on the browser -->
+        <div class="col s5">
+               {{>pieChart id=this._id }}
+        </div>
+        <!-- End If user has voted -->
+      {{else}}
+        <div class="col s4 pollClicked">
+          {{#each poll.choices}}
+            <div class="choices col s9">
+                <div id="{{ poll._id }}" class="voteButton btn"  choice-index="{{@index}}">{{text}}
                 </div>
-             </form>
+            </div>
+          {{/each}}
+        </div>
+
+      <!-- End If user has NOT voted -->
+      {{/if}}
+    <!-- Comments Section -->
+    <div class="col s5">
+      <div class="comment-section">
+        {{#unless poll.comments}}
+          <div class="chip orange">No Recent Comments</div>
+        {{else}}
+          <div class="chip orange">Recent Comments</div>
+            {{#each comments}}
+              <span class="commentName">{{userId}}</span>
+               <p class="comment">{{comment}}</p>
+            {{/each}}
+        {{/unless}}
+      </div>
+    </div>
+    <div class="row">
+    <!-- Ranking Icons & Social Media -->
+    <!-- <div class="card-action col s12"> -->
+      <div class="card light-blue darken-4 col s12">
+        <div class="row">
+          <div class="col s6 card-content white-text">
+            <div class="row">
+              <div class="col s2 btn">
+                <a href="https://www.pinterest.com/pin/create/button/"><img class="socialMediaIcon" src="https://cdn0.iconfinder.com/data/icons/Pinterest/512/Pinterest_Favicon.png" /></a>
+              </div>
+
+              <div class="col s2 btn"><a class="twitter-share-button social-buttons" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll"><img class="socialMediaIcon" src="https://cdn1.iconfinder.com/data/icons/metro-ui-dock-icon-set--icons-by-dakirby/512/Twitter_alt.png" /></a>
+              </div>
+              <div class="col s2 btn"> 
+
+              <div class="fb-share-button" data-href="https://pollythinks.herokuapp.com/" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpollythinks.herokuapp.com%2F&amp;src=sdkpreparse">Share</a></div>
+
+
+                   <!-- ! Load Facebook SDK for JavaScript -->
+                <div id="fb-root" class="valign"></div>
+                <script>(function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+                <!-- Your share button code -->
+                <div class="fb-share-button valign" 
+                    data-href="/polls/{{poll._id}}"
+                    data-layout="button_count"> 
+                </div>
+              </div>
+
+            <!-- If current user is logged in, show like icons -->
+              {{#if currentUser}}
+                <div class="col s2 btn like-poll" data-id="{{poll._id}}">
+                  <i class="material-icons">arrow_upward</i>({{poll.likes}})
+                </div>
+                <div class="col s2 btn dislike-poll" data-id="{{poll._id}}"><i class="material-icons">arrow_downward</i>({{poll.dislikes}})
+                </div>
+                <div class="col s2 btn fav-poll" data-id="{{this._id}}">
+                      <i class="material-icons">favorite </i>({{this.fav}})
+                 </div>
+              {{/if}}
+              <!-- Show delete button if current user is the creator or Admin-->
+              <!-- {{#if isAdminOrCreator this}}
+                  <div class="col s2 btn red delete-poll" data-id="{{poll._id}}">
+                    <i class="material-icons">delete</i>
+                  </div>
+              {{/if}} -->
             </div>
           </div>
+          <!-- add comments -->
+            <div class="col s6 submitComment">
+              <div class="row">
+               <form class="comment-form" data-poll-id="{{poll._id}}">
+                <div class="commentInputSection col s9">
+                  <textarea id="comments" name="comment" placeholder="Write comments here..."></textarea>
+                </div>
+                  <div class="col s3 commentInputSection">
+                      <button class="btn waves-effect waves-light">Comment</button>
+                  </div>
+               </form>
+              </div>
+            </div>
+        </div>
+       </div>
       </div>
      </div>
     </div>
-   </div>
-  </div>
  </div>
  </div>
 </template>

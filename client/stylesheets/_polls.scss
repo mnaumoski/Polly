@@ -1,7 +1,8 @@
 .delete-poll,
 .like-poll,
 .dislike-poll,
-.voteButton{
+.voteButton,
+.fav-poll{
   i{
     pointer-events: none;
   }
@@ -17,4 +18,8 @@
 }
 .btn, .btn-large, .btn-flat {
   padding: 0 1rem;
+}
+
+.fav-poll{
+  color:red;
 }

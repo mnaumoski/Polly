@@ -35,14 +35,13 @@ Template.newPoll.events({
       return;
     }
 
-
-
     //display publish button & preview window
     $('#previewPoll').empty()
     $('#publish').removeClass('hide');
     $('#previewPoll').removeClass('hide');
 
     var timestamp = new Date();
+
 
     //Build up the element structure of the poll header
     var parentDiv1 = $('<div />', {class: 'row pollCard' });
@@ -66,16 +65,17 @@ Template.newPoll.events({
     parentDiv1.append(parentDiv2);
 
 
+
     var allChoicesDiv = $('<div>', {class: 'col s4 pollClicked'});
 
     //Create buttons per choice
     for (i=0; i <choicesToAdd.length; i++) {
       //Create div to contain the choices
       
-      var singleChoiceDiv = $('<div>', {class: 'choiceButton choices col s9'});
+      var singleChoiceDiv = $('<div>', {class: 'choices col s9'});
 
-      var InputTypeDiv = $('<input>');
-      var InputTypeDiv = $("<input type=\"radio\" name=\"allPolls\" id=\"poll\"/>");
+      var InputTypeDiv = $('<div>', {class: 'voteButton btn'});
+
 
       singleChoiceDiv.append(InputTypeDiv);
       singleChoiceDiv.append(choicesToAdd[i]);
@@ -86,9 +86,9 @@ Template.newPoll.events({
     // parentDiv1.append(allChoicesDiv);
 
     //Insert Vote Button
-    var voteButton = $('<div>', {class: 'voteButton btn waves-effect waves-light'});
-    voteButton.append("<i class='material-icons right'>send</i>Vote");
-    allChoicesDiv.append(voteButton);
+    // var voteButton = $('<div>', {class: 'voteButton btn waves-effect waves-light'});
+    // voteButton.append("<i class='material-icons right'>send</i>Vote");
+    // allChoicesDiv.append(voteButton);
 
     parentDiv1.append(allChoicesDiv);
 

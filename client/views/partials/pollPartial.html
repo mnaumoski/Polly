@@ -23,13 +23,12 @@
                 <!-- If user has voted -->
                  <!-- If user has NOT voted, show the poll -->
                 <div class="col s4 pollClicked" data-id="{{this._id}}">
-                        {{#each choices}}
-                        <div class="choices col s9">
-                            <div id="{{ ../_id }}" class="voteButton btn"  choice-index="{{@index}}">{{text}}
-                            </div>
+                    {{#each choices}}
+                    <div class="choices col s9">
+                        <div id="{{ this._id }}" class="voteButton btn"  choice-index="{{@index}}">{{text}}
                         </div>
-                        {{/each}}
-
+                    </div>
+                    {{/each}}
                 </div>
                 <!-- End If user has NOT voted -->
                 {{/if}}
@@ -91,6 +90,9 @@
                                       <i class="material-icons">arrow_upward </i>({{this.likes}})
                                     </div>
                                     <div class="col s2 btn dislike-poll" data-id="{{this._id}}"><i class="material-icons">arrow_downward</i>({{this.dislikes}})
+                                    </div>
+                                     <div class="col s2 btn fav-poll" data-id="{{this._id}}">
+                                      <i class="material-icons">favorite </i>({{this.fav}})
                                     </div>
                                 {{/if}}
                                 <!-- Show delete button if current user is the creator or Admin-->

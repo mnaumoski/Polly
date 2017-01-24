@@ -20,6 +20,15 @@ Template.pollPartial.events({
     $( ".like-poll" ).prop( "disabled", true );
     $( ".dislike-poll" ).prop( "disabled", true );
   },
+
+  "click .fav-poll": function () {
+    var pollId = event.target.dataset.id;
+    currentUserId = Meteor.userId();
+    Meteor.call('favPoll', pollId,currentUserId);
+    // $('.fav-poll').addClass('disabled');
+    // $( ".fav-poll" ).prop( "disabled", true ); 
+  },
+
   "click .voteButton": function () {
     
     var pollId = $(event.target).attr('id');
