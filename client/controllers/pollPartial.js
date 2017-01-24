@@ -22,24 +22,8 @@ Template.pollPartial.events({
   },
   "click .voteButton": function () {
     
-  // <button parentPollId="{{ ../_id }}" choice-index="{{@index}}" id="poll">{{text}}
-    console.log("Identifying what was clicked");
-    console.log($(this));
-    $(this).css({ 'color': 'red', 'font-size': '150%' });
-    var pollId = $(this).attr('id');
-    console.log(pollId);
-
-    // var pollId = event.target.dataset.id;
-
-    //$('form[name="qBbppoQpCPLFwNCkM"]').find('input:radio[id=poll]:checked').val();
-
-    //Find form using pollId
-    var formToLookup = "form[name=" + pollId + "]";
-    //Find vote index for processing
-    var indexId = $(formToLookup).find('input:radio[id=poll]:checked').val();
-
-    // console.log("Vote Button Clicked | castVote is " + pollId + " | + indexID is " + indexId);
-
+    var pollId = $(event.target).attr('id');
+    var indexId = $(event.target).attr('choice-index');
     currentUserId = Meteor.userId();
 
     Meteor.call('addVote', pollId, indexId, currentUserId);
