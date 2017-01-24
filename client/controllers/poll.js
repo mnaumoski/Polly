@@ -33,13 +33,25 @@ Template.poll.events({
   "click .voteButton": function () {
     console.log('votebutton triggered in poll.js')
     
-    var pollId = $(event.target).attr('id');
-    console.log(pollId);
-    var indexId = $(event.target).attr('choice-index');
-    console.log(indexId);
-    currentUserId = Meteor.userId();
-    console.log(currentUserId);
 
+
+
+
+
+    var pollId = $(event.target).attr('id');
+    console.log("pollId is " + pollId);
+    
+
+
+
+
+
+    var indexId = $(event.target).attr('choice-index');
+    // console.log("indexId is " + indexId);
+    currentUserId = Meteor.userId();
+    // console.log("currentUserId is " + currentUserId);
+
+    console.log("so far so good");
     Meteor.call('addVote', pollId, indexId, currentUserId);
   },
   "submit .comment-form": function(event){
