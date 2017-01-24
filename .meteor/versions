@@ -72,6 +72,7 @@ iron:router@1.0.13
 iron:url@1.0.11
 jquery@1.11.10
 launch-screen@1.0.12
+lepozepo:s3@5.2.4
 less@1.0.14
 liberation:shareit@1.1.2
 livedata@1.0.18

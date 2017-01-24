@@ -1,8 +1,10 @@
 #lowerTitle{
   padding-left: 300px;
-  color: yellow;
+  color: black;
 }
 .ct-series-a .ct-line {
-  stroke: #424242;
   stroke-width: 3px;
+}
+.ct-series-a .ct-point {
+  stroke-width: 7px;
 }
