@@ -19,6 +19,7 @@ Meteor.methods({
       expiration: expirationDate,
       usersVoted: [],
       usersLiked: [],
+      usersDisliked: [],
       user: {
         _id: Meteor.user()._id,
         email: Meteor.user().emails[0].address
@@ -39,6 +40,24 @@ Meteor.methods({
       });
     }
   },
+
+  dislikePoll: function(pollId){
+    userSignedIn = Meteor.user() || false;
+    if(userSignedIn){
+      Polls.update({_id: pollId}, {$inc: {dislikes: 1} });
+
+      //Mark this user as having voted in the usersDisliked array
+      var $setDislikes = {};
+      currentUserId = Meteor.userId();
+      Polls.update(
+        {_id: pollId},
+        // { $addToSet: { usersLiked: currentUserId}
+        { $addToSet: { usersDisliked: currentUserId} 
+      });
+    }
+  },
+
+
   addComment: function(pollId, comment, data){
     userSignedIn = Meteor.user() || false;
 
@@ -69,18 +88,6 @@ Meteor.methods({
     }
   },
 
-  dislikePoll: function(pollId){
-    userSignedIn = Meteor.user() || false;
-    if(userSignedIn){
-      Polls.update({_id: pollId}, {$inc: {dislikes: 1} });
-
-      currentUserId = Meteor.userId();
-      Polls.update(
-        {_id: pollId},
-        { $addToSet: { usersLiked: currentUserId} 
-      });
-    }
-  },
   addVote: function(pollId, indexId, currentUserId){
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){
