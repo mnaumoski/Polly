@@ -1,63 +1,75 @@
 <template name="navbar">
     <div class="navbar-fixed">
-        <nav>
-            <div class="container">
-                <div class="row">
-                    <div class="col s12 l12">
-                        <div class="nav-wrapper">
-                            <div class="row">
-                                <div class="col l4 s4">
-                                    <a href="/" class=""><img class="responsive-img" style="max-width: 30%;" src="pollyfin.svg" /></a>
-                                </div>
-                                <div class="col s2">
-                                    <li class="no-bullet"><a class="blue-text dropdown-button sort-collection-label" href="#!" data-activates="sort-collection">Sort By<i class="material-icons right">arrow_drop_down</i></a></li>
-                                    <ul id="sort-collection" class="dropdown-content">
-                                        <li><a class="sort-collection" data-value="likes">likes</a></li>
-                                        <li><a class="sort-collection" data-value="dislikes">Dislikes</a></li>
-                                        <li><a class="sort-collection" data-value="createdAt">Created At</a></li>
-                                        <li><a class="sort-collection" data-value="commentCount">Most Comments</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col s2">
-                                    <li class="no-bullet"><a class="dropdown-button sort-order-label" href="#!" data-activates="sort-order">Sort Order<i class="material-icons right">arrow_drop_down</i></a></li>
-                                    <ul id="sort-order" class="dropdown-content">
-                                        <li><a class="sort-order" data-value="1">ASC</a></li>
-                                        <li><a class="sort-order" data-value="-1">DESC</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col s4">
-                                {{> newPoll}}
 
-                                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
-                                <ul class="right hide-on-med-and-down">
-                                    {{#if isAdminUser}}
-                                    <li><a href="/usermgmt">User Management</a></li>
-                                    {{/if}} {{#if currentUser}}
-                                    <li><a href="/sign-out">Sign Out</a></li>
-                                    {{else}}
-                                    <li><a href="/sign-in">Sign In</a></li>
-                                    {{/if}}
-                                </ul>
-                                <ul class="side-nav" id="mobile-nav">
-                                    {{#if isAdminUser}}
-                                    <li><a href="/usermgmt">User Management</a></li>
-                                    {{/if}} {{#if currentUser}}
-                                    <li><a href="/sign-out">Sign Out</a></li>
-                                    {{else}}
-                                    <li><a href="/sign-in">Sign In</a></li>
-                                    {{/if}}
-                                </ul>
-                                </div>
-                            </div>
-                            <!-- end of row -->
-                        </div>
-                        <!-- end of nav wrapper -->
-                    </div>
-                    <!-- end of col s12 -->
-                </div>
-                <!-- end of the first row -->
-            </div>
-            <!-- end of container -->
-        </nav>
+     <nav>
+         <!--dropdown structure-->
+     <ul id="sort-collection" class="dropdown-content">
+        <li><a class="sort-collection" data-value="likes" href="#!">Likes</a></li>
+        <li><a class="sort-collection" data-value="dislikes" href="#!">Dislikes</a></li>
+        <li><a class="sort-collection" data-value="createdAt" href="#!">Date</a></li>
+        <li><a class="sort-collection" data-value="commentCount" href="#!">Comments</a></li>
+    </ul>
+    <ul id="sort-order" class="dropdown-content">
+      <li><a href="#!" class="sort-order" data-value="1">Ascending</a></li>
+      <li class="divider"></li>
+      <li><a href="#!" class="sort-order" data-value="-1">Descending</a></li>
+    </ul>
+    <div class="nav-wrapper">
+        <a href="/"><img class="brand-logo" style="max-width:15%;" src="pollyfin.svg" /></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+                <!--dropdown button-->
+        <li><a class="blue-text dropdown-button sort-collection-label" href="#!" data-activates="sort-collection">Sort Polls<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-button sort-order-label" href="#!" data-activates="sort-order">Sort Order<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a href="/pollList">All Polls</a></li>
+        <li><a href="#">User Dashboard</a></li>
+        <li>{{> newPoll}}</li>
+        {{#if isAdminUser}}
+        <li><a href="/usermgmt">User Management</a></li>
+        {{/if}} 
+        {{#if currentUser}}
+        <li><a href="/sign-out">Sign Out</a></li>
+        {{else}}
+        <li><a href="/sign-in">Sign In</a></li>
+        {{/if}}
+      </ul>
+
+    <ul id="mobile-demo" class="side-nav">
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Sort Polls</a>
+              <div class="collapsible-body" style="">
+                <ul id="sort-collection">
+                  <li><a class="sort-collection" data-value="likes" href="#">Likes</a></li>
+                  <li><a class="sort-collection" data-value="dislikes" href="#">Dislikes</a></li>
+                  <li><a class="sort-collection" data-value="createdAt" href="#">Date</a></li>
+                  <li><a class="sort-collection" data-value="commentCount" href="#!">Comments</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header waves-effect waves-teal">Sort Order</a>
+              <div class="collapsible-body" style="">
+                <ul id="sort-order">
+                <li><a href="#!" class="sort-order" data-value="1">Ascending</a></li>
+                <li><a href="#!" class="sort-order" data-value="-1">Descending</a></li>
+                </ul>
+              </div>
+            </li>
+        <li class="bold"><a href="/pollList" class="waves-effect waves-teal">All Polls</a></li>
+        <li class="bold"><a href="#" class="waves-effect waves-teal">User Dashboard</a></li>
+        <li>{{> newPoll}}</li>
+        {{#if isAdminUser}}
+        <li class="bold"><a href="/usermgmt" class="waves-effect waves-teal">User Management</a></li>
+        {{/if}} {{#if currentUser}}
+        <li class="bold"><a href="/sign-out" class="waves-effect waves-teal">Sign Out</a></li>
+        {{else}}
+        <li class="bold"><a href="/sign-in" class="waves-effect waves-teal">Sign In</a></li>
+        {{/if}}
+    </ul>
+        </li>
+      </ul>
     </div>
+  </nav>
+</div>
 </template>

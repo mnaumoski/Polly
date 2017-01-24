@@ -1,53 +1,50 @@
 <template name="poll">
-    <div class="navbar-fixed">
-        <nav>
-            <div class="container">
-                <div class="row">
-                    <div class="col s12 l12">
-                        <div class="nav-wrapper">
-                            <div class="row">
-                                <div class="col l4 s4">
-                                    <a href="/" class=""><img class="responsive-img" style="max-width: 30%;" src="/pollyfin.svg" /></a>
-                                </div>
-
-                                <div class="col s4">
-                                {{> newPoll}}
-
-                                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
-                                <ul class="right hide-on-med-and-down">
-                                    {{#if isAdminUser}}
-                                    <li><a href="/usermgmt">User Management</a></li>
-                                    {{/if}} 
-
-                                    {{#if currentUser}}
-                                    <li><a href="/sign-out">Sign Out</a></li>
-                                    {{else}}
-                                    <li><a href="/sign-in">Sign In</a></li>
-                                    {{/if}}
-                                </ul>
-                                
-                                <ul class="side-nav" id="mobile-nav">
-                                    {{#if isAdminUser}}
-                                    <li><a href="/usermgmt">User Management</a></li>
-                                    {{/if}} {{#if currentUser}}
-                                    <li><a href="/sign-out">Sign Out</a></li>
-                                    {{else}}
-                                    <li><a href="/sign-in">Sign In</a></li>
-                                    {{/if}}
-                                </ul>
-                                </div>
-                            </div>
-                            <!-- end of row -->
-                        </div>
-                        <!-- end of nav wrapper -->
-                    </div>
-                    <!-- end of col s12 -->
-                </div>
-                <!-- end of the first row -->
-            </div>
-            <!-- end of container -->
-        </nav>
+<div class="navbar-fixed">
+<nav>
+<div class="container">
+  <div class="row">
+   <div class="col s12 m12 l12">
+    <div class="nav-wrapper">
+      <div class="row">
+  <!-- 1 Polly image -->
+        <div class="col s12 m4 l2">
+            <a href="/" class=""><img class="responsive-img" 
+            style="max-width: 50%;" src="/pollyfin.svg" /></a>
+        </div>
+  <!-- 2 Button for new poll -->
+        <!-- <div class="col s12 m6 l3">
+        {{> newPoll}}
+        </div> -->
+  <!-- 3 Button for all polls -->
+        <div class="col s12 m4 l8">
+        <a class="waves-effect waves-light btn blue darken-2" href="/pollList">ALL Polls</a>
+        {{> newPoll}}
+        </div>
+  <!-- 4 Menu for user mng and signin/out -->
+        <div class="s12 m4 l2">
+           <ul>
+            {{#if isAdminUser}}
+            <li><a href="/usermgmt">User Management</a></li>
+            {{/if}} 
+            {{#if currentUser}}
+            <li><a href="/sign-out">Sign Out</a></li>
+            {{else}}
+            <li><a href="/sign-in">Sign In</a></li>
+            {{/if}}
+         </ul>
+      </div>
     </div>
+  <!-- end of row -->
+   </div>
+  <!-- end of nav wrapper -->
+   </div>
+      <!-- end of col s12 -->
+  </div>
+    <!-- end of the first row -->
+</div>
+<!-- end of container -->
+</nav>
+</div>
 
 <div class="container">
 <div class="row pollCard">

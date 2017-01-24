@@ -5,6 +5,10 @@ Template.navbar.helpers({
   }
 });
 
+Template.navbar.onRendered(function() {
+  $(".button-collapse").sideNav();
+
+});
 Template.navbar.events({
   'click .sort-collection': function(event){
     var btn = '<i class=\"material-icons right\">arrow_drop_down</i>'
