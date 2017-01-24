@@ -1,64 +1,60 @@
 <template name="userdashboard">
-
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-  <br>
-  <div class="container">
-    <div class="row">
-      <div class="circle">
-          <div class="col s12 l10">
-<div class="card-panel grey lighten-5 z-depth-1">
-          <div class="row valign-wrapper">
-            <div class="col s2">
-              <img src="images/selfie1.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            <small> upload image</small>
-            </div>
-            <div class="col s10">
-              <span class="black-text">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="circle">
+                <div class="col s12 l10">
+                    <div class="card-panel grey lighten-5 z-depth-1">
+                        <div class="row valign-wrapper">
+                            <div class="col s2">
+                              <img src="images/selfie1.jpg" alt="" class="circle responsive-img">
+                                <!-- notice the "circle" class -->
+                                <small> upload image</small>
+                            </div>
+                            <div class="col s10">
+                                <span class="black-text">
                 <h4>Welcome!</h4>
                 <p>Check out below to see how many polls you made so far this year!</p>
               </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            <br>
+            <!-- chart -->
+            <div class="row">
+                <div class="col m12">
+                    <div class="card-panel white z-depth-1">
+                        <div class="ct-chart ct-perfect-fourth"></div>
+                        <div class="ct-chart"></div>
+                        <script>
+                        new Chartist.Line('.ct-chart', {
+                            labels: ['Jan ', 'Feb ', 'Mar ', 'Apr ', 'May ', 'Jun ', 'Jul ', 'Aug ', 'Sep ', 'Oct ', 'Nov ', 'Dec '],
+                            series: [
+                                [0, 0, 0, 0, 0, 0, 0, 4, 4, 2, 5, 2]
+                            ]
+                        }, {
+                            width: 575,
+                            height: 400
+                        });
+                        </script>
+                    <div id="lowerTitle"><small>polls/monthly</small></div>
+                  </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    <br>
-              <!-- chart -->
-    <div class="row">
-          <div class="card-panel white">
-            <div class="ct-chart ct-perfect-fourth"></div>
-              <div class="ct-chart"></div>
-                <script>
-                  new Chartist.Line('.ct-chart', {
-                  labels: ['Jan ', 'Feb ', 'Mar ', 'Apr ', 'May ', 'Jun ', 'Jul ', 'Aug ','Sep ','Oct ', 'Nov ', 'Dec '],
-                    series: [
-                      [0, 0, 0, 0, 0, 0, 0, 4, 4, 2, 5, 2]
-                    ]
-                    }, {
-                      width: 575,
-                      height: 400
-                   });
-
-              </script>
-            <div id="lowerTitle"><small>polls/monthly</small></div>
-<!--           <div class="second-card">
-              <span class="black-text">
-                <canvas id="myChart" width="400" height="400"></canvas>
-              </span>
-            </div>
-          </div>
-         <div class="col xs4">
-          <div class="third-card">
-            <div class="card-panel white z-depth-1">
-              <span class="black-text">Sed posuere id quam in auctor. Maecenas vitae consectetur libero. Suspendisse neque justo, imperdiet et efficitur vel, aliquet at tortor. Phasellus mollis rhoncus nisl, ac fringilla risus consectetur et. Nullam id felis fringilla, fringilla ante in, dapibus ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum tempor sem, nec congue metus dapibus in. Donec eleifend libero sit amet lacus ultricies scelerisque. Vivamus feugiat orci id odio pellentesque, eu finibus leo accumsan. Proin mattis diam odio, quis tincidunt massa eleifend in. Nulla non euismod odio. Nulla rhoncus risus ut enim cursus interdum. Vivamus accumsan laoreet velit ut lobortis. Duis vitae iaculis risus.
-              </span>
-            </div>
-        </div>-->
-      </div>
-    </div>
-  </div>
- </div>
-
-<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 </template>
 
+
+                              <template name="s3_tester">
+                              <input type="file" class="file_bag">
+                              <button class="upload">Upload</button>
+
+                              {{#each files}}
+                                <p>{{percent_uploaded}}</p>
+                              {{/each}}
+                              </template>
