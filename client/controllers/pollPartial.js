@@ -35,6 +35,7 @@ Template.pollPartial.events({
     var indexId = $(event.target).attr('choice-index');
     currentUserId = Meteor.userId();
 
+    console.log(pollId + indexId + currentUserId);
     Meteor.call('addVote', pollId, indexId, currentUserId);
   },
   "submit .comment-form": function(event){
