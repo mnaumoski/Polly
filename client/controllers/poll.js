@@ -31,29 +31,27 @@ Template.poll.events({
   },
 
   "click .voteButton": function () {
+    console.log('votebutton triggered in poll.js')
     
-    // document.getElementById('voteBtn').style.display = "none";
+
+
+
+
+
+    var pollId = $(event.target).attr('id');
+    console.log("pollId is " + pollId);
     
-    // var choices = document.getElementsByClassName('choices')
 
-    // for (var i = 0; i < choices.length; i++){
-    //   choices[i].style.display = "none";
-    // }
 
-    var pollId = event.target.dataset.id;
-    // builtPie(pollId);
-    //JQuery to find value of a specific poll
-    //$('form[name="qBbppoQpCPLFwNCkM"]').find('input:radio[id=poll]:checked').val();
 
-    //Find form using pollId
-    var formToLookup = "form[name=" + pollId + "]";
-    //Find vote index for processing
-    var indexId = $(formToLookup).find('input:radio[id=poll]:checked').val();
 
-    // console.log("Vote Button Clicked | castVote is " + pollId + " | + indexID is " + indexId);
 
+    var indexId = $(event.target).attr('choice-index');
+    // console.log("indexId is " + indexId);
     currentUserId = Meteor.userId();
+    // console.log("currentUserId is " + currentUserId);
 
+    console.log("so far so good");
     Meteor.call('addVote', pollId, indexId, currentUserId);
   },
   "submit .comment-form": function(event){
