@@ -1,6 +1,9 @@
 Template.poll.helpers({
   poll: function () {
-    return Polls.findOne(Router.current().params._id);
+    
+    var allPolls = Polls.findOne(Router.current().params._id);
+    console.log(allPolls);
+    return allPolls
   }
 });
 

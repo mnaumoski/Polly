@@ -23,24 +23,13 @@
                 <!-- If user has voted -->
                  <!-- If user has NOT voted, show the poll -->
                 <div class="col s4 pollClicked" data-id="{{this._id}}">
-                    <form name="{{this._id}}">
                         {{#each choices}}
-                        <div class="choiceButton choices col s9">
-                            <input type="radio" name="allPolls" id="poll" value="{{@index}}" />{{text}}
-                            <!-- <button class="choiceButton btn" data-id="{{@index}}" choice-index="{{@index}}" id="poll">{{text}} -->
-                            <!-- </button> -->
+                        <div class="choices col s9">
+                            <div id="{{ ../_id }}" class="voteButton btn"  choice-index="{{@index}}">{{text}}
+                            </div>
                         </div>
                         {{/each}}
-                    </form>
 
-                    <!-- <div class="voteButton btn waves-effect waves-light" data-id="{{this._id}}"> -->
-
-
-                    <div class="voteButton btn waves-effect waves-light" data-id="{{this._id}}" id="voteBtn">
-
-                        <i class="material-icons right">send</i>Vote
-                    </div>
-                <!-- </div> -->
                 </div>
                 <!-- End If user has NOT voted -->
                 {{/if}}
