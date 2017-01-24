@@ -16,10 +16,12 @@ Meteor.methods({
       createdAt: new Date().toLocaleString(),
       likes: 0,
       dislikes: 0,
+      fav:0,
       expiration: expirationDate,
       usersVoted: [],
       usersLiked: [],
       usersDisliked: [],
+      usersFav:[],
       user: {
         _id: Meteor.user()._id,
         email: Meteor.user().emails[0].address
@@ -57,6 +59,20 @@ Meteor.methods({
     }
   },
 
+  favPoll: function(pollId){
+    userSignedIn = Meteor.user() || false;
+    if(userSignedIn){
+      Polls.update({_id: pollId}, {$inc: {fav: 1} });
+
+      //Mark this user as having voted in the usersFav array
+      var $setFav = {};
+      currentUserId = Meteor.userId();
+      Polls.update(
+        {_id: pollId},
+        { $addToSet: { usersFav: currentUserId} 
+      });
+    }
+  },
 
   addComment: function(pollId, comment, data){
     userSignedIn = Meteor.user() || false;
