@@ -32,7 +32,6 @@ Meteor.methods({
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){
       Polls.update({_id: pollId}, {$inc: {likes: 1} });
-
       //Mark this user as having voted in the usersLiked array
       var $setLikes = {};
       currentUserId = Meteor.userId();
@@ -47,7 +46,6 @@ Meteor.methods({
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){
       Polls.update({_id: pollId}, {$inc: {dislikes: 1} });
-
       //Mark this user as having voted in the usersDisliked array
       var $setDislikes = {};
       currentUserId = Meteor.userId();
@@ -63,7 +61,6 @@ Meteor.methods({
     userSignedIn = Meteor.user() || false;
     if(userSignedIn){
       Polls.update({_id: pollId}, {$inc: {fav: 1} });
-
       //Mark this user as having voted in the usersFav array
       var $setFav = {};
       currentUserId = Meteor.userId();
@@ -73,7 +70,7 @@ Meteor.methods({
       });
     }
   },
-
+    
   addComment: function(pollId, comment, data){
     userSignedIn = Meteor.user() || false;
 

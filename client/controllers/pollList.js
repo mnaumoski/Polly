@@ -44,6 +44,14 @@ Template.pollList.helpers({
              data.usersLikeStatus = true; 
            }
         }
+
+
+        for (var i=0; i<data.usersFav.length; i++) {
+          if (userId == data.usersFav[i]) {
+             data.usersFavStatus = true; 
+           }
+        }
+
          tempPollArray.push(data);
       });
 
