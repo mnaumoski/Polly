@@ -15,53 +15,40 @@ Template.pollList.helpers({
     //   // var tempPollObject = Polls.find({}, {sort: {createdAt: 1} });
     //   // console.log(tempPollObject.collection._docs._map);
     // } else {     
-      console.log("in array"); 
+      // console.log("in array"); 
       // return Polls.find({}, filter); //Straight up filter return
 
       var tempPollArray = [];
 
       //iterate through each poll's object individually to check usersVoted 
       var tempPollObject = Polls.find({}, filter).forEach(function(data) {
+        // console.log(data);
 
-       var userId = Meteor.user()._id;
+         var userId = Meteor.user()._id;
 
-       for (var i=0; i<data.usersVoted.length; i++) {
+         for (var i=0; i<data.usersVoted.length; i++) {
 
-         if (userId == data.usersVoted[i]) {
-           data.usersVoteStatus = true; 
+           if (userId == data.usersVoted[i]) {
+             data.usersVoteStatus = true; 
+           }
          }
-       }
-       tempPollArray.push(data);
+
+        for (var i=0; i<data.usersLiked.length; i++) {
+          if (userId == data.usersLiked[i]) {
+             data.usersLikeStatus = true; 
+           }
+        }
+
+        for (var i=0; i<data.usersDisliked.length; i++) {
+          if (userId == data.usersDisliked[i]) {
+             data.usersLikeStatus = true; 
+           }
+        }
+         tempPollArray.push(data);
       });
 
       console.log(tempPollArray);
       return tempPollArray;
-
-//-----
-
-      var tempLikeArray = [];
-
-       var tempLikeObject = Polls.find({}, filter).forEach(function(data) {
-
-       var userId = Meteor.user()._id;
-
-       for (var i=0; i<data.usersLiked.length; i++) {
-
-         if (userId == data.usersLiked[i]) {
-           data.usersVoteStatus = true; 
-         }
-       }
-       tempLikeArray.push(data);
-      });
-
-      console.log(tempLikeArray + 'this is a test');
-      return tempLikeArray;
-
-//-----
-
-
-
-
   },
 
 });

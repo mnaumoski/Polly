@@ -6,21 +6,11 @@ Template.pollPartial.events({
   "click .like-poll": function () {
     var pollId = event.target.dataset.id
     Meteor.call('likePoll', pollId);
-    // $('.like-poll').off().on('click', function(){
-    $('.like-poll').addClass('disabled');
-    $('.dislike-poll').addClass('disabled');
-    $( ".like-poll" ).prop( "disabled", true );
-    $( ".dislike-poll" ).prop( "disabled", true );
   },
   "click .dislike-poll": function () {
     var pollId = event.target.dataset.id
     Meteor.call('dislikePoll', pollId);
-    $('.like-poll').addClass('disabled');
-    $('.dislike-poll').addClass('disabled');
-    $( ".like-poll" ).prop( "disabled", true );
-    $( ".dislike-poll" ).prop( "disabled", true );
   },
-
   "click .fav-poll": function () {
     var pollId = event.target.dataset.id;
     currentUserId = Meteor.userId();
@@ -35,7 +25,6 @@ Template.pollPartial.events({
     var indexId = $(event.target).attr('choice-index');
     currentUserId = Meteor.userId();
 
-    console.log(pollId + indexId + currentUserId);
     Meteor.call('addVote', pollId, indexId, currentUserId);
   },
   "submit .comment-form": function(event){
