@@ -12,10 +12,10 @@
         </div>
       </div>
 
-      {{#if usersVoteStatus}}
+      {{#if poll.usersVoteStatus}}
         <!-- Pie Chart is called here to render it on the browser -->
         <div class="col s5">
-               {{>pieChart id=this._id }}
+               {{>pieChart id=poll._id }}
         </div>
         <!-- End If user has voted -->
       {{else}}
