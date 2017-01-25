@@ -5,18 +5,20 @@
         <div class="row">
             <div class="circle">
                 <div class="col s12 l10">
-                    <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="card-panel white lighten-5 z-depth-1">
                         <div class="row valign-wrapper">
                             <div class="col s2">
-                              <img src="images/selfie1.jpg" alt="" class="circle responsive-img">
-                                <!-- notice the "circle" class -->
-                                <small> upload image</small>
+
+                                {{#if currentUser.profile.image}}
+                                  <img class="circle responsive-img" src="{{currentUser.profile.image}}">
+                                {{/if}}
                             </div>
                             <div class="col s10">
                                 <span class="black-text">
-                <h4>Welcome!</h4>
-                <p>Check out below to see how many polls you made so far this year!</p>
-              </span>
+                                <h4>Welcome!</h4>
+                                <p>Check out below to see how many polls you made so far this year!</p>
+                                {{> s3_tester}}
+                              </span>
                             </div>
                         </div>
                     </div>
@@ -25,10 +27,11 @@
             <br>
             <!-- chart -->
             <div class="row">
-                <div class="col m12">
+                <div class="col m10">
                     <div class="card-panel white z-depth-1">
                         <div class="ct-chart ct-perfect-fourth"></div>
                         <div class="ct-chart"></div>
+                        <div id="lowerTitle"><small>polls/monthly</small></div>
                         <script>
                         new Chartist.Line('.ct-chart', {
                             labels: ['Jan ', 'Feb ', 'Mar ', 'Apr ', 'May ', 'Jun ', 'Jul ', 'Aug ', 'Sep ', 'Oct ', 'Nov ', 'Dec '],
@@ -40,21 +43,18 @@
                             height: 400
                         });
                         </script>
-                    <div id="lowerTitle"><small>polls/monthly</small></div>
-                  </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-</template>
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>    
+    </template>
 
-
-                              <template name="s3_tester">
-                              <input type="file" class="file_bag">
-                              <button class="upload">Upload</button>
-
-                              {{#each files}}
-                                <p>{{percent_uploaded}}</p>
-                              {{/each}}
-                              </template>
+                                <template name="s3_tester">
+                                    <input type="file" class="file_bag">
+                                    <button class="upload">Upload</button>
+                                    {{#each files}}
+                                    <p>{{percent_uploaded}}</p>
+                                    {{/each}}
+                                </template>
