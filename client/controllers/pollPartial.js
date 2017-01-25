@@ -8,17 +8,17 @@ Template.pollPartial.events({
     Meteor.call('likePoll', pollId);
     // $('.like-poll').off().on('click', function(){
     $('.like-poll').addClass('disabled');
-    $('.dislike-poll').addClass('disabled');
-    $( ".like-poll" ).prop( "disabled", true );
-    $( ".dislike-poll" ).prop( "disabled", true );
+    $('.like-poll').addClass('disabled');
+    // $( ".like-poll" ).prop( "disabled", true );
+    // $( ".dislike-poll" ).prop( "disabled", true );
   },
   "click .dislike-poll": function () {
     var pollId = event.target.dataset.id
     Meteor.call('dislikePoll', pollId);
     $('.like-poll').addClass('disabled');
     $('.dislike-poll').addClass('disabled');
-    $( ".like-poll" ).prop( "disabled", true );
-    $( ".dislike-poll" ).prop( "disabled", true );
+    // $( ".like-poll" ).prop( "disabled", true );
+    // $( ".dislike-poll" ).prop( "disabled", true );
   },
 
   "click .fav-poll": function () {

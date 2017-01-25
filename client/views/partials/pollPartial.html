@@ -86,6 +86,7 @@
 
                                 <!-- If current user is logged in, show like icons -->
                                 {{#if currentUser}}
+                                {{#if usersLikedStatus}}
                                     <div class="col s2 btn like-poll" data-id="{{this._id}}">
                                       <i class="material-icons">arrow_upward </i>({{this.likes}})
                                     </div>
@@ -94,6 +95,7 @@
                                      <div class="col s2 btn fav-poll" data-id="{{this._id}}">
                                       <i class="material-icons">favorite </i>({{this.fav}})
                                     </div>
+                                {{/if}}    
                                 {{/if}}
                                 <!-- Show delete button if current user is the creator or Admin-->
                                 {{#if isAdminOrCreator this}}

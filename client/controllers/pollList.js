@@ -48,7 +48,7 @@ Template.pollList.helpers({
        for (var i=0; i<data.usersLiked.length; i++) {
 
          if (userId == data.usersLiked[i]) {
-           data.usersVoteStatus = true; 
+           data.usersLikedStatus = true; 
          }
        }
        tempLikeArray.push(data);
@@ -56,6 +56,25 @@ Template.pollList.helpers({
 
       console.log(tempLikeArray + 'this is a test');
       return tempLikeArray;
+
+      //-----
+            var tempDislikeArray = [];
+
+       var tempDislikeObject = Polls.find({}, filter).forEach(function(data) {
+
+       var userId = Meteor.user()._id;
+
+       for (var i=0; i<data.usersDisliked.length; i++) {
+
+         if (userId == data.usersLiked[i]) {
+           data.usersDislikedStatus = true; 
+         }
+       }
+       tempDislikeArray.push(data);
+      });
+
+      console.log(tempDislikeArray + 'this is a test2');
+      return tempDislikeArray;
 
 //-----
 
