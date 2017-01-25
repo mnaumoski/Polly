@@ -43,29 +43,16 @@ Template.poll.events({
   },
    "click .fav-poll": function () {
     var pollId = event.target.dataset.id;
-    currentUserId = Meteor.userId();
-    Meteor.call('favPoll', pollId,currentUserId);
-    // $('.fav-poll').addClass('disabled');
-    // $( ".fav-poll" ).prop( "disabled", true ); 
+    // currentUserId = Meteor.userId();
+    Meteor.call('favPoll', pollId);
+     $('.fav-poll').addClass('disabled');
+     $( ".fav-poll" ).prop( "disabled", true ); 
   },
-
-
   "click .voteButton": function () {
     console.log('votebutton triggered in poll.js')
     
-
-
-
-
-
     var pollId = $(event.target).attr('id');
     console.log("pollId is " + pollId);
-    
-
-
-
-
-
     var indexId = $(event.target).attr('choice-index');
     // console.log("indexId is " + indexId);
     currentUserId = Meteor.userId();
