@@ -37,8 +37,8 @@
           <div class="chip orange">No Recent Comments</div>
         {{else}}
           <div class="chip orange">Recent Comments</div>
-            {{#each comments}}
-              <span class="commentName">{{userId}}</span>
+            {{#each poll.comments}}
+              <span class="commentName">{{poll.userId}}</span>
                <p class="comment">{{comment}}</p>
             {{/each}}
         {{/unless}}
