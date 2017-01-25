@@ -73,6 +73,9 @@ Meteor.methods({
       });
     }
   },
+    
+
+
 
   addComment: function(pollId, comment, data){
     userSignedIn = Meteor.user() || false;

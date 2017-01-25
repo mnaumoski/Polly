@@ -13,10 +13,7 @@ Template.pollPartial.events({
   },
   "click .fav-poll": function () {
     var pollId = event.target.dataset.id;
-    currentUserId = Meteor.userId();
-    Meteor.call('favPoll', pollId,currentUserId);
-    // $('.fav-poll').addClass('disabled');
-    // $( ".fav-poll" ).prop( "disabled", true ); 
+    Meteor.call('favPoll', pollId); 
   },
 
   "click .voteButton": function () {
