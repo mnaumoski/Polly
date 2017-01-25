@@ -6,13 +6,12 @@
 
     <meta name="keywords" content="Polly, opinion, opinions, poll, polls, see polls, ask, question, questions, polling, app, vote, voting.">
     <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
-
-
-<meta property="og:url"           content="https://pollythinks.herokuapp.com" />
-  <meta property="og:type"          content="website" />
-  <meta property="og:title"         content="Polly" />
-  <meta property="og:description"   content="Create polls, surveys, questions. Ask questions, opinions, votes. Use Polly to poll, question or survey the world." />
-  <meta property="og:image"         content="https://pollythinks.herokuapp.com/pollyfin.svg" />
+  <meta property="og:url" content="https://pollythinks.herokuapp.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Polly" />
+  <meta property="og:description" content="Create polls, surveys, questions. Ask questions, opinions, votes. Use Polly to poll, question or survey the world." />
+  <meta property="og:image" content="https://pollythinks.herokuapp.com/pollyfin.svg" />
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 
     <!-- Google Fonts -->
@@ -28,7 +27,29 @@
 </head>
 <body>
 
-  <script>
+<!-- <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '243855562705405',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+
+
+
+  <!-- <script>
     window.fbAsyncInit = function() {
       FB.init({
         appId      : '243855562705405',
@@ -44,9 +65,20 @@
        js.src = "//connect.facebook.net/en_US/sdk.js";
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
-  </script>
-  <div id="fb-root"></div>
+  </script> -->
+  <!-- <div id="fb-root"></div> -->
+  <!-- <script>
 
+document.getElementById('shareBtn').onclick = function() {
+  FB.ui({
+  method: 'share_open_graph',
+  action_type: 'og.likes',
+  action_properties: JSON.stringify({
+    object:'https://developers.facebook.com/docs/',
+  })
+}, function(response){});
+}
+  </script> -->
   
 <!-- <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
