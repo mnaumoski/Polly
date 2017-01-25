@@ -93,9 +93,9 @@
                                         <div class="col s2 btn" data-id="{{this._id}}">
                                             <i class="material-icons">arrow_downward</i>({{this.dislikes}})
                                         </div>
-                                         <div class="col s2 btn fav-poll" data-id="{{this._id}}">
+                                         <!-- <div class="col s2 btn" data-id="{{this._id}}">
                                             <i class="material-icons">favorite </i>({{this.fav}})
-                                        </div>
+                                        </div> -->
                                     {{ else }}
                                        <div class="col s2 btn like-poll" data-id="{{this._id}}">
                                           <i class="material-icons">arrow_upward </i>({{this.likes}})
@@ -103,10 +103,19 @@
                                         <div class="col s2 btn dislike-poll" data-id="{{this._id}}">
                                             <i class="material-icons">arrow_downward</i>({{this.dislikes}})
                                         </div>
+                                        <!-- <div class="col s2 btn fav-poll" data-id="{{this._id}}">
+                                            <i class="material-icons">favorite </i>({{this.fav}})
+                                        </div> -->
+                                    {{/if}}
+                                    {{#if usersFavStatus}}
+                                        <div class="col s2 btn" data-id="{{this._id}}">
+                                            <i class="material-icons">favorite </i>({{this.fav}})
+                                        </div>
+                                        {{ else}}
                                         <div class="col s2 btn fav-poll" data-id="{{this._id}}">
                                             <i class="material-icons">favorite </i>({{this.fav}})
                                         </div>
-                                    {{/if}}    
+                                    {{/if}}
                                 {{/if}}
                                 <!-- Show delete button if current user is the creator or Admin-->
                                 {{#if isAdminOrCreator this}}
