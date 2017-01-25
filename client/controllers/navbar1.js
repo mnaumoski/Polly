@@ -4,3 +4,4 @@ Template.navbar1.helpers({
     return Roles.userIsInRole(Meteor.user(), ['admin']);
   }
 });
+
