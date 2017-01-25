@@ -22,3 +22,7 @@ Template.navbar.events({
     Session.set('sortorder', sortOrder);    
   }
 });
+
+Template.navbar.onRendered(function(){
+  $('.collapsible').collapsible();
+});
