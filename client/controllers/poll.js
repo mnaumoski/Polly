@@ -1,9 +1,21 @@
 Template.poll.helpers({
   poll: function () {
     
-    var allPolls = Polls.findOne(Router.current().params._id);
-    console.log(allPolls);
-    return allPolls
+    var tempPollObject = Polls.findOne(Router.current().params._id);
+
+    var tempPollArray = [];
+    var userId = Meteor.user()._id;
+
+    for (var i=0; i<tempPollObject.usersVoted.length; i++) {
+
+      if (userId == tempPollObject.usersVoted[i]) {
+        tempPollObject.usersVoteStatus = true; 
+      }
+    }
+
+    tempPollArray.push(tempPollObject);
+    // console.log(tempPollArray);
+    return tempPollObject;
   }
 });
 
