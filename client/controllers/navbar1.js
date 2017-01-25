@@ -5,3 +5,6 @@ Template.navbar1.helpers({
   }
 });
 
+Template.navbar1.onRendered(function(){
+  $('.collapsible').collapsible();
+});
