@@ -9,25 +9,23 @@
                 <p class="pollCreated">Created by {{poll.user.email}} {{poll.createdAt}}</p>
             </div>
             <div class="row">
-             <ul class="col s12 l6 horizontal">
+             <ul class="col s12 l12 center-align horizontal">
                 {{#if currentUser}}
-                    <li style="display: inline;"><div class="btn horizontal like-poll" data-id="{{poll._id}}"><i class="material-icons">arrow_upward</i>({{poll.likes}})
+                    <li style="display: inline;"><div class="btn horizontal like-poll" data-id="{{poll._id}}"><i class="fa fa-thumbs-up" aria-hidden="true"></i>({{poll.likes}})
                     </div>
                     </li>
-                    <li style="display: inline;"><div class="btn horizontal dislike-poll" data-id="{{poll._id}}"><i class="material-icons">arrow_downward</i>({{poll.dislikes}})</div>
+                    <li style="display: inline;"><div class="btn horizontal dislike-poll" data-id="{{poll._id}}"><i class="fa fa-thumbs-down" aria-hidden="true"></i>({{poll.dislikes}})</div>
                     </li>
                     <li style="display: inline;"><div class="horizontal btn fav-poll" data-id="{{poll._id}}"><i class="material-icons">favorite </i>({{this.fav}})</div></li>
                 {{/if}}
+                <li style="display: inline;"><a class="btn" href="https://www.pinterest.com/pin/create/button/"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
+
+                <li style="display: inline;"><a class="btn"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+
+                <li style="display: inline;"><a class="twitter-share-button social-buttons btn" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll%20on%20PollyThinks: {{poll.question}}"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+
+                <li style="display: inline;"><a class="fb-xfbml-parse-ignore btn btn-success clearfix" target="_blank" data-id="{{poll._id}}" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpollythinks.herokuapp.com/poll/{{poll._id}}%2F&amp;src=sdkpreparse"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
               </ul>
-              <ul class="right-align col l6 s12 horizontal">
-                <li style="display: inline;"><a class="btn-floating horizontal red"><i class="material-icons">insert_chart</i></a></li>
-                <li style="display: inline;"><a class="btn-floating horizontal white" href="https://www.pinterest.com/pin/create/button/"><img class="socialMediaIcon" src="https://cdn0.iconfinder.com/data/icons/Pinterest/512/Pinterest_Favicon.png" /></a></li>
-                <li style="display: inline;"><a class="btn-floating yellow horizontal darken-1"><i class="material-icons">format_quote</i></a></li>
-                <li style="display: inline;"><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-                <li style="display: inline;"><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-                <li style="display: inline;"><a class="twitter-share-button social-buttons btn-floating" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll%20on%20PollyThinks: {{poll.question}}"><img class="socialMediaIcon" src="https://cdn1.iconfinder.com/data/icons/metro-ui-dock-icon-set--icons-by-dakirby/512/Twitter_alt.png" /></a></li>
-                <li style="display: inline;"><div class="fb-share-button" data-href="https://pollythinks.herokuapp.com/poll/{{poll._id}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore btn btn-success clearfix" target="_blank" data-id="{{poll._id}}" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpollythinks.herokuapp.com/poll/{{poll._id}}%2F&amp;src=sdkpreparse">Share</a></div></li>
-                </ul>
               </div>
             </div>
             </div>
@@ -39,7 +37,7 @@
         </div>
         <!-- End If user has voted -->
       {{else}}
-        <div class="col s4 pollClicked">
+        <div class="col s5 pollClicked">
           {{#each poll.choices}}
             <div class="choices col s12 l9">
                 <div id="{{ poll._id }}" class="voteButton btn"  choice-index="{{@index}}">{{text}}
@@ -51,7 +49,7 @@
       {{/if}}
     <!-- Comments Section -->
     <div class="col s12 l5">
-      <div class="comment-section">
+      <div class="comment-section center">
         {{#unless poll.comments}}
           <div class="chip orange">No Recent Comments</div>
         {{else}}
