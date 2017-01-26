@@ -1,3 +1,16 @@
+function protectLikes(callName, pollId){
+  var poll = Polls.findOne(pollId);
+  var usersLiked = poll.usersLiked;
+  var usersDisliked = poll.usersDisliked;
+  if(jQuery.inArray(Meteor.userId(), usersLiked) !== -1){
+    console.log("User has liked.")
+  } else if(jQuery.inArray(Meteor.userId(), usersDisliked) !== -1){
+    console.log("User has disliked.")
+  } else {
+    Meteor.call(callName, pollId);
+  }
+}
+
 Template.poll.helpers({
   poll: function () {
     
@@ -7,7 +20,6 @@ Template.poll.helpers({
     var userId = Meteor.user()._id;
 
     for (var i=0; i<tempPollObject.usersVoted.length; i++) {
-
       if (userId == tempPollObject.usersVoted[i]) {
         tempPollObject.usersVoteStatus = true; 
       }
@@ -26,20 +38,11 @@ Template.poll.events({
   },
   "click .like-poll": function () {
     var pollId = event.target.dataset.id
-    Meteor.call('likePoll', pollId);
-    // $('.like-poll').off().on('click', function(){
-    $('.like-poll').addClass('disabled');
-    $('.dislike-poll').addClass('disabled');
-    $( ".like-poll" ).prop( "disabled", true );
-    $( ".dislike-poll" ).prop( "disabled", true );
+    protectLikes('likePoll', pollId);
   },
   "click .dislike-poll": function () {
     var pollId = event.target.dataset.id
-    Meteor.call('dislikePoll', pollId);
-    $('.like-poll').addClass('disabled');
-    $('.dislike-poll').addClass('disabled');
-    $( ".like-poll" ).prop( "disabled", true );
-    $( ".dislike-poll" ).prop( "disabled", true );
+    protectLikes('dislikePoll', pollId);
   },
    "click .fav-poll": function () {
     var pollId = event.target.dataset.id;
