@@ -31,17 +31,17 @@
               </div>
             </div>
             </div>
-<div class="row>">
+<div class="row col s12">
       {{#if poll.usersVoteStatus}}
         <!-- Pie Chart is called here to render it on the browser -->
-        <div class="col s5">
+        <div class="col l5 s12">
                {{>pieChart id=poll._id }}
         </div>
         <!-- End If user has voted -->
       {{else}}
         <div class="col s4 pollClicked">
           {{#each poll.choices}}
-            <div class="choices col s9">
+            <div class="choices col s12 l9">
                 <div id="{{ poll._id }}" class="voteButton btn"  choice-index="{{@index}}">{{text}}
                 </div>
             </div>
@@ -50,7 +50,7 @@
       <!-- End If user has NOT voted -->
       {{/if}}
     <!-- Comments Section -->
-    <div class="col s5">
+    <div class="col s12 l5">
       <div class="comment-section">
         {{#unless poll.comments}}
           <div class="chip orange">No Recent Comments</div>
@@ -69,17 +69,18 @@
 
             <!-- add comments -->
 <div class='row'>
-  <div class="col s12 submitComment light-blue darken-4">
+  <div class="submitComment light-blue darken-4 col l12">
+    <br>
     <div class="row">
       <form class="comment-form" data-poll-id="{{poll._id}}">
-        <div class="commentInputSection col s9">
+        <div class="commentInputSection col s5 l8">
             <textarea id="comments" name="comment" placeholder="Write comments here..."></textarea>
         </div>
-        <div class="col s3 commentInputSection">
+        <div class="col s7 l4 commentInputSection">
           <button id="commentButton" class="btn waves-effect waves-light">Comment</button>
         </div>
       </form>
-    </div>
+      </div>
   </div>
 </div>
 </div>
