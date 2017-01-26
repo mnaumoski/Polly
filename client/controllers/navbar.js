@@ -20,7 +20,11 @@ Template.navbar.events({
     var newLabel = (sortOrderText + " " + btn);
     $('.sort-order-label').html(newLabel);
     Session.set('sortorder', sortOrder);    
-  }
+  },
+  "click #modalTrigger": function(event){
+    $('#modal1').openModal({
+    });
+  },
 });
 
 Template.navbar.onRendered(function(){

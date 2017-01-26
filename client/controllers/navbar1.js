@@ -8,3 +8,10 @@ Template.navbar1.helpers({
 Template.navbar1.onRendered(function(){
   $('.collapsible').collapsible();
 });
+
+Template.navbar1.events({
+  "click #modalTrigger": function(event){
+    $('#modal1').openModal({
+    });
+  },
+});

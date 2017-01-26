@@ -1,9 +1,6 @@
 Template.newPoll.events({
-  "click #modalTrigger": function(event){
-    $('#modal1').openModal({
-    });
-  },
   "click #preview": function(event){
+    console.log("working");
 
     //Pull preview data
     const questionTextValue = $('#questionText').val();
@@ -110,7 +107,8 @@ Template.newPoll.events({
 
     //call the newPoll helper
     //questionText is a string & choiceText is a string. These are passed in an array
+    // console.log(questionText);
+    // console.log(choicesToAdd);
     Meteor.call("addPoll", [questionText, choiceText]);
-    // alert("Congrats! You've added a new Poll!")
-  },
+  }
 });
