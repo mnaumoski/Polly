@@ -107,9 +107,8 @@ Template.newPoll.events({
 
     //call the newPoll helper
     //questionText is a string & choiceText is a string. These are passed in an array
-    console.log(questionText);
-    console.log(choiceText);
+    // console.log(questionText);
+    // console.log(choicesToAdd);
     Meteor.call("addPoll", [questionText, choiceText]);
-    // alert("Congrats! You've added a new Poll!")
   }
 });
