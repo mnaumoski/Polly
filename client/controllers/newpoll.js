@@ -1,8 +1,4 @@
 Template.newPoll.events({
-  "click #modalTrigger": function(event){
-    $('#modal1').openModal({
-    });
-  },
   "click #preview": function(event){
 
     //Pull preview data
