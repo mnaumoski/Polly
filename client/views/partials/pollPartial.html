@@ -13,18 +13,17 @@
                     </div>
                 </div>
                 {{#if usersVoteStatus}}
-                                <!-- Pie Chart is called here to render it on the browser -->
-                <div class="col s5">
-                 {{>pieChart id=this._id }}
-                </div>
-                <!-- End If user has voted -->
-
+                    <!-- Pie Chart is called here to render it on the browser -->
+                    <div class="col s5">
+                     {{>pieChart id=this._id }}
+                    </div>
+                    <!-- End If user has voted -->
                 {{else}}
                 <!-- If user has voted -->
                  <!-- If user has NOT voted, show the poll -->
                 <div class="col s4 pollClicked" data-id="{{this._id}}">
                     {{#each choices}}
-                    <div class="choices col s9">
+                    <div class="choices col s12">
                         <div id="{{ ../_id }}" class="voteButton btn"  choice-index="{{@index}}">{{text}}
                         </div>
                     </div>
