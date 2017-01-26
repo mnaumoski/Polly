@@ -2,6 +2,7 @@ function protectLikes(callName, pollId){
   var poll = Polls.findOne(pollId);
   var usersLiked = poll.usersLiked;
   var usersDisliked = poll.usersDisliked;
+  var usersFav = poll. usersFav;
   if(jQuery.inArray(Meteor.userId(), usersLiked) !== -1){
     console.log("User has liked.")
   } else if(jQuery.inArray(Meteor.userId(), usersDisliked) !== -1){
@@ -46,10 +47,7 @@ Template.poll.events({
   },
    "click .fav-poll": function () {
     var pollId = event.target.dataset.id;
-    // currentUserId = Meteor.userId();
-    Meteor.call('favPoll', pollId);
-     $('.fav-poll').addClass('disabled');
-     $( ".fav-poll" ).prop( "disabled", true ); 
+    protectFav('favPoll', pollId);
   },
   "click .voteButton": function () {
     console.log('votebutton triggered in poll.js')
