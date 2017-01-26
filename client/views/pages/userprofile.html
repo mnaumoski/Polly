@@ -16,7 +16,9 @@
                             <div class="col s10">
                                 <span class="black-text">
                                 <h4>Welcome!</h4>
-                                <p>Check out below to see how many polls you made so far this year!</p>
+                                <small>Check out below to see how many polls you made so far this year!</small>
+                                <br>
+                                <br>
                                 {{> s3_tester}}
                               </span>
                             </div>
@@ -28,8 +30,7 @@
             <!-- chart -->
             <div class="row">
                 <div class="col m10">
-                    <div class="card-panel white z-depth-1">
-                        <div class="ct-chart ct-perfect-fourth"></div>
+                    <div class="ct-chart ct-perfect-fourth"></div>
                         <div class="ct-chart"></div>
                         <div id="lowerTitle"><small>polls/monthly</small></div>
                         <script>
@@ -38,22 +39,20 @@
                             series: [
                                 [0, 0, 0, 0, 0, 0, 0, 4, 4, 2, 5, 2]
                             ]
-                        }, {
-                            width: 575,
-                            height: 400
                         });
                         </script>
-                    </div>
-                </div>
+                 </div>
             </div>
+            <br>
+            <br>
         </div>
     </div>
     <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>    
     </template>
 
                                 <template name="s3_tester">
-                                    <input type="file" class="file_bag">
                                     <button class="upload">Upload</button>
+                                    <input type="file" class="file_bag">
                                     {{#each files}}
                                     <p>{{percent_uploaded}}</p>
                                     {{/each}}

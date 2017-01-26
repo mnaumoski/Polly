@@ -11,6 +11,7 @@ Template.s3_tester.events({
         Meteor.users.update(id, {$set: {"profile.image": r.url}});
         console.log(Meteor.user().profile.image);
     });
+    $("p").remove();
   }
 })
 
@@ -19,3 +20,9 @@ Template.s3_tester.helpers({
     return S3.collection.find();
   }
 })
+
+// Template.s3_tester.events({
+//   "click button.upload":function(){
+//     $(".input.file_bag").remove("p");
+//   }
+// })
