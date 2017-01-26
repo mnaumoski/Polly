@@ -1,7 +1,4 @@
 <template name="newPoll">
-        {{#animate type="jello" delay="200"}}
-            <button data-target="modal1" class="waves-effect waves-light btn blue darken-2" id="modalTrigger">Create Poll</button>
-        {{/animate}}
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
         <div class="modal-footer">
@@ -13,15 +10,14 @@
                 <div class="row loseNavInheritance">
                     <div class="col s6">
                         <form name="submitForm">
-
                             <div class="input-field">
-                                <div class="questionMessage"></div>
-                                <input placeholder="Question Text" class="validate" type="text" id="questionText" style="width:300px;" required>
+                                <div class="createLabels">Question Text:</div>
+                                <input class="validate" type="text" id="questionText" style="width:300px;" required>
                                 <label for="questionText"></label>
                             </div>
                             <div class="input-field">
-                                <div class="choiceMessage"></div>
-                                <textarea placeholder="Choice Text - seperate choices with line breaks" class="materialize-textarea" id="choiceInput" name="choiceText" rows=10 style="width:300px;" required></textarea>
+                                <div class="createLabels">Choices (seperate with a line break)</div>
+                                <textarea class="materialize-textarea" id="choiceInput" name="choiceText" rows=10 style="width:300px;" required></textarea>
                                 <label for="choiceInput"></label>
                             </div>
 

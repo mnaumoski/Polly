@@ -23,7 +23,11 @@
         <li><a class="dropdown-button sort-order-label" href="#!" data-activates="sort-order">Sort Order<i class="material-icons right">arrow_drop_down</i></a></li>
         <li><a href="/pollList">All Polls</a></li>
         <li><a href="/userprofile">User Dashboard</a></li>
-        <li>{{> newPoll}}</li>
+        <li>
+          {{#animate type="jello" delay="200"}}
+            <button data-target="modal1" class="waves-effect waves-light btn blue darken-2" id="modalTrigger">Create Poll</button>
+          {{/animate}}
+        </li>
         {{#if isAdminUser}}
         <li><a href="/usermgmt">User Management</a></li>
         {{/if}} 
@@ -58,7 +62,11 @@
             </li>
         <li class="bold"><a href="/pollList" class="waves-effect waves-teal">All Polls</a></li>
         <li class="bold"><a href="#" class="waves-effect waves-teal">User Dashboard</a></li>
-        <li>{{> newPoll}}</li>
+        <li>
+          {{#animate type="jello" delay="200"}}
+            <button data-target="modal1" class="waves-effect waves-light btn blue darken-2" id="modalTrigger">Create Poll</button>
+          {{/animate}}
+        </li>
         {{#if isAdminUser}}
         <li class="bold"><a href="/usermgmt" class="waves-effect waves-teal">User Management</a></li>
         {{/if}} {{#if currentUser}}
@@ -72,4 +80,5 @@
     </div>
   </nav>
 </div>
+{{> newPoll}}
 </template>
