@@ -6,8 +6,10 @@ Meteor.methods({
     //Trying to create and array to pass to Mongo
     var choicesToAdd = [];
     for (i=0; i<choiceArray.length; i++) {
-      var tempObject = {text: choiceArray[i], votes: 0};
-      choicesToAdd.push(tempObject);
+      if (choiceArray[i] !== "") {
+        var tempObject = {text: choiceArray[i], votes: 0};
+        choicesToAdd.push(tempObject);
+      }
     }
     var expirationDate =new Date();
 
