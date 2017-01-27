@@ -12,11 +12,11 @@
 
 <img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"> **Social Media** Each of the poll can be shared on Facebook and Twitted, and saved as a pin on Pintrest.
 
-<img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"><img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"> **All data persists.** <img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"><img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico">
+<img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"> **All data persists.** <img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico">
 
 ---
 
-<img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"> ###Technologies and Resources
+### <img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"> Technologies and Resources
 
 - HTML, CSS, JavaScript, Jquery
 - MongoDB + Robomongo
@@ -31,7 +31,7 @@
 
 ---
 
-<img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"> #### *Meteor packages* 
+### <img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"> *Meteor packages* 
 - maazalik:highcharts used to get the pie chart
 - webtempest:animate used to install the animation component app
 
