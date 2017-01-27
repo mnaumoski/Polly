@@ -1,5 +1,5 @@
 # Project3
-
+## <img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"> See it live: https://pollythinks.herokuapp.com/
 ## <img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"><img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"><img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"><img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"> Polly - Fast and Fun Polling App <img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"><img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"><img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico">
 
 <img src="https://github.com/mnaumoski/Project3/blob/master/public/polly.png">
