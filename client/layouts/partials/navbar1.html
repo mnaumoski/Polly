@@ -10,7 +10,9 @@
                <!--dropdown button-->
        
        <li><a href="/pollList">All Polls</a></li>
+       {{#if currentUser}}
        <li><a href="/userprofile">User Dashboard</a></li>
+       {{/if}}
        <li>
         {{#animate type="jello" delay="200"}}
           <button data-target="modal1" class="waves-effect waves-light btn blue darken-2" id="modalTrigger">Create Poll</button>
@@ -32,7 +34,9 @@
        <li class="no-padding">
          <ul class="collapsible collapsible-accordion">
              <li class="bold"><a href="/pollList" class="waves-effect waves-teal">All Polls</a></li>
+             {{#if currentUser}}
              <li class="bold"><a href="#" class="waves-effect waves-teal">User Dashboard</a></li>
+             {{/if}}
              <li>
               {{#animate type="jello" delay="200"}}
                 <button data-target="modal1" class="waves-effect waves-light btn blue darken-2" id="modalTrigger">Create Poll</button>
@@ -40,7 +44,8 @@
              </li>
              {{#if isAdminUser}}
              <li class="bold"><a href="/usermgmt" class="waves-effect waves-teal">User Management</a></li>
-             {{/if}} {{#if currentUser}}
+             {{/if}} 
+             {{#if currentUser}}
              <li class="bold"><a href="/sign-out" class="waves-effect waves-teal">Sign Out</a></li>
              {{else}}
              <li class="bold"><a href="/sign-in" class="waves-effect waves-teal">Sign In</a></li>
@@ -51,5 +56,6 @@
    </div>
  </nav>
 </div>
+
 {{> newPoll}}
 </template>

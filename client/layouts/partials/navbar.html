@@ -21,12 +21,16 @@
         <li><a class="dropdown-button sort-collection-label" href="#!" data-activates="sort-collection">Sort Polls<i class="material-icons right">arrow_drop_down</i></a></li>
         <li><a class="dropdown-button sort-order-label" href="#!" data-activates="sort-order">Sort Order<i class="material-icons right">arrow_drop_down</i></a></li>
         <li><a href="/pollList">All Polls</a></li>
+        {{#if currentUser}}
         <li><a href="/userprofile">User Dashboard</a></li>
+        {{/if}}
         <li>
+
           {{#animate type="jello" delay="200"}}
             <button data-target="modal1" class="waves-effect waves-light btn blue darken-2" id="modalTrigger">Create Poll</button>
           {{/animate}}
         </li>
+        
         {{#if isAdminUser}}
         <li><a href="/usermgmt">User Management</a></li>
         {{/if}} 
@@ -59,8 +63,11 @@
                 </ul>
               </div>
             </li>
+
         <li class="bold"><a href="/pollList" class="waves-effect waves-teal">All Polls</a></li>
+{{#if currentUser}}
         <li class="bold"><a href="#" class="waves-effect waves-teal">User Dashboard</a></li>
+        {{/if}}
         <li>
           {{#animate type="jello" delay="200"}}
             <button data-target="modal1" class="waves-effect waves-light btn blue darken-2" id="modalTrigger">Create Poll</button>
@@ -68,7 +75,8 @@
         </li>
         {{#if isAdminUser}}
         <li class="bold"><a href="/usermgmt" class="waves-effect waves-teal">User Management</a></li>
-        {{/if}} {{#if currentUser}}
+        {{/if}} 
+        {{#if currentUser}}
         <li class="bold"><a href="/sign-out" class="waves-effect waves-teal">Sign Out</a></li>
         {{else}}
         <li class="bold"><a href="/sign-in" class="waves-effect waves-teal">Sign In</a></li>
@@ -79,5 +87,6 @@
     </div>
   </nav>
 </div>
+
 {{> newPoll}}
 </template>
