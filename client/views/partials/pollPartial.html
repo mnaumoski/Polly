@@ -1,4 +1,112 @@
 <template name="pollPartial">
+<div class="row pollCard">
+  <div class="col s12">
+    <div class="row">
+     <div class="card light-blue darken-4 col s12">
+        <div class="card-content white-text"><span class="card-title">{{this.question}}</span>
+            <p class="pollCreated">Created by {{user.email}} {{this.createdAt}}
+            </p>
+            <a href='{{urlFor route="poll"}}'>Link to the Poll Here</a>
+        </div>
+
+     <div class="row">
+      <ul class="col s12 l12 center-align horizontal">
+        {{#if currentUser}}
+            {{#if usersLikeStatus}}
+                <li style="display: inline;"><div class="btn horizontal" data-id="{{this._id}}"><i class="fa fa-thumbs-up" aria-hidden="true"></i>({{this.likes}})</div>
+                </li>
+                <li style="display: inline;"><div class="btn horizontal" data-id="{{this._id}}"><i class="fa fa-thumbs-down" aria-hidden="true"></i>({{this.dislikes}})</div>
+                </li>
+            {{ else }}
+                <li style="display: inline;"><div class="btn horizontal like-poll" data-id="{{this._id}}"><i class="fa fa-thumbs-up" aria-hidden="true"></i>({{this.likes}})</div>
+                </li>
+                <li style="display: inline;"><div class="btn horizontal dislike-poll" data-id="{{this._id}}"><i class="fa fa-thumbs-down" aria-hidden="true"></i>({{this.dislikes}})</div>
+                </li>
+            {{/if}}
+            {{#if usersFavStatus}}
+                <li style="display: inline;"><div class="horizontal btn" data-id="{{this._id}}"><i class="material-icons">favorite </i>({{this.fav}})</div>
+                </li>
+            {{else}}
+                <li style="display: inline;"><div class="horizontal btn fav-poll" data-id="{{this._id}}"><i class="material-icons">favorite </i>({{this.fav}})</div>
+                </li>
+            {{/if}}
+        {{/if}}
+                <li style="display: inline;"><a class="btn" href="https://www.pinterest.com/pin/create/button/"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
+
+                <li style="display: inline;"><a class="btn"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+
+                <li style="display: inline;"><a class="twitter-share-button social-buttons btn" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20poll%20on%20PollyThinks: {{this.question}}"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+
+                <li style="display: inline;"><a class="fb-xfbml-parse-ignore btn btn-success clearfix" target="_blank" data-id="{{this._id}}" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpollythinks.herokuapp.com/poll/{{this._id}}%2F&amp;src=sdkpreparse"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                <!-- {{#if isAdminOrCreator this}}
+                <li><div class="col s2 btn red delete-poll" data-id="{{this._id}}"><i class="material-icons">delete</i></div>
+                </li> -->
+                <!-- {{/if}} -->
+        </ul>
+   </div>
+   <!-- social media menu ends -->
+</div> 
+<!-- close the dark column -->
+</div>
+<div class="row col s12">
+    {{#if usersVoteStatus}}
+<!-- Pie Chart is called here to render it on the browser -->
+    <div class="col l5 s12">
+        {{>pieChart id=this._id }}
+    </div>
+<!-- End If user has voted -->
+   {{else}}
+<!-- If user has voted -->
+<!-- If user has NOT voted, show the poll -->
+<div class="col s5 pollClicked" data-id="{{this._id}}">
+{{#each choices}}
+    <div class="choices col s12 l9">
+     <div id="{{ ../_id }}" class="voteButton btn"  choice-index="{{@index}}">{{text}}
+     </div>
+    </div>
+{{/each}}
+</div>
+<!-- End If user has NOT voted -->
+{{/if}}
+<!-- Comments Section -->
+<div class="col s12 l5">
+    <div class="comment-section">
+     {{#unless comments}}
+        <div class="chip orange">No Recent Comments</div>
+    {{else}}
+    <div class="chip orange">Recent Comments</div>
+     {{#each comments}}
+     <!-- <span class="commentName">{{userId}}</span> -->
+     <p class="comment">{{comment}}</p>
+     {{/each}}
+    {{/unless}}
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class="submitComment light-blue darken-4 col l12">
+    <br>
+    <div class="row">
+      <form class="comment-form" data-poll-id="{{this._id}}">
+        <div class="commentInputSection col s5 l8">
+            <textarea id="comments" name="comment" placeholder="Write comments here..."></textarea>
+        </div>
+        <div class="col s7 l4 commentInputSection">
+          <button id="commentButton" class="btn waves-effect waves-light">Comment</button>
+        </div>
+      </form>
+      </div>
+  </div>
+</div>
+
+</div>
+ </div>
+
+</template>
+
+
+
+<!-- <template name="pollPartial">
     <div class="row pollCard">
         <div class="col s12">
             <div class="row">
@@ -8,104 +116,71 @@
                         <p class="pollCreated">
                             Created by {{user.email}} {{this.createdAt}}
                         </p>
-                        <a href="{{urlFor route="poll"}}">Link to the Poll Here</a>
+                        <a href="{{urlFor route="poll"}}">Link to the Poll Here</a> -->
 
-                    </div>
-                </div>
-                {{#if usersVoteStatus}}
-                    <!-- Pie Chart is called here to render it on the browser -->
-                    <div class="col s5">
-                     {{>pieChart id=this._id }}
-                    </div>
-                    <!-- End If user has voted -->
-                {{else}}
+
+
+                <!-- {{#if usersVoteStatus}} -->
+<!-- Pie Chart is called here to render it on the browser -->
+                <!-- <div class="col s5">
+                 {{>pieChart id=this._id }}
+                </div> -->
+                <!-- End If user has voted -->
+
+                <!-- {{else}} -->
                 <!-- If user has voted -->
                  <!-- If user has NOT voted, show the poll -->
-                <div class="col s4 pollClicked" data-id="{{this._id}}">
+               <!--  <div class="col s4 pollClicked" data-id="{{this._id}}">
                     {{#each choices}}
                     <div class="choices col s12">
                         <div id="{{ ../_id }}" class="voteButton btn"  choice-index="{{@index}}">{{text}}
                         </div>
                     </div>
                     {{/each}}
-                </div>
+                </div> -->
                 <!-- End If user has NOT voted -->
-                {{/if}}
+                <!-- {{/if}} -->
 
                 <!-- Comments Section -->
-                <div class="col s5">
+                <!-- div class="col s5">
                     <div class="comment-section">
                     {{#unless comments}}
                       <div class="chip orange">No Recent Comments</div>
                       {{else}}
                       <div class="chip orange">Recent Comments</div>
-                      {{#each comments}}
+                      {{#each comments}} -->
                         <!-- <span class="commentName">{{userId}}</span> -->
-                        <p class="comment">{{comment}}</p>
+                        <!-- <p class="comment">{{comment}}</p>
                       {{/each}}
-                      {{/unless}}
-                    </div>
+                      {{/unless}} -->
+                    <!-- </div>
                 </div>
-            </div>
+            </div> -->
 
 
-            <div class="row">
-            <!-- Ranking Icons & Social Media -->
-                <!-- <div class="card-action col s12"> -->
-                <div class="card light-blue darken-4 col s12">
-                    <div class="row">
-                        <div class="col s6 card-content white-text">
-                            <div class="row">
-                                <div class="col s2 btn">
-                                    <a href="https://www.pinterest.com/pin/create/button/">
-                                        <img class="socialMediaIcon" src="https://cdn0.iconfinder.com/data/icons/Pinterest/512/Pinterest_Favicon.png" />
-                                    </a>
-                                </div>
-                                <div class="col s2 btn">
-                                    <a class="twitter-share-button social-buttons" href="https://twitter.com/intent/tweet?text=https://pollythinks.herokuapp.com/poll/{{this._id}}">
-                                        <img class="socialMediaIcon" src="https://cdn1.iconfinder.com/data/icons/metro-ui-dock-icon-set--icons-by-dakirby/512/Twitter_alt.png" />
-                                    </a>
-                                </div>
-                                <div class="col s2 btn">
-                                   <!-- Load Facebook SDK for JavaScript -->
-                                <div id="fb-root" class="valign"></div>
-                                <script>(function(d, s, id) {
-                                  var js, fjs = d.getElementsByTagName(s)[0];
-                                  if (d.getElementById(id)) return;
-                                  js = d.createElement(s); js.id = id;
-                                  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
-                                  fjs.parentNode.insertBefore(js, fjs);
-                                }(document, 'script', 'facebook-jssdk'));</script>
-                                <!-- Your share button code -->
-                                <div class="fb-share-button valign"
-                                    data-href="/polls/{{this._id}}"
-                                    data-layout="button_count">
-                                </div>
-                                </div>
 
-                                <!-- If current user is logged in, show like icons -->
-                                {{#if currentUser}}
+                                <!-- {{#if currentUser}}
                                     {{#if usersLikeStatus}}
                                         <div class="col s2 btn" data-id="{{this._id}}">
                                           <i class="material-icons">arrow_upward </i>({{this.likes}})
                                         </div>
                                         <div class="col s2 btn" data-id="{{this._id}}">
                                             <i class="material-icons">arrow_downward</i>({{this.dislikes}})
-                                        </div>
+                                        </div> -->
                                          <!-- <div class="col s2 btn" data-id="{{this._id}}">
                                             <i class="material-icons">favorite </i>({{this.fav}})
                                         </div> -->
-                                    {{ else }}
+                                    <!-- {{ else }}
                                        <div class="col s2 btn like-poll" data-id="{{this._id}}">
                                           <i class="material-icons">arrow_upward </i>({{this.likes}})
                                         </div>
                                         <div class="col s2 btn dislike-poll" data-id="{{this._id}}">
                                             <i class="material-icons">arrow_downward</i>({{this.dislikes}})
-                                        </div>
+                                        </div> -->
                                         <!-- <div class="col s2 btn fav-poll" data-id="{{this._id}}">
                                             <i class="material-icons">favorite </i>({{this.fav}})
                                         </div> -->
-                                    {{/if}}
+                                    <!-- {{/if}}
                                     {{#if usersFavStatus}}
                                         <div class="col s2 btn" data-id="{{this._id}}">
                                             <i class="material-icons">favorite </i>({{this.fav}})
@@ -115,14 +190,9 @@
                                             <i class="material-icons">favorite </i>({{this.fav}})
                                         </div>
                                     {{/if}}
-                                {{/if}}
+                                {{/if}} -->
                                 <!-- Show delete button if current user is the creator or Admin-->
-                                {{#if isAdminOrCreator this}}
-                                    <div class="col s2 btn red delete-poll" data-id="{{this._id}}">
-                                      <i class="material-icons">delete</i>
-                                    </div>
-                                {{/if}}
-                            </div>
+                           <!--  </div>
                         </div>
                         <div class="col s6 submitComment">
                             <div class="row">
@@ -139,7 +209,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> -->
+   <!--  </div>
     <br>
 </template>
+ -->

@@ -11,8 +11,7 @@
             <div class="row">
              <ul class="col s12 l12 center-align horizontal">
                 {{#if currentUser}}
-                    <li style="display: inline;"><div class="btn horizontal like-poll" data-id="{{poll._id}}"><i class="fa fa-thumbs-up" aria-hidden="true"></i>({{poll.likes}})
-                    </div>
+                    <li style="display: inline;"><div class="btn horizontal like-poll" data-id="{{poll._id}}"><i class="fa fa-thumbs-up" aria-hidden="true"></i>({{poll.likes}})</div>
                     </li>
                     <li style="display: inline;"><div class="btn horizontal dislike-poll" data-id="{{poll._id}}"><i class="fa fa-thumbs-down" aria-hidden="true"></i>({{poll.dislikes}})</div>
                     </li>
@@ -49,7 +48,7 @@
       {{/if}}
     <!-- Comments Section -->
     <div class="col s12 l5">
-      <div class="comment-section center">
+      <div class="comment-section">
         {{#unless poll.comments}}
           <div class="chip orange">No Recent Comments</div>
         {{else}}
