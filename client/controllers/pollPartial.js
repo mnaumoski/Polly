@@ -25,10 +25,12 @@ Template.pollPartial.events({
     Meteor.call('addVote', pollId, indexId, currentUserId);
   },
   "submit .comment-form": function(event){
+
     event.preventDefault();
     var pollId = $(event.target).data('poll-id'),
     comment = $(event.target).find('textarea').val();    
     Meteor.call('addComment', pollId, comment);
+    $(event.target).find( "textarea" ).val('');
   }
 });
   Template.registerHelper('formatDate', function(date) {
