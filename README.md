@@ -1,6 +1,6 @@
 # Project3
 
-##Polly - Fast and Fun Polling App
+## <img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico">Polly - Fast and Fun Polling App
 
 <img src="https://github.com/mnaumoski/Project3/blob/master/public/polly.png">
 
