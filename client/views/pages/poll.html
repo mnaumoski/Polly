@@ -11,12 +11,11 @@
             <div class="row">
              <ul class="col s12 l12 center-align horizontal">
                 {{#if currentUser}}
-                    <li style="display: inline;"><div class="btn horizontal like-poll" data-id="{{poll._id}}"><i class="fa fa-thumbs-up" aria-hidden="true"></i>({{poll.likes}})
-                    </div>
+                    <li style="display: inline;"><div class="btn horizontal like-poll" data-id="{{poll._id}}"><i class="fa fa-thumbs-up" aria-hidden="true"></i>({{poll.likes}})</div>
                     </li>
                     <li style="display: inline;"><div class="btn horizontal dislike-poll" data-id="{{poll._id}}"><i class="fa fa-thumbs-down" aria-hidden="true"></i>({{poll.dislikes}})</div>
                     </li>
-                    <li style="display: inline;"><div class="horizontal btn fav-poll" data-id="{{poll._id}}"><i class="material-icons">favorite </i>({{this.fav}})</div></li>
+                    <li style="display: inline;"><div class="horizontal btn fav-poll" data-id="{{poll._id}}"><i class="material-icons">favorite </i>({{poll.fav}})</div></li>
                 {{/if}}
                 <li style="display: inline;"><a class="btn" href="https://www.pinterest.com/pin/create/button/"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
 
@@ -49,7 +48,7 @@
       {{/if}}
     <!-- Comments Section -->
     <div class="col s12 l5">
-      <div class="comment-section center">
+      <div class="comment-section">
         {{#unless poll.comments}}
           <div class="chip orange">No Recent Comments</div>
         {{else}}
