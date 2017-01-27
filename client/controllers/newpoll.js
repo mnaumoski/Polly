@@ -68,14 +68,11 @@ Template.newPoll.events({
     //Create buttons per choice
     for (i=0; i <choicesToAdd.length; i++) {
       //Create div to contain the choices
-      
-      var singleChoiceDiv = $('<div>', {class: 'choices col s9'});
+      var singleChoiceDiv = $('<div>', {class: 'choices col s12'});
 
       var InputTypeDiv = $('<div>', {class: 'voteButton btn'});
-
-
+      InputTypeDiv.append(choicesToAdd[i]);
       singleChoiceDiv.append(InputTypeDiv);
-      singleChoiceDiv.append(choicesToAdd[i]);
       allChoicesDiv.append(singleChoiceDiv);
       
     }
