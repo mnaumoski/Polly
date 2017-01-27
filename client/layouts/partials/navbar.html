@@ -20,7 +20,7 @@
                 <!--dropdown button-->
         <li><a class="dropdown-button sort-collection-label" href="#!" data-activates="sort-collection">Sort Polls<i class="material-icons right">arrow_drop_down</i></a></li>
         <li><a class="dropdown-button sort-order-label" href="#!" data-activates="sort-order">Sort Order<i class="material-icons right">arrow_drop_down</i></a></li>
-        <li><a href="/pollList">All Polls</a></li>
+        <li><a href="pollList">All Polls</a></li>
         {{#if currentUser}}
         <li><a href="/userprofile">User Dashboard</a></li>
         {{/if}}
@@ -64,7 +64,7 @@
               </div>
             </li>
 
-        <li class="bold"><a href="/pollList" class="waves-effect waves-teal">All Polls</a></li>
+        <li class="bold"><a href="pollList" class="waves-effect waves-teal">All Polls</a></li>
 {{#if currentUser}}
         <li class="bold"><a href="#" class="waves-effect waves-teal">User Dashboard</a></li>
         {{/if}}
@@ -87,6 +87,5 @@
     </div>
   </nav>
 </div>
-
 {{> newPoll}}
 </template>
