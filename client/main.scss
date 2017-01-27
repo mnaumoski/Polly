@@ -66,6 +66,7 @@ $primary-color: color("light-blue", "darken-4");
   width: 100%;
   height: 40px;
   margin-left: 50px;
+  background-color: #b2f2c3;
 }
 .submitComment {
   text-align: right;
@@ -97,14 +98,11 @@ $primary-color: color("light-blue", "darken-4");
   display: visible;
 }
 html {
-font-family: 'Passion One', cursive;
-    
+    font-family: 'Passion One', cursive;
     font-family: 'Indie Flower', cursive;
     font-family: 'Shrikhand', cursive;
     font-family: 'Chewy', cursive;
     font-family: GillSans, Calibri, Trebuchet, sans-serif;
-    
-    
   }
 
 .loseNavInheritance {
