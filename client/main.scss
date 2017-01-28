@@ -75,6 +75,7 @@ $primary-color: color("light-blue", "darken-4");
 }
 .comment {
   background-color:#b2f2c3;
+  font-size: 20px;
 }
 .comment:nth-child(odd) {
   color: blue;
@@ -89,6 +90,8 @@ $primary-color: color("light-blue", "darken-4");
 }
 .commentInputSection   {
   padding: 0;
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px;
 
 }
 #modal1 {
