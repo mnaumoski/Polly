@@ -71,7 +71,9 @@ Template.newPoll.events({
       var singleChoiceDiv = $('<div>', {class: 'choices col s12'});
 
       var InputTypeDiv = $('<div>', {class: 'voteButton btn'});
-      InputTypeDiv.append(choicesToAdd[i]);
+      var choiceSpan = $('<span>', {class: 'dChoiceText'});
+      choiceSpan.append(choicesToAdd[i]);
+      InputTypeDiv.append(choiceSpan);
       singleChoiceDiv.append(InputTypeDiv);
       allChoicesDiv.append(singleChoiceDiv);
       

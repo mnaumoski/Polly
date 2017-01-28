@@ -1,5 +1,4 @@
 Template.pollList.helpers({
-  // check if user is an admin
   'poll': function() {
     var filter = {sort: {}};
     var sortBy = Session.get('sortby');
@@ -18,44 +17,52 @@ Template.pollList.helpers({
       // console.log("in array"); 
       // return Polls.find({}, filter); //Straight up filter return
 
+      //Do this is user is not logged in
+      if (Meteor.user() == null) {
+          // console.log("Not logged in");
+          var tempPollObject = Polls.find({}, {sort: {createdAt: 1} });
+          return tempPollObject;
+        }
+
       var tempPollArray = [];
 
       //iterate through each poll's object individually to check usersVoted 
       var tempPollObject = Polls.find({}, filter).forEach(function(data) {
-        // console.log(data);
 
          var userId = Meteor.user()._id;
+         // var userId = "testing";
 
-         for (var i=0; i<data.usersVoted.length; i++) {
+         if (userId != "null") {
 
-           if (userId == data.usersVoted[i]) {
-             data.usersVoteStatus = true; 
+           for (var i=0; i<data.usersVoted.length; i++) {
+
+             if (userId == data.usersVoted[i]) {
+               data.usersVoteStatus = true; 
+             }
            }
-         }
 
-        for (var i=0; i<data.usersLiked.length; i++) {
-          if (userId == data.usersLiked[i]) {
-             data.usersLikeStatus = true; 
-           }
+          for (var i=0; i<data.usersLiked.length; i++) {
+            if (userId == data.usersLiked[i]) {
+               data.usersLikeStatus = true; 
+             }
+          }
+
+          for (var i=0; i<data.usersDisliked.length; i++) {
+            if (userId == data.usersDisliked[i]) {
+               data.usersLikeStatus = true; 
+             }
+          }
+
+          for (var i=0; i<data.usersFav.length; i++) {
+            if (userId == data.usersFav[i]) {
+               data.usersFavStatus = true; 
+             }
+          }
+          tempPollArray.push(data);
         }
-
-        for (var i=0; i<data.usersDisliked.length; i++) {
-          if (userId == data.usersDisliked[i]) {
-             data.usersLikeStatus = true; 
-           }
-        }
-
-
-        for (var i=0; i<data.usersFav.length; i++) {
-          if (userId == data.usersFav[i]) {
-             data.usersFavStatus = true; 
-           }
-        }
-
-         tempPollArray.push(data);
+        
       });
 
-      console.log(tempPollArray);
       return tempPollArray;
   },
 
