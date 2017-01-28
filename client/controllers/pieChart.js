@@ -24,7 +24,7 @@
                 plotBorderWidth: null,
                 plotShadow: false,
                 height:300,
-                width:565
+                width:530
             },
 
             title: {
