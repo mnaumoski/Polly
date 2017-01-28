@@ -22,7 +22,9 @@
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
-                plotShadow: false
+                plotShadow: false,
+                height:300,
+                width:500
             },
 
             title: {
@@ -32,6 +34,8 @@
             credits: {
                 enabled: false
             },
+
+              
 
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
