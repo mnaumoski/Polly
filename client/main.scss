@@ -76,12 +76,15 @@ $primary-color: color("light-blue", "darken-4");
 .comment {
   padding: 0;
   margin: 0;
+  background-color:#b2f2c3;
 }
 .comment:nth-child(odd) {
-  color: red;
+  color: blue;
+  font-family: 'Indie Flower', cursive;
 }
 .comment:nth-child(even) {
   color: blue;
+  font-family: 'Indie Flower', cursive;
 }
 .socialMediaIcon {
   height: 36px;
