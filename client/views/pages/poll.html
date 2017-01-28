@@ -3,13 +3,13 @@
 <div class="row pollCard">
   <div class="col s12">
     <div class="row">
-      <div class="card light-blue darken-4 col s12">
+      <div class="card light-blue darken-4 col s12 ">
             <div class="card-content white-text">
               <span class="card-title">{{poll.question}}</span>
                 <p class="pollCreated">Created by {{poll.user.email}} {{poll.createdAt}}</p>
             </div>
             <div class="row">
-             <ul class="col s12 l12 center-align horizontal">
+             <ul class="col s12 m12 l12 center-align horizontal">
                 {{#if currentUser}}
                     <li style="display: inline;"><div class="btn horizontal like-poll" data-id="{{poll._id}}"><i class="fa fa-thumbs-up" aria-hidden="true"></i>({{poll.likes}})</div>
                     </li>
@@ -29,10 +29,10 @@
               </div>
             </div>
             </div>
-<div class="row col s12">
+<div class="row col s12 m12">
       {{#if poll.usersVoteStatus}}
         <!-- Pie Chart is called here to render it on the browser -->
-        <div class="col l5 s12">
+        <div class="col l5 m5 s12">
                {{>pieChart id=poll._id }}
         </div>
         <!-- End If user has voted -->
@@ -48,7 +48,7 @@
       <!-- End If user has NOT voted -->
       {{/if}}
     <!-- Comments Section -->
-    <div class="col s12 l5">
+    <div class="col s12 l5 m12">
       <div class="comment-section">
         {{#unless poll.comments}}
           <div class="chip orange">No Recent Comments</div>
@@ -67,7 +67,7 @@
 
             <!-- add comments -->
 <div class='row'>
-  <div class="submitComment light-blue darken-4 col l12">
+  <div class="submitComment light-blue darken-4 col l12 s12">
     <br>
     <div class="row">
       <form class="comment-form" data-poll-id="{{poll._id}}">
