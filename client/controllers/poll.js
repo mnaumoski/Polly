@@ -3,6 +3,8 @@ function protectLikes(callName, pollId){
   var usersLiked = poll.usersLiked;
   var usersDisliked = poll.usersDisliked;
   var usersFav = poll. usersFav;
+
+
   if(jQuery.inArray(Meteor.userId(), usersLiked) !== -1){
     console.log("User has liked.")
   } else if(jQuery.inArray(Meteor.userId(), usersDisliked) !== -1){
@@ -16,6 +18,14 @@ Template.poll.helpers({
   poll: function () {
     
     var tempPollObject = Polls.findOne(Router.current().params._id);
+
+
+    if (Meteor.user() == null) {
+        // console.log("Not logged in");
+        // var tempPollObject = Polls.find({}, {sort: {createdAt: 1} });
+        return tempPollObject;
+    }
+
 
     var tempPollArray = [];
     var userId = Meteor.user()._id;
