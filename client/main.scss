@@ -31,6 +31,8 @@ $primary-color: color("light-blue", "darken-4");
   border-radius:10px;
   color: black;
   width: 100%;
+  line-height: normal;
+  display: inline-table;
 }
 .lean-overlay {
   z-index: 0 !important;
@@ -154,5 +156,8 @@ input#questionText {
 .modal .modal-footer {
   height: 10px;
 }
-
+dChoiceText {
+  display: table-cell;
+  vertical-align: middle;
+}
 
