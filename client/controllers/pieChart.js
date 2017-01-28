@@ -23,8 +23,8 @@
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
                 plotShadow: false,
-                height:300,
-                width:530
+                height:200,
+                width:500
             },
 
             title: {
