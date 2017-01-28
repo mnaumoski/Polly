@@ -104,10 +104,12 @@ Template.newPoll.events({
       console.log("Alert");
     }
 
-    //call the newPoll helper
-    //questionText is a string & choiceText is a string. These are passed in an array
-    // console.log(questionText);
-    // console.log(choicesToAdd);
+    //Hide the preview elements
+    $('#publish').addClass('hide');
+    $('#previewPoll').addClass('hide');
+    $('#questionText').val('');
+    $('textarea#choiceInput').val('');
+
     Meteor.call("addPoll", [questionText, choiceText]);
   }
 });
