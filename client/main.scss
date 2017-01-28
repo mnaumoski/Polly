@@ -74,8 +74,6 @@ $primary-color: color("light-blue", "darken-4");
   text-align: right;
 }
 .comment {
-  padding: 0;
-  margin: 0;
   background-color:#b2f2c3;
 }
 .comment:nth-child(odd) {
@@ -91,6 +89,7 @@ $primary-color: color("light-blue", "darken-4");
 }
 .commentInputSection   {
   padding: 0;
+
 }
 #modal1 {
   width: 95%;
