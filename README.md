@@ -23,11 +23,11 @@
 <img src="https://github.com/mnaumoski/Project3/blob/master/public/preview.png">
 
 ---
-###<img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"> Choices are reposented with convenient clickable buttons.
+###<img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"> Choices are represented with convenient clickable buttons.
 <img src="https://github.com/mnaumoski/Project3/blob/master/public/choices.png">
 
 ---
-###<img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"> Users can even obseve their own polling activity in _the user dashboard_.
+###<img src="https://github.com/mnaumoski/Project3/blob/master/public/favicon.ico"> Users can even observe their own polling activity in _the user dashboard_.
 <img src="https://github.com/mnaumoski/Project3/blob/master/public/dasboard.png">
 
 ---
